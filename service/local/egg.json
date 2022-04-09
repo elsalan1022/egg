@@ -1,0 +1,1269 @@
+{
+  "version": "0.0.1",
+  "units": {
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0": {
+      "cls": "chick",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+      "properties": {},
+      "events": {
+        "start": [
+          {
+            "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+            "chain": "9ba14de9-d402-4cb5-bd97-bde874836b19"
+          },
+          {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "chain": "bcd995c6-8286-4241-b4b7-0753d883929b"
+          }
+        ],
+        "stop": [
+          {
+            "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+            "chain": "c0a3a6d0-079f-47f6-992b-6c56e7c63469"
+          },
+          {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "chain": "a0e963f0-3542-4e83-a0db-f3b26e129b66"
+          }
+        ]
+      },
+      "chains": [
+        {
+          "id": "bcd995c6-8286-4241-b4b7-0753d883929b",
+          "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+          "blocks": [
+            {
+              "id": "9635e754-1bd9-4d53-9956-58579e78f74f",
+              "type": "block",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+              "action": "open",
+              "slots": {}
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "event": "start"
+          }
+        },
+        {
+          "id": "a0e963f0-3542-4e83-a0db-f3b26e129b66",
+          "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+          "blocks": [
+            {
+              "id": "6463d6b7-48bc-4ae1-a97a-5728256f8d57",
+              "type": "block",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+              "action": "close",
+              "slots": {}
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "event": "stop"
+          }
+        }
+      ],
+      "children": [
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C3",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C7",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+        "be0a563d-2ff2-476f-9757-dc9c68260929",
+        "7daedfb1-d55f-42c4-88ef-aad968c9e96c",
+        "9c92a1bb-cf2e-4c4a-822b-22fec9a2173e",
+        "4d15339b-d233-439b-ad8b-7d3816cc2a1c",
+        "f0fbfa5f-2385-48b0-b8f4-6f7c307a0dca",
+        "5bcf7001-7c98-46e9-9587-3fad90a3a986",
+        "2444550b-5ae5-44e0-951b-c90d8a4e8416",
+        "54920f14-7708-46db-ac0e-a237f69523c8",
+        "8f048fa4-db34-41db-a350-4ab80264d1a7",
+        "4a7ed13c-fc8a-4479-8525-eefe8b0c79eb",
+        "76abbb64-fe3e-4d60-9d5e-27882e7169c2"
+      ],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C3": {
+      "cls": "storage",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C3",
+      "properties": {
+        "111": "2022-03-22T16:00:00.000Z",
+        "asdasd": true
+      },
+      "events": {
+        "change": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4": {
+      "cls": "timer",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+      "properties": {},
+      "events": {
+        "change": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5": {
+      "cls": "screen",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5",
+      "properties": {
+        "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
+        "camera.position": {
+          "x": 0,
+          "y": 1.6,
+          "z": 4
+        },
+        "camera.rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "camera.anchor": "55a33191-0b05-4930-8202-47a1410cde54"
+      },
+      "events": {},
+      "chains": [],
+      "children": [
+        "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec"
+      ],
+      "userData": {
+        "materials": {
+          "02232F8B-E112-418D-8FAC-0361A734E2B8": {
+            "metadata": {
+              "version": 4.5,
+              "type": "Material",
+              "generator": "Material.toJSON"
+            },
+            "uuid": "02232F8B-E112-418D-8FAC-0361A734E2B8",
+            "type": "MeshStandardMaterial",
+            "color": 16777215,
+            "roughness": 0.8,
+            "metalness": 0.2,
+            "emissive": 0,
+            "map": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
+            "bumpMap": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
+            "bumpScale": 0.005,
+            "roughnessMap": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
+            "envMapIntensity": 1,
+            "refractionRatio": 0.98,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "colorWrite": true,
+            "stencilWrite": false,
+            "stencilWriteMask": 255,
+            "stencilFunc": 519,
+            "stencilRef": 0,
+            "stencilFuncMask": 255,
+            "stencilFail": 7680,
+            "stencilZFail": 7680,
+            "stencilZPass": 7680
+          },
+          "A4AC4ACA-65EA-4A0E-934E-F6996E5B4FFE": {
+            "metadata": {
+              "version": 4.5,
+              "type": "Material",
+              "generator": "Material.toJSON"
+            },
+            "uuid": "A4AC4ACA-65EA-4A0E-934E-F6996E5B4FFE",
+            "type": "MeshPhongMaterial",
+            "color": 11263,
+            "emissive": 0,
+            "specular": 1118481,
+            "shininess": 30,
+            "reflectivity": 1,
+            "refractionRatio": 0.98,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "colorWrite": true,
+            "stencilWrite": false,
+            "stencilWriteMask": 255,
+            "stencilFunc": 519,
+            "stencilRef": 0,
+            "stencilFuncMask": 255,
+            "stencilFail": 7680,
+            "stencilZFail": 7680,
+            "stencilZPass": 7680
+          },
+          "A7A50DCD-04FF-4C54-9F75-77761F8A362D": {
+            "metadata": {
+              "version": 4.5,
+              "type": "Material",
+              "generator": "Material.toJSON"
+            },
+            "uuid": "A7A50DCD-04FF-4C54-9F75-77761F8A362D",
+            "type": "MeshStandardMaterial",
+            "color": 16777215,
+            "roughness": 1,
+            "metalness": 0,
+            "emissive": 0,
+            "map": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
+            "envMapIntensity": 1,
+            "refractionRatio": 0.98,
+            "side": 2,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "colorWrite": true,
+            "stencilWrite": false,
+            "stencilWriteMask": 255,
+            "stencilFunc": 519,
+            "stencilRef": 0,
+            "stencilFuncMask": 255,
+            "stencilFail": 7680,
+            "stencilZFail": 7680,
+            "stencilZPass": 7680
+          }
+        },
+        "textures": {
+          "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D": {
+            "name": "hardwood2_diffuse.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
+              "name": "",
+              "image": "E42C6521-962A-4F45-9AC0-2649D64752E7",
+              "mapping": 300,
+              "repeat": [
+                10,
+                24
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1000,
+                1000
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3001,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 4,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2": {
+            "name": "hardwood2_bump.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
+              "name": "",
+              "image": "12BED903-A8CC-43B5-BB7C-0488A2A6F06C",
+              "mapping": 300,
+              "repeat": [
+                10,
+                24
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1000,
+                1000
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3001,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 4,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "D8A5362C-918C-48EC-BC9E-DD9E29B26766": {
+            "name": "hardwood2_roughness.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
+              "name": "",
+              "image": "0E671E73-1E04-438C-B5A3-7005BCDFC857",
+              "mapping": 300,
+              "repeat": [
+                10,
+                24
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1000,
+                1000
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3001,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 4,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "DDAB45B4-73E5-4720-8EF4-02F3720206EA": {
+            "name": "earth_atmos_2048.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
+              "name": "",
+              "image": "FD6DEB53-CA96-4495-9571-8C6C7C2B6947",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          }
+        }
+      }
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6": {
+      "cls": "camera",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+      "properties": {
+        "fps": 30
+      },
+      "events": {
+        "frame": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8": {
+      "cls": "gesture",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8",
+      "properties": {
+        "current": ""
+      },
+      "events": {
+        "gesture": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC": {
+      "cls": "pose",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC",
+      "properties": {
+        "confidence": 0.1
+      },
+      "events": {
+        "pose": [
+          {
+            "unit": "7daedfb1-d55f-42c4-88ef-aad968c9e96c",
+            "chain": "b477bd61-e4e3-4798-b831-5aebda2f7192"
+          },
+          {
+            "unit": "9c92a1bb-cf2e-4c4a-822b-22fec9a2173e",
+            "chain": "bce166f4-f06a-4d4e-9fe4-995a4cc7df6b"
+          }
+        ]
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C7": {
+      "cls": "speech",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C7",
+      "properties": {},
+      "events": {
+        "say": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2": {
+      "cls": "math",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2",
+      "properties": {},
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA": {
+      "cls": "test",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA",
+      "properties": {},
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1": {
+      "cls": "logic",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+      "properties": {},
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec": {
+      "cls": "scene",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB",
+      "properties": {
+        "name": "scene",
+        "sky.color": "#bfd1e5",
+        "ground.material": "02232F8B-E112-418D-8FAC-0361A734E2B8",
+        "light.on": false,
+        "light.color": "#ffffff",
+        "light.position": {
+          "x": 3,
+          "y": 10,
+          "z": 10
+        },
+        "light.intensity": 1,
+        "spot.on": false,
+        "spot.color": "#ffffff",
+        "spot.position": {
+          "x": 0,
+          "y": 10,
+          "z": 0
+        },
+        "ambient.on": true,
+        "ambient.color": "#404040",
+        "wind.force": {
+          "x": 0.1,
+          "y": 0.02,
+          "z": 0
+        }
+      },
+      "events": {
+        "clone": [],
+        "enter": [],
+        "leave": []
+      },
+      "chains": [],
+      "children": [
+        "be1c9b99-0ec5-478d-a785-6f1a3a3e24ae",
+        "55a33191-0b05-4930-8202-47a1410cde54",
+        "c681cebb-996a-4dbd-85aa-907a3ee8e977",
+        "8aa8ac37-b6f1-4414-b5fe-c76e93fd5f8c",
+        "29eb5c07-8629-42fd-8a10-f0f8d2d6b128"
+      ],
+      "userData": {}
+    },
+    "be1c9b99-0ec5-478d-a785-6f1a3a3e24ae": {
+      "cls": "bulb",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000005",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 3,
+          "z": 1
+        },
+        "visible": true,
+        "power": 800,
+        "color": "#ffee88",
+        "distance": 100
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "c681cebb-996a-4dbd-85aa-907a3ee8e977": {
+      "cls": "sphere",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000002",
+      "properties": {
+        "position": {
+          "x": -3,
+          "y": 0.19999577097623877,
+          "z": 8.758081275105072e-14
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": null,
+        "visible": true,
+        "mass": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "force": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0,
+        "restitution": 0.98,
+        "radius": 0.2
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "8aa8ac37-b6f1-4414-b5fe-c76e93fd5f8c": {
+      "cls": "box",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000001",
+      "properties": {
+        "position": {
+          "x": 1.1329305273368495,
+          "y": 0.4999596675386011,
+          "z": 2.529267630059756
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "4BB25F87-8A33-4BA8-81FD-CFCE6594DD54",
+        "visible": true,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "force": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0,
+        "restitution": 0.6,
+        "width": 1,
+        "height": 1,
+        "depth": 1
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "be0a563d-2ff2-476f-9757-dc9c68260929": {
+      "cls": "skeleton",
+      "clsid": "9e8f7f7f-f8f8-4f8f-8f8f-8f8f8f8f8fa2",
+      "properties": {
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "7daedfb1-d55f-42c4-88ef-aad968c9e96c": {
+      "cls": "skeleton",
+      "clsid": "9e8f7f7f-f8f8-4f8f-8f8f-8f8f8f8f8fa2",
+      "properties": {
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 1
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "pose": {
+          "nose": {
+            "x": 0.6185587780697159,
+            "y": 0.9248231851467029
+          },
+          "leftEye": {
+            "x": 0.5512625619306053,
+            "y": 0.8302064405838998
+          },
+          "rightEye": {
+            "x": 0.6833101146391684,
+            "y": 0.850257163988205
+          },
+          "leftEar": {
+            "x": 0.8299267665183495,
+            "y": 0.8067709216926865
+          },
+          "rightEar": {
+            "x": 0.7622192101371116,
+            "y": 0.9011760338471877
+          },
+          "leftShoulder": {
+            "x": 0.7965112314003372,
+            "y": 1.0511401159939142
+          },
+          "rightShoulder": {
+            "x": 0.9126602684314872,
+            "y": 1.0539701650901474
+          }
+        }
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [
+        {
+          "id": "b477bd61-e4e3-4798-b831-5aebda2f7192",
+          "unit": "7daedfb1-d55f-42c4-88ef-aad968c9e96c",
+          "blocks": [
+            {
+              "id": "7012cb48-ca74-4753-962a-8b8d06dd716c",
+              "type": "block",
+              "unit": "7daedfb1-d55f-42c4-88ef-aad968c9e96c",
+              "action": "set",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "pose"
+                },
+                "value": [
+                  {
+                    "id": "d37ef635-5960-48fd-b49b-323c7fc09499",
+                    "type": "block",
+                    "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+                    "action": "valueFromEvent",
+                    "slots": {
+                      "name": {
+                        "type": "data",
+                        "value": "detail"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC",
+            "event": "pose"
+          }
+        }
+      ],
+      "children": [],
+      "userData": {}
+    },
+    "9c92a1bb-cf2e-4c4a-822b-22fec9a2173e": {
+      "cls": "skeleton",
+      "clsid": "9e8f7f7f-f8f8-4f8f-8f8f-8f8f8f8f8fa2",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "pose": {
+          "nose": {
+            "x": 0.6185587780697159,
+            "y": 0.9248231851467029
+          },
+          "leftEye": {
+            "x": 0.5512625619306053,
+            "y": 0.8302064405838998
+          },
+          "rightEye": {
+            "x": 0.6833101146391684,
+            "y": 0.850257163988205
+          },
+          "leftEar": {
+            "x": 0.8299267665183495,
+            "y": 0.8067709216926865
+          },
+          "rightEar": {
+            "x": 0.7622192101371116,
+            "y": 0.9011760338471877
+          },
+          "leftShoulder": {
+            "x": 0.7965112314003372,
+            "y": 1.0511401159939142
+          },
+          "rightShoulder": {
+            "x": 0.9126602684314872,
+            "y": 1.0539701650901474
+          }
+        }
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [
+        {
+          "id": "bce166f4-f06a-4d4e-9fe4-995a4cc7df6b",
+          "unit": "9c92a1bb-cf2e-4c4a-822b-22fec9a2173e",
+          "blocks": [
+            {
+              "id": "8f042a02-635d-4404-9c20-d09eabec1179",
+              "type": "block",
+              "unit": "9c92a1bb-cf2e-4c4a-822b-22fec9a2173e",
+              "action": "set",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "pose"
+                },
+                "value": [
+                  {
+                    "id": "ddf605cd-7d3f-4231-9514-792ca2ab421d",
+                    "type": "block",
+                    "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+                    "action": "valueFromEvent",
+                    "slots": {
+                      "name": {
+                        "type": "data",
+                        "value": "detail"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC",
+            "event": "pose"
+          }
+        }
+      ],
+      "children": [],
+      "userData": {}
+    },
+    "4d15339b-d233-439b-ad8b-7d3816cc2a1c": {
+      "cls": "box",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000001",
+      "properties": {
+        "position": {
+          "x": 0.0009581761211665777,
+          "y": 0.49997397089518963,
+          "z": -0.000553166445533211
+        },
+        "rotation": {
+          "x": 0.000018098384957958626,
+          "y": -0.00020657020394411615,
+          "z": 0.0000027490549292215207
+        },
+        "material": "41A3BDC0-C5F6-43C6-A6A7-11D83E719864",
+        "visible": true,
+        "mass": 1,
+        "velocity": {
+          "x": 0.0005117493831291393,
+          "y": -0.00002676555881442333,
+          "z": -0.0002933427661111134
+        },
+        "force": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": -1,
+        "restitution": -1,
+        "width": 1,
+        "height": 1,
+        "depth": 1
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "f0fbfa5f-2385-48b0-b8f4-6f7c307a0dca": {
+      "cls": "box",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000001",
+      "properties": {
+        "position": {
+          "x": 0.0007006947746117251,
+          "y": 0.49989015881568993,
+          "z": -0.0004015279333459634
+        },
+        "rotation": {
+          "x": 0.000017497830870474227,
+          "y": -0.00015064163938939052,
+          "z": -0.000003209739725553279
+        },
+        "material": "DB0E3D7B-3322-4FC4-A5E9-18DB49A066A7",
+        "visible": true,
+        "mass": 1,
+        "velocity": {
+          "x": 0.0004911445199297367,
+          "y": 0.0008376925251279421,
+          "z": -0.0002888414996162625
+        },
+        "force": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": -1,
+        "restitution": -1,
+        "width": 1,
+        "height": 1,
+        "depth": 1
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "5bcf7001-7c98-46e9-9587-3fad90a3a986": {
+      "cls": "box",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000001",
+      "properties": {
+        "position": {
+          "x": 0.0005806357795691934,
+          "y": 0.49812948001648505,
+          "z": -0.00033084261937822403
+        },
+        "rotation": {
+          "x": 0.0000029142202473929003,
+          "y": -0.00012202521622836846,
+          "z": -0.000028804025783931906
+        },
+        "material": "53147AE7-3C0B-4E72-AA5B-8E7B1DD7426B",
+        "visible": true,
+        "mass": 1,
+        "velocity": {
+          "x": 0.00034195182710526574,
+          "y": 0.019688558371309173,
+          "z": -0.00020658537595537102
+        },
+        "force": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": -1,
+        "restitution": -1,
+        "width": 1,
+        "height": 1,
+        "depth": 1
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "2444550b-5ae5-44e0-951b-c90d8a4e8416": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "6B9FC2DE-F494-412F-8BB7-A614990EEB77",
+        "visible": true,
+        "mass": 0,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 10,
+        "heightSegments": 10
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "54920f14-7708-46db-ac0e-a237f69523c8": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "9437C5F1-44C1-4619-8A81-E62D8C1F2BF2",
+        "visible": true,
+        "mass": 0,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 10,
+        "heightSegments": 10
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "8f048fa4-db34-41db-a350-4ab80264d1a7": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "47813D34-BC0F-4646-9F10-7F7D78908307",
+        "visible": true,
+        "mass": 0,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 10,
+        "heightSegments": 10
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "4a7ed13c-fc8a-4479-8525-eefe8b0c79eb": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "1F82355E-874D-4026-B2FF-72C1DB3BDC0A",
+        "visible": true,
+        "mass": 0,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 10,
+        "heightSegments": 10
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "76abbb64-fe3e-4d60-9d5e-27882e7169c2": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": -1,
+          "y": 1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "A7A50DCD-04FF-4C54-9F75-77761F8A362D",
+        "visible": true,
+        "mass": 1,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 10,
+        "heightSegments": 10
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "0098bb71-30e5-4701-8c0b-99a5853b4096": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "A7A50DCD-04FF-4C54-9F75-77761F8A362D",
+        "visible": true,
+        "mass": 0.2,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 30,
+        "heightSegments": 30
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "55a33191-0b05-4930-8202-47a1410cde54": {
+      "cls": "Soldier",
+      "clsid": "9e8f7f7f-f8f8-4f8f-8f8f-8f8f8f8f8fa0",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": -1.6,
+          "z": 0
+        },
+        "visible": true
+      },
+      "events": {
+        "clone": [],
+        "collide": [
+          {
+            "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+            "chain": "7ff9ee21-c43a-4b00-b218-7fe1c7a22f52"
+          }
+        ]
+      },
+      "chains": [
+        {
+          "id": "9ba14de9-d402-4cb5-bd97-bde874836b19",
+          "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+          "blocks": [
+            {
+              "id": "9a1f6d71-c5da-41c8-9d0a-847a5f1f373a",
+              "type": "block",
+              "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+              "action": "run",
+              "slots": {}
+            },
+            {
+              "id": "8dd3f6df-835d-4e24-af92-558e28e1bd81",
+              "type": "block",
+              "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+              "action": "move",
+              "slots": {
+                "speed": {
+                  "type": "data",
+                  "value": -0.4
+                }
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "event": "start"
+          }
+        },
+        {
+          "id": "c0a3a6d0-079f-47f6-992b-6c56e7c63469",
+          "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+          "blocks": [
+            {
+              "id": "f415530a-49a7-4ff4-8a66-0554c8266c9e",
+              "type": "block",
+              "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+              "action": "stop",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "all"
+                }
+              }
+            },
+            {
+              "id": "4147064f-80f8-4f68-9dfb-b7ef9ef81ac0",
+              "type": "block",
+              "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+              "action": "die",
+              "slots": {}
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "event": "stop"
+          }
+        },
+        {
+          "id": "7ff9ee21-c43a-4b00-b218-7fe1c7a22f52",
+          "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+          "blocks": [
+            {
+              "id": "4dcc5f3e-dae5-41a9-ad5f-900810a0e761",
+              "type": "block",
+              "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+              "action": "turn",
+              "slots": {
+                "angle": {
+                  "type": "data",
+                  "value": 180
+                }
+              }
+            }
+          ],
+          "bound": {
+            "unit": "55a33191-0b05-4930-8202-47a1410cde54",
+            "event": "collide"
+          }
+        }
+      ],
+      "children": [],
+      "userData": {}
+    },
+    "29eb5c07-8629-42fd-8a10-f0f8d2d6b128": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": -1,
+          "y": 1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "A7A50DCD-04FF-4C54-9F75-77761F8A362D",
+        "visible": true,
+        "mass": 100,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 20,
+        "heightSegments": 20
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    }
+  },
+  "variables": {
+    "111": "time",
+    "asdasd": "boolean"
+  }
+}
