@@ -28,7 +28,7 @@ export default defineConfig({
   plugins: [vue(), glsl()],
   base: '/',
   build: {
-    outDir: '../dist/web',
+    outDir: '../dist/ide',
     emptyOutDir: true,
     // only for debug
     minify: process.env.NODE_ENV === 'production',

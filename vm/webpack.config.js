@@ -6,7 +6,8 @@ const output = require('single-line-log').stdout;
 module.exports = {
   target: 'node',
   entry: {
-    index: `./src/index.ts`,
+    vm: `./src/project.ts`,
+    'vm-browser': `./src/browser/index.ts`,
   },
   output: {
     path: path.join(__dirname, '../dist'),

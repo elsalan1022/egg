@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].js',
+    filename: 'service.js',
   },
   externals: {
     ws: 'commonjs2 ws',

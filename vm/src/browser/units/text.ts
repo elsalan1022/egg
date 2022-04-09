@@ -40,9 +40,13 @@ class Runtime extends Phynit2D {
     if (['text', 'size', 'height'].includes(name)) {
       this.updateText();
     } else if (name === 'color') {
-      (this.textMesh?.material as any).color.set(value);
+      if (this.textMesh) {
+        (this.textMesh.material as any).color.set(value);
+      }
     } else if (name === 'opacity') {
-      (this.textMesh?.material as THREE.MeshBasicMaterial).opacity = value;
+      if (this.textMesh) {
+        (this.textMesh.material as THREE.MeshBasicMaterial).opacity = value;
+      }
     } else if (['align', 'valign'].includes(name)) {
       this.updateAlign();
     }
