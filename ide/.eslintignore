@@ -1,0 +1,4 @@
+node_modules/
+/src/**/*.js
+/*.js
+speech-commands/*.ts

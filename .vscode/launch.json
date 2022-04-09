@@ -1,0 +1,58 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Service",
+      "program": "${workspaceFolder}/service/node_modules/ts-node/dist/bin.js",
+      "args": [
+        "${workspaceFolder}/service/src/index.ts",
+        "--root=${workspaceFolder}/service/local",
+        "--port=8080"
+      ],
+      "cwd": "${workspaceFolder}/service"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Tests VM",
+      "program": "${workspaceRoot}/vm/node_modules/jest/bin/jest.js",
+      "args": [
+        "--verbose",
+        "-i",
+        "--no-cache",
+        "timer.spec.ts"
+      ],
+      "cwd": "${workspaceFolder}/vm/test",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Example Timer",
+      "program": "${workspaceFolder}/vm/node_modules/ts-node/dist/bin.js",
+      "args": [
+        "${workspaceFolder}/vm/examples/timer.ts"
+      ],
+      "cwd": "${workspaceFolder}/vm"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "gen apis",
+      "program": "${workspaceFolder}/service/node_modules/ts-node/dist/bin.js",
+      "args": [
+        "${workspaceFolder}/service/scripts/apis.ts",
+        "${workspaceFolder}/service/src/types/index.d.ts",
+        "--out",
+        "${workspaceFolder}/ide/src/apis/index.ts",
+        "--force",
+      ],
+    },
+  ]
+}

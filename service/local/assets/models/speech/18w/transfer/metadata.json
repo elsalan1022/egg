@@ -1,0 +1,14 @@
+{
+  "tfjsSpeechCommandsVersion": "0.5.4",
+  "modelName": "18w-transfer",
+  "timeStamp": "2022-03-17T03:06:30.064Z",
+  "wordLabels": [
+    "_background_noise_",
+    "left",
+    "one",
+    "right",
+    "stop",
+    "two",
+    "zero"
+  ]
+}
