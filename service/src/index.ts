@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import form from 'express-formidable';
 import env from './environment';
 import { logger } from './utils/logger';
-import rpc, { RpcDeclaration, RpcFacade } from './rpc';
+import rpc, { RpcInstance, RpcFacade } from './rpc';
 import modules from './modules/index';
 
 process.on('uncaughtException', (err) => {
@@ -37,12 +37,11 @@ expr.use(form());
 
 async function loadModules(app: any) {
   const facades: Record<string, RpcFacade> = {};
-  for (const [k, mo] of Object.entries(modules as any as Record<string, RpcDeclaration>)) {
-    const name = (mo.name || k).toLowerCase();
-    const instance = typeof mo.instance === 'function' ? (await mo.instance(expr)) : mo.instance;
+  for (const [name, ins] of Object.entries(modules as any as Record<string, RpcInstance>)) {
+    const instance = typeof ins === 'function' ? (await ins(expr)) : ins;
     const facade: RpcFacade = {
       instance,
-      methods: {},
+      methods: new Set(),
     };
     let keys = Object.keys(instance);
     if (!keys.length) {
@@ -59,7 +58,7 @@ async function loadModules(app: any) {
       if (typeof v !== 'function') {
         continue;
       }
-      facade.methods[mn.toLowerCase()] = instance[mn];
+      facade.methods.add(mn);
     }
     facades[name] = facade;
     logger.info(`Module ${name} loaded!`);

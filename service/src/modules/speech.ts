@@ -43,22 +43,20 @@ export class Class implements Module {
   }
 }
 
-export default {
-  instance(expr: express.Express) {
-    expr.post('/__egg__/uploadmodel', async (req, rsp) => {
-      try {
-        const rs = await uploadModel(req);
-        rsp.json({
-          code: 0,
-          result: rs
-        }).end();
-      } catch (err: any) {
-        rsp.status(510).end(err.message);
-      }
-    });
-    return new Class();
-  }
-};
+export default function (expr: express.Express) {
+  expr.post('/__egg__/uploadmodel', async (req, rsp) => {
+    try {
+      const rs = await uploadModel(req);
+      rsp.json({
+        code: 0,
+        result: rs
+      }).end();
+    } catch (err: any) {
+      rsp.status(510).end(err.message);
+    }
+  });
+  return new Class();
+}
 
 export async function uploadModel(req: express.Request): Promise<boolean> {
   if (!req.files) {

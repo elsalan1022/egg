@@ -84,7 +84,8 @@
         "54920f14-7708-46db-ac0e-a237f69523c8",
         "8f048fa4-db34-41db-a350-4ab80264d1a7",
         "4a7ed13c-fc8a-4479-8525-eefe8b0c79eb",
-        "76abbb64-fe3e-4d60-9d5e-27882e7169c2"
+        "76abbb64-fe3e-4d60-9d5e-27882e7169c2",
+        "0098bb71-30e5-4701-8c0b-99a5853b4096"
       ],
       "userData": {}
     },
@@ -236,7 +237,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "E42C6521-962A-4F45-9AC0-2649D64752E7",
+              "image": "7F5CF847-7A25-4190-8EDA-2BF0F5471F9B",
               "mapping": 300,
               "repeat": [
                 10,
@@ -276,7 +277,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "12BED903-A8CC-43B5-BB7C-0488A2A6F06C",
+              "image": "E37349E8-8AF9-4603-9490-6C817B063EBC",
               "mapping": 300,
               "repeat": [
                 10,
@@ -316,7 +317,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "0E671E73-1E04-438C-B5A3-7005BCDFC857",
+              "image": "F31D7718-C9FD-43F6-812F-C86E4C5E03BE",
               "mapping": 300,
               "repeat": [
                 10,
@@ -356,7 +357,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "FD6DEB53-CA96-4495-9571-8C6C7C2B6947",
+              "image": "DE20C299-F90A-425C-8506-95E6C855B05E",
               "mapping": 300,
               "repeat": [
                 1,
@@ -521,8 +522,7 @@
         "be1c9b99-0ec5-478d-a785-6f1a3a3e24ae",
         "55a33191-0b05-4930-8202-47a1410cde54",
         "c681cebb-996a-4dbd-85aa-907a3ee8e977",
-        "8aa8ac37-b6f1-4414-b5fe-c76e93fd5f8c",
-        "29eb5c07-8629-42fd-8a10-f0f8d2d6b128"
+        "8aa8ac37-b6f1-4414-b5fe-c76e93fd5f8c"
       ],
       "userData": {}
     },
@@ -1122,6 +1122,35 @@
       "children": [],
       "userData": {}
     },
+    "29eb5c07-8629-42fd-8a10-f0f8d2d6b128": {
+      "cls": "cloth",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
+      "properties": {
+        "position": {
+          "x": -1,
+          "y": 1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "A7A50DCD-04FF-4C54-9F75-77761F8A362D",
+        "visible": true,
+        "mass": 100,
+        "width": 1,
+        "height": 1,
+        "widthSegments": 20,
+        "heightSegments": 20
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
     "55a33191-0b05-4930-8202-47a1410cde54": {
       "cls": "Soldier",
       "clsid": "9e8f7f7f-f8f8-4f8f-8f8f-8f8f8f8f8fa0",
@@ -1229,35 +1258,6 @@
           }
         }
       ],
-      "children": [],
-      "userData": {}
-    },
-    "29eb5c07-8629-42fd-8a10-f0f8d2d6b128": {
-      "cls": "cloth",
-      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000006",
-      "properties": {
-        "position": {
-          "x": -1,
-          "y": 1,
-          "z": 0
-        },
-        "rotation": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        },
-        "material": "A7A50DCD-04FF-4C54-9F75-77761F8A362D",
-        "visible": true,
-        "mass": 100,
-        "width": 1,
-        "height": 1,
-        "widthSegments": 20,
-        "heightSegments": 20
-      },
-      "events": {
-        "clone": []
-      },
-      "chains": [],
       "children": [],
       "userData": {}
     }

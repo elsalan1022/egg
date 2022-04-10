@@ -21,6 +21,4 @@ export class Class implements Module {
   [key: string]: (cxt: DispContext, ...args: any[]) => any;
 }
 
-export default {
-  instance: new Class(),
-};
+export default new Class();

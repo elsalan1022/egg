@@ -14,20 +14,12 @@ interface RpcModule {
 
 type RpcModuleFunc = (app: express.Express) => RpcModule;
 
-export interface RpcDeclaration {
-  /** use file name as service name */
-  name?: string;
-  instance: RpcModule | RpcModuleFunc;
-  /** 流式接口 */
-  streaming?: Array<string>;
-  /** 可公开结构（如访客可调度,只支持非流式） */
-  public?: Array<string>;
-}
+export type RpcInstance = RpcModule | RpcModuleFunc;
 
 export interface RpcFacade {
   instance: RpcModule;
   /** 普通接口 */
-  methods: Record<string, RpcFunc>;
+  methods: Set<string>;
 }
 
 // create the web socket
@@ -72,17 +64,16 @@ function handleIncoming(app: express.Express, modules: Record<string, RpcFacade>
         accContext.connection = undefined;
         console.log(`${url} closed`);
       });
-      const methodHandler = (method: string, params: any[]) => {
+      const methodHandler = (method: string, ...params: any[]) => {
         const [, name, methodName] = /^([^.]+)\.(.+)$/.exec(method) || [];
         const mo = modules[name.toLowerCase()];
         if (!mo) {
           throw `module ${name} not found`;
         }
-        const me = mo.methods[methodName.toLowerCase()];
-        if (!me) {
+        if (!mo.methods.has(methodName)) {
           throw `method ${name}.${methodName} not found`;
         }
-        return me.call(mo.instance, accContext, ...(params || []));
+        return mo.instance[methodName].call(mo.instance, accContext, ...(params || []));
       };
       newConnection.onRequest(methodHandler as any);
 
