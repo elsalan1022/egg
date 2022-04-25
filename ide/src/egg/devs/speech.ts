@@ -72,6 +72,8 @@ export class Decoration extends DevUnit {
       this.actions[key] = value;
     }
     delete this.actions['clone'];
+    delete this.actions.get;
+    delete this.actions.set;
     // events
     const events = {
       say: makeEvent({

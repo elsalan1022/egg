@@ -28,6 +28,17 @@ const wss = new ws.Server({
   perMessageDeflate: false,
 });
 
+const clients = new Set<DispContext>();
+
+export function broadcastMessage(method: string, ...params: any[]) {
+  if (!clients.size) {
+    throw 'not connected';
+  }
+  clients.forEach((cxt) => {
+    cxt.connection.sendNotification(method, ...params);
+  });
+}
+
 function handleIncoming(app: express.Express, modules: Record<string, RpcFacade>, url: string) {
   (app as any).onUpgrade(url, (request: IncomingMessage, socket: Socket, head: Buffer) => {
     const accContext: DispContext = {};
@@ -62,6 +73,7 @@ function handleIncoming(app: express.Express, modules: Record<string, RpcFacade>
 
       webSocket.on('close', () => {
         accContext.connection = undefined;
+        clients.delete(accContext);
         console.log(`${url} closed`);
       });
       const methodHandler = (method: string, ...params: any[]) => {
@@ -78,6 +90,7 @@ function handleIncoming(app: express.Express, modules: Record<string, RpcFacade>
       newConnection.onRequest(methodHandler as any);
 
       accContext.connection = newConnection;
+      clients.add(accContext);
       newConnection.listen();
 
       console.log(`connected to ${url}`);

@@ -19,6 +19,16 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "rpio test",
+      "program": "${workspaceFolder}/service/node_modules/ts-node/dist/bin.js",
+      "args": [
+        "${workspaceFolder}/service/test/rpio.ts",
+      ],
+      "cwd": "${workspaceFolder}/service"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Tests VM",
       "program": "${workspaceRoot}/vm/node_modules/jest/bin/jest.js",
       "args": [

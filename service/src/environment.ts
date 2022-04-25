@@ -49,8 +49,12 @@ export interface Environment {
     bin: string;
   },
   options: {
+    /** project root */
     root: any;
+    /** port listening on */
     port: number;
+    /** is rasp enable */
+    rasp: boolean;
   };
   net: {
     port: number;
@@ -67,6 +71,7 @@ export const env: Environment = {
   options: {
     root: args.root || process.cwd() || __dirname,
     port: args.port || 0,
+    rasp: args.rasp || false,
   },
   net: {
     port: args.port,

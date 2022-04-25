@@ -94,6 +94,7 @@ export default {
     global: '全局',
     ground: '地面',
     image: '图片',
+    joystick: '摇杆',
     light: '光源',
     logic: '逻辑',
     material: '材质',

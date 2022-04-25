@@ -33,9 +33,9 @@
           "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
           "blocks": [
             {
-              "id": "9635e754-1bd9-4d53-9956-58579e78f74f",
+              "id": "8a4c2489-17f5-431e-93e2-be0e27fc4b01",
               "type": "block",
-              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
               "action": "open",
               "slots": {}
             }
@@ -50,9 +50,9 @@
           "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
           "blocks": [
             {
-              "id": "6463d6b7-48bc-4ae1-a97a-5728256f8d57",
+              "id": "b1d47953-85d2-48ce-99f1-7207ae02664e",
               "type": "block",
-              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
               "action": "close",
               "slots": {}
             }
@@ -71,6 +71,7 @@
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C7",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
@@ -85,7 +86,8 @@
         "8f048fa4-db34-41db-a350-4ab80264d1a7",
         "4a7ed13c-fc8a-4479-8525-eefe8b0c79eb",
         "76abbb64-fe3e-4d60-9d5e-27882e7169c2",
-        "0098bb71-30e5-4701-8c0b-99a5853b4096"
+        "0098bb71-30e5-4701-8c0b-99a5853b4096",
+        "29eb5c07-8629-42fd-8a10-f0f8d2d6b128"
       ],
       "userData": {}
     },
@@ -237,7 +239,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "7F5CF847-7A25-4190-8EDA-2BF0F5471F9B",
+              "image": "69F97B14-7393-4BDE-887E-5FEE191DCABD",
               "mapping": 300,
               "repeat": [
                 10,
@@ -277,7 +279,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "E37349E8-8AF9-4603-9490-6C817B063EBC",
+              "image": "AEAEB53A-DE54-420D-B312-336E1C741F6D",
               "mapping": 300,
               "repeat": [
                 10,
@@ -317,7 +319,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "F31D7718-C9FD-43F6-812F-C86E4C5E03BE",
+              "image": "DE2680B7-0115-465C-B74F-BD305ED182C3",
               "mapping": 300,
               "repeat": [
                 10,
@@ -357,7 +359,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "DE20C299-F90A-425C-8506-95E6C855B05E",
+              "image": "2A315E39-C179-43ED-BAA3-252943EA11E6",
               "mapping": 300,
               "repeat": [
                 1,
@@ -444,6 +446,17 @@
       "properties": {},
       "events": {
         "say": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD": {
+      "cls": "joystick",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
+      "properties": {},
+      "events": {
+        "button": []
       },
       "chains": [],
       "children": [],
@@ -553,8 +566,8 @@
       "properties": {
         "position": {
           "x": -3,
-          "y": 0.19999577097623877,
-          "z": 8.758081275105072e-14
+          "y": 0.19999577662307347,
+          "z": 8.961876694273335e-14
         },
         "rotation": {
           "x": 0,
@@ -591,8 +604,8 @@
       "properties": {
         "position": {
           "x": 1.1329305273368495,
-          "y": 0.4999596675386011,
-          "z": 2.529267630059756
+          "y": 0.49995976694180155,
+          "z": 0
         },
         "rotation": {
           "x": 0,

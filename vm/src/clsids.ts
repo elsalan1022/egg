@@ -11,6 +11,7 @@ export namespace gclsids {
   export const test = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA';
   export const scene = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB';
   export const pose = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC';
+  export const joystick = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD';
 
   // flow clsid for unit in scene
   export const box = '9E8B8E0E-B7B2-4E8E-A801-000000000001';
