@@ -3,8 +3,8 @@ import { broadcastMessage } from '../rpc';
 
 const names = {
   init: [],
-  axis: ['lx', 'ly', 'lb', 'rx', 'ry', 'rb', 'lb_x', 'lb_y'],
-  button: ['a', 'b', 'x', 'y', 'lb', 'rb', 'select', 'start', 'mode'],
+  axis: ['joy-x', 'joy-y', 'back-2', 'joy-x-2', 'joy-y-2', 'forward-2', 'axis-x', 'axis-y'],
+  button: ['a', 'b', 'x', 'y', 'back', 'forward', 'select', 'start', 'mode'],
 };
 
 async function jsmon() {

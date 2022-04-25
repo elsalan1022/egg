@@ -5,13 +5,40 @@ import { ActionBase } from "egg/src/unit";
 import { makeEvent, makeProperty, } from "egg/src/utils";
 import { rpc } from '../../rpc';
 
+const btnsNames = {
+  'a': 'A',
+  'b': 'B',
+  'x': 'X',
+  'y': 'Y',
+  'back': 'back',
+  'forward': 'forward',
+  'select': 'select',
+  'start': 'start',
+  'mode': 'mode',
+};
+
+const axisNames = {
+  'joy-x': 'joy-x',
+  'joy-y': 'joy-y',
+  'back-2': 'back-2',
+  'joy-x-2': 'joy-x-2',
+  'joy-y-2': 'joy-y-2',
+  'forward-2': 'forward-2',
+  'axis-x': 'axis-x',
+  'axis-y': 'axis-y'
+};
+
 export class Runtime extends DevRuntime {
   static type: UnitType = 'joystick';
   static clsname: ClsName = 'joystick';
   static clsid = gclsids.joystick;
   async open(): Promise<void> {
-    rpc.describe('joystick', (args) => {
-      console.log(args);
+    rpc.describe('joystick', ({ type, name, value }) => {
+      if (type === 'button') {
+        this.emit(value ? 'down' : 'up', { name, value });
+      } else if (type === 'axis') {
+        this.emit('axis', { name, value });
+      }
     }, this);
   }
   async close(): Promise<void> {
@@ -55,11 +82,7 @@ export class Decoration extends DevUnit {
           name: {
             type: 'string',
             name: 'name',
-            values: ['a', 'b', 'x', 'y', 'lb', 'rb', 'select', 'start', 'mode', 'lx', 'ly', 'lb', 'rx', 'ry', 'rb', 'lb_x', 'lb_y'],
-          },
-          value: {
-            type: 'number',
-            name: 'value',
+            values: Object.keys(btnsNames),
           },
         }
       }),
@@ -69,7 +92,17 @@ export class Decoration extends DevUnit {
           name: {
             type: 'string',
             name: 'name',
-            values: ['a', 'b', 'x', 'y', 'lb', 'rb', 'select', 'start', 'mode', 'lx', 'ly', 'lb', 'rx', 'ry', 'rb', 'lb_x', 'lb_y'],
+            values: Object.keys(btnsNames),
+          },
+        }
+      }),
+      axis: makeEvent({
+        name: 'axis',
+        params: {
+          name: {
+            type: 'string',
+            name: 'name',
+            values: Object.keys(axisNames),
           },
           value: {
             type: 'number',

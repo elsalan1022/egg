@@ -73,6 +73,9 @@ export default {
     say: '人有说话',
     start: '开始',
     stop: '停止',
+    down: '按下',
+    up: '弹起',
+    axis: '轴位置',
   },
   // name
   nm: {
