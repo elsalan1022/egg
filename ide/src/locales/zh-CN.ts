@@ -83,6 +83,7 @@ export default {
     camera: '相机',
     cube: '立方体',
     chick: 'EGG',
+    cloth: '布料',
     death: '死亡',
     default: '默认',
     device: '设备',
@@ -110,6 +111,7 @@ export default {
     second: '秒',
     scene: '场景',
     screen: '屏幕',
+    skeleton: '骨骼',
     speech: '语音',
     sphere: '球体',
     spot: '点光源',
@@ -126,6 +128,7 @@ export default {
     victory: 'V字形',
     unit: '对象',
     wind: '风',
+    rubik: '魔方',
   },
   // property
   pr: {
@@ -174,6 +177,7 @@ export default {
       },
       widthSegments: '宽度分段',
       heightSegments: '高度分段',
+      scale: '缩放',
     },
     texture: {
       offset: '偏移',

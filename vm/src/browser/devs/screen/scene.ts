@@ -124,6 +124,7 @@ export class Scene extends UnitRuntime {
       'spot.position': () => ({ x: this.spotLight.position.x, y: this.spotLight.position.y, z: this.spotLight.position.z }),
       'ambient.on': () => this.ambient.visible,
       'ambient.color': () => `#${this.ambient.color.getHexString()}`,
+      'ground.visible': () => this.ground.visible,
       'ground.material': () => (this.ground.material as THREE.Material).uuid,
     })[name];
     return fn?.();
@@ -156,6 +157,8 @@ export class Scene extends UnitRuntime {
       this.ambient.visible = value;
     } else if (name === 'ambient.color') {
       this.ambient.color.set(value);
+    } else if (name === 'ground.visible') {
+      this.ground.visible = value;
     } else if (name === 'ground.material') {
       // is uuid
       if (typeof value === 'string') {
@@ -228,6 +231,11 @@ export class Decoration extends UnitImpl {
         name: 'sky.color',
         group: 'scene',
         type: 'color',
+      }),
+      'ground.visible': makeProperty(instance, {
+        name: 'ground.visible',
+        group: 'ground',
+        type: 'boolean',
       }),
       'ground.material': makeProperty(instance, {
         name: 'ground.material',

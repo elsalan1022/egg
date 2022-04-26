@@ -27,7 +27,6 @@ module.exports = {
         output(`${Math.ceil(percentage * 100)}% ${message}`);
       },
     }),
-    new webpack.BannerPlugin({ banner: "#!/usr/bin/env node", raw: true }),
   ],
   module: {
     rules: [
