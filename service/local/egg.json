@@ -129,14 +129,14 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 1.8396618097419908,
-          "y": 1.8761621459241205,
-          "z": 3.0159011966538283
+          "x": 2.4241604466682274,
+          "y": 0.8894933200937983,
+          "z": 3.0548727898744774
         },
         "camera.rotation": {
-          "x": -0.5565040344974258,
-          "y": 0.4778999809513242,
-          "z": 0.27866438815626315
+          "x": -0.2833381336746394,
+          "y": 0.6510728196750839,
+          "z": 0.1746637649908226
         }
       },
       "events": {},
@@ -272,7 +272,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "29575143-DC2C-4A9B-80A5-AF788D5EFDA4",
+              "image": "900CB360-EED6-4194-8082-35B44E811587",
               "mapping": 300,
               "repeat": [
                 10,
@@ -312,7 +312,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "2B9A4A24-0795-4CF8-8193-691CF05A499C",
+              "image": "96E6BBFA-9C72-48FF-96BA-444EF01DA849",
               "mapping": 300,
               "repeat": [
                 10,
@@ -352,7 +352,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "E00C3AD0-E179-482A-95DD-267152DA9E72",
+              "image": "0A402D97-4064-4CFF-A08D-2ED8801AC967",
               "mapping": 300,
               "repeat": [
                 10,
@@ -392,7 +392,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "BB273B17-6108-4D14-AB2A-3C36C0FFA3C2",
+              "image": "7A066CA7-568A-4A72-AEF5-76227DAA956E",
               "mapping": 300,
               "repeat": [
                 1,
@@ -414,6 +414,46 @@
               "format": 1023,
               "type": 1009,
               "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48": {
+            "name": "hen-egg.jpeg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
+              "name": "",
+              "image": "76731181-C81E-4A42-847D-5E41A1C8F053",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0.5,
+                0.5
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3001,
               "minFilter": 1008,
               "magFilter": 1006,
               "anisotropy": 1,
@@ -1214,7 +1254,7 @@
         "material": "3F81E9D5-A52F-4BDC-860E-0F6A5B62AB9B",
         "visible": true,
         "scale": 0.5,
-        "texture": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2"
+        "texture": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48"
       },
       "events": {
         "clone": []
@@ -1236,7 +1276,7 @@
                 },
                 "step": {
                   "type": "data",
-                  "value": "2"
+                  "value": ""
                 }
               }
             }

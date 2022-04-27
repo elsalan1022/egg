@@ -57,8 +57,10 @@ class Runtime extends Phynit {
       const text = typeof value === 'string' ? this.getTextureFromId(value) : value;
       for (const cube of this.model.group.children) {
         for (const plane of cube.children) {
-          ((plane as THREE.Mesh).material as THREE.MeshStandardMaterial).bumpMap = text;
-          ((plane as THREE.Mesh).material as THREE.MeshStandardMaterial).needsUpdate = true;
+          const mat = (plane as THREE.Mesh).material as THREE.MeshStandardMaterial;
+          mat.bumpMap = text;
+          mat.bumpScale = 1;
+          mat.needsUpdate = true;
         }
       }
     }
