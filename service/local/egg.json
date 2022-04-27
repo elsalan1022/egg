@@ -129,16 +129,15 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 0,
-          "y": 1.6,
-          "z": 4
+          "x": 3.0232800637625266,
+          "y": -0.16598497723380318,
+          "z": 2.6138528350660413
         },
         "camera.rotation": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        },
-        "camera.anchor": "55a33191-0b05-4930-8202-47a1410cde54"
+          "x": 0.06341688458178123,
+          "y": 0.8569055703891165,
+          "z": -0.04795930579660823
+        }
       },
       "events": {},
       "chains": [],
@@ -273,7 +272,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "E4D4D770-A86C-437D-861C-F74E9FF2A47C",
+              "image": "F14C25F0-D94A-420A-B194-30E34793DB4A",
               "mapping": 300,
               "repeat": [
                 10,
@@ -313,7 +312,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "6427F610-24EB-42F7-A8D0-1EF368952CB0",
+              "image": "BF910FC6-CCCB-40CD-A02E-F61B3C870948",
               "mapping": 300,
               "repeat": [
                 10,
@@ -353,7 +352,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "9FB76FBB-A909-4C7B-9FE3-2E6F78CCD528",
+              "image": "77E64FEB-91BF-468F-B706-031FC504E2F3",
               "mapping": 300,
               "repeat": [
                 10,
@@ -393,7 +392,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "4D51B54A-C55F-4C43-8E17-27EE104BEC25",
+              "image": "64BE2A25-757C-4A4A-9291-C1C6018DA80C",
               "mapping": 300,
               "repeat": [
                 1,
@@ -535,7 +534,7 @@
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB",
       "properties": {
         "name": "scene",
-        "sky.color": "#bfd1e5",
+        "sky.color": "rgba(197, 213, 237, 1)",
         "ground.visible": false,
         "ground.material": "02232F8B-E112-418D-8FAC-0361A734E2B8",
         "light.on": false,
@@ -553,8 +552,8 @@
           "y": 10,
           "z": 0
         },
-        "ambient.on": false,
-        "ambient.color": "rgba(152, 153, 144, 1)",
+        "ambient.on": true,
+        "ambient.color": "rgba(255, 255, 255, 1)",
         "wind.force": {
           "x": 0.1,
           "y": 0.02,
@@ -1214,7 +1213,8 @@
         },
         "material": "3F81E9D5-A52F-4BDC-860E-0F6A5B62AB9B",
         "visible": true,
-        "scale": 0.3
+        "scale": 0.5,
+        "texture": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2"
       },
       "events": {
         "clone": []

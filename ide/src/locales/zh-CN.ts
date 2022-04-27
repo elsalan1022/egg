@@ -178,6 +178,7 @@ export default {
       widthSegments: '宽度分段',
       heightSegments: '高度分段',
       scale: '缩放',
+      texture: '纹理',
     },
     texture: {
       offset: '偏移',

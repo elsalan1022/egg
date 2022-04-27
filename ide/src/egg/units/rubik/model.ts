@@ -43,15 +43,12 @@ export class RubikCubeModel extends RubikCube {
     const cubeletModel = new THREE.Mesh(geometry, materials) as CubeletModel;
     const color = info.color as any;
     for (const key of Object.keys(color)) {
-      // const planes = new THREE.Group();
       const planeGeometry = roundedPlane(0, 0, 0.9, 0.9, 0.1);
-      const planeMaterial = new THREE.MeshLambertMaterial({ emissive: color[key], transparent: true });
+      const planeMaterial = new THREE.MeshStandardMaterial({ color: color[key], side: THREE.DoubleSide });
       const plane = new THREE.Mesh(planeGeometry, planeMaterial);
       plane.rotation.fromArray(faceInfo[key].rotation);
       plane.position.fromArray(faceInfo[key].position);
       plane.name = 'face';
-      // const mplane = plane.clone();
-      // planes.add(plane);
       cubeletModel.attach(plane);
     }
     return cubeletModel;

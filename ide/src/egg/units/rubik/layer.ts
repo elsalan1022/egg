@@ -43,14 +43,15 @@ export class LayerModel extends THREE.Group {
 
       this.remove(obj);
 
-      position.x = parseFloat((position.x).toFixed(15));
-      position.y = parseFloat((position.y).toFixed(15));
-      position.z = parseFloat((position.z).toFixed(15));
+      position.x = parseFloat((position.x / this.scale.x).toFixed(15));
+      position.y = parseFloat((position.y / this.scale.y).toFixed(15));
+      position.z = parseFloat((position.z / this.scale.z).toFixed(15));
 
       if (this.debug) {
         setOpacity(obj as THREE.Mesh, 1);
       }
-      // obj.position.copy(position);
+
+      obj.position.copy(position);
       obj.quaternion.copy(quaternion);
 
       target.add(obj);

@@ -16,7 +16,7 @@ class Runtime extends Phynit {
   static clsname: ClsName = 'rubik';
   static clsid = '2e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f9f';
   model: RubikCubeModel;
-  layerGroup = new LayerModel(true);
+  layerGroup = new LayerModel(false);
   constructor(uuid?: string, parent?: runtime.Unit) {
     const model = new RubikCubeModel();
     super(uuid, parent, { object: model.group });
@@ -37,7 +37,11 @@ class Runtime extends Phynit {
     return v;
   }
   set({ name, value }: { name: string; value: any; }): void {
-    super.set({ name, value });
+    if (name === 'texture') {
+      super.set({ name, value: value?.uuid || value });
+    } else {
+      super.set({ name, value });
+    }
     if (name === 'material') {
       // is uuid
       const mat = typeof value === 'string' ? this.getMaterialFromId(value) : (value ?? new THREE.MeshPhongMaterial({ color: '#333', depthWrite: false, transparent: true }));
@@ -48,6 +52,15 @@ class Runtime extends Phynit {
       this.layerGroup.scale.set(value, value, value);
     } else if (name === 'position') {
       this.layerGroup.position.set(value.x, value.y, value.z);
+    } else if (name === 'texture') {
+      // is uuid
+      const text = typeof value === 'string' ? this.getTextureFromId(value) : value;
+      for (const cube of this.model.group.children) {
+        for (const plane of cube.children) {
+          ((plane as THREE.Mesh).material as THREE.MeshStandardMaterial).bumpMap = text;
+          ((plane as THREE.Mesh).material as THREE.MeshStandardMaterial).needsUpdate = true;
+        }
+      }
     }
   }
   async random() {
@@ -77,7 +90,7 @@ class Runtime extends Phynit {
     scene.scene.remove(this.layerGroup);
   }
   update(delta: number, now: number, scene: Scene, wolrd: any): void {
-    TWEEN.update(now);
+    TWEEN.update();
   }
   private async rotationTransition(axis: Axis, endRad: number) {
     await this.layerGroup.rotationAnimation(axis, endRad);
@@ -96,6 +109,10 @@ export class Decoration extends PhynitUnit<Runtime> {
       scale: makeProperty(instance, {
         name: 'scale',
         type: 'number'
+      }),
+      texture: makeProperty(instance, {
+        name: 'texture',
+        type: 'texture'
       }),
     };
     for (const iterator of Object.entries(props)) {

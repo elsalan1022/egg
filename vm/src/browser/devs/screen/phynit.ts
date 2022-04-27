@@ -88,6 +88,9 @@ export class VisRuntime<T extends THREE.Object3D = THREE.Object3D> extends UnitR
   getMaterialFromId(id: string): THREE.Material | null {
     return gScreen.getMaterialFromId(id);
   }
+  getTextureFromId(id: string): THREE.Texture | null {
+    return gScreen.getTextureFromId(id);
+  }
 }
 
 export class VisUnit<T extends VisRuntime> extends UnitImpl {

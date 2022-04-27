@@ -210,3 +210,17 @@ export function cloneBlock(block: runtime.Block | any, from: runtime.Unit, to: r
     execute: block.execute,
   };
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function debounce(func: Function, delay = 200) {
+  const timer: number = (func as any)._debounce_timer_;
+  return function (...args: any[]) {
+    if (timer) {
+      window.clearTimeout(timer);
+    }
+    (func as any)._debounce_timer_ = window.setTimeout(() => {
+      delete (func as any)._debounce_timer_;
+      func(args);
+    }, delay);
+  };
+}
