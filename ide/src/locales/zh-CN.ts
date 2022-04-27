@@ -29,6 +29,7 @@ export default {
     stopSound: '停止音效',
     repeat: '重复',
     run: '跑步',
+    random: '随机',
     say: '说话',
     scale: '缩放',
     set: '设置',
@@ -178,7 +179,15 @@ export default {
       widthSegments: '宽度分段',
       heightSegments: '高度分段',
       scale: '缩放',
+      scene: '场景',
       texture: '纹理',
+      camera: {
+        position: '设置相机位置',
+        rotation: '设置相机角度',
+        anchor: '设置相机锚点',
+      },
+      confidence: '置信度',
+      current: '当前值',
     },
     texture: {
       offset: '偏移',

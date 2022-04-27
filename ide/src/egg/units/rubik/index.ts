@@ -3,12 +3,12 @@ import * as THREE from 'three';
 import TWEEN from '@tweenjs/tween.js';
 import { Phynit, PhynitUnit } from 'egg/src/browser/devs/screen/phynit';
 import { Scene } from 'egg/src/browser/devs/screen/scene';
-import { BlockConstructor, Egg, Property, runtime, Unit, } from 'egg';
-import { makeProperty } from 'egg/src/utils';
+import { BlockConstructor, Egg, Property, runtime, Slot, Unit, } from 'egg';
+import { makeNamesSlotData, makeProperty, makeSlot } from 'egg/src/utils';
 import { RubikCubeModel } from './model';
 import { LayerModel } from './layer';
 import { ActionBase } from 'egg/src/unit';
-import { randomNotation, toRotation } from './utils';
+import { bases, randomNotation, toRotation } from './utils';
 import { Axis } from './types';
 
 class Runtime extends Phynit {
@@ -83,6 +83,15 @@ class Runtime extends Phynit {
       i++;
     }
   }
+  async move({ name, step }: { name: string; step: string }) {
+    const notation = `${name}${step}`;
+
+    const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
+    this.model.move(notation);
+
+    this.layerGroup.group(layerRorationAxis, axisValue, this.model.group.children);
+    await this.rotationTransition(layerRorationAxis, rotationRad);
+  }
   onWorldSetup(scene: Scene, wolrd: any): void {
     scene.scene.add(this.layerGroup);
   }
@@ -104,6 +113,10 @@ export class Decoration extends PhynitUnit<Runtime> {
   static tags: string[] = ['shape', '3d'];
   constructor(egg: Egg, instance: Runtime, parent: Unit) {
     super(egg, instance, parent);
+
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const unit = this;
+
     // properties
     const props: Record<string, Property> = {
       scale: makeProperty(instance, {
@@ -125,6 +138,40 @@ export class Decoration extends PhynitUnit<Runtime> {
       random: class extends ActionBase {
         constructor(callee: Unit) {
           super(callee, 'random');
+        }
+      },
+      move: class extends ActionBase {
+        slots: Record<string, Slot> = {
+          name: makeSlot({
+            name: 'name',
+            data: makeNamesSlotData(unit, {}, () => {
+              return bases;
+            }),
+            required: true,
+          }),
+          step: makeSlot({
+            name: 'step',
+            data: {
+              type: 'string',
+              values: [
+                {
+                  value: '',
+                  label: 'step-1',
+                },
+                {
+                  value: '2',
+                  label: 'step-2',
+                },
+                {
+                  value: `'`,
+                  label: 'back-1',
+                },
+              ]
+            },
+          }),
+        };
+        constructor(callee: Unit) {
+          super(callee, 'move');
         }
       },
     };

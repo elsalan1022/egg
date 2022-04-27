@@ -107,7 +107,7 @@ export function toRotation(notation: string): [Axis, number, number] {
   return [axis, axisValue, rad];
 }
 
-const bases = ['L', 'M', 'R', 'D', 'E', 'U', 'B', 'S', 'F'];
+export const bases = ['L', 'M', 'R', 'D', 'E', 'U', 'B', 'S', 'F'];
 const extras = ['', `'`, '2', '', `'`];
 export function randomNotation() {
   const base = randomChoice(bases);

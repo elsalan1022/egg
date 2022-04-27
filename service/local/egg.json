@@ -129,14 +129,14 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 3.0232800637625266,
-          "y": -0.16598497723380318,
-          "z": 2.6138528350660413
+          "x": 1.8396618097419908,
+          "y": 1.8761621459241205,
+          "z": 3.0159011966538283
         },
         "camera.rotation": {
-          "x": 0.06341688458178123,
-          "y": 0.8569055703891165,
-          "z": -0.04795930579660823
+          "x": -0.5565040344974258,
+          "y": 0.4778999809513242,
+          "z": 0.27866438815626315
         }
       },
       "events": {},
@@ -272,7 +272,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "F14C25F0-D94A-420A-B194-30E34793DB4A",
+              "image": "F26548F8-A2DC-4311-86A6-778AE00AD0EB",
               "mapping": 300,
               "repeat": [
                 10,
@@ -312,7 +312,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "BF910FC6-CCCB-40CD-A02E-F61B3C870948",
+              "image": "2B882A49-7718-4108-B5AA-A15A67DCF761",
               "mapping": 300,
               "repeat": [
                 10,
@@ -352,7 +352,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "77E64FEB-91BF-468F-B706-031FC504E2F3",
+              "image": "118D2357-1A16-43A8-BA91-12020484F4A8",
               "mapping": 300,
               "repeat": [
                 10,
@@ -392,7 +392,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "64BE2A25-757C-4A4A-9291-C1C6018DA80C",
+              "image": "EBCD5438-3954-4447-B29B-13A6EDD40896",
               "mapping": 300,
               "repeat": [
                 1,
@@ -1225,11 +1225,20 @@
           "unit": "9f8b3d31-af89-4b4c-a135-0176001e8436",
           "blocks": [
             {
-              "id": "02068f6a-ec40-4753-9e8d-fd6f9ba6b001",
+              "id": "e73bc8fe-ebcd-491a-bc04-e30cc1afdb47",
               "type": "block",
               "unit": "9f8b3d31-af89-4b4c-a135-0176001e8436",
-              "action": "random",
-              "slots": {}
+              "action": "move",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "L"
+                },
+                "step": {
+                  "type": "data",
+                  "value": ""
+                }
+              }
             }
           ],
           "bound": {
