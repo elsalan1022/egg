@@ -9,6 +9,7 @@ export default {
     die: '消失',
     do: '执行',
     delayExecute: '延迟',
+    check: '检查',
     close: '关闭',
     else: '否则',
     equal: '判断',

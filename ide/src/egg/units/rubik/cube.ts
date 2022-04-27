@@ -30,12 +30,14 @@ export interface Cubelet {
   color?: { [index: string]: string },
 }
 
+const clrsTable = 'UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB';
+
 export class RubikCube {
   cubelets: Cubelet[] = [];
   colors: string[];
   constructor(colorStr?: string) {
     if (!colorStr) {
-      colorStr = 'UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB';
+      colorStr = clrsTable;
     }
     this.colors = colorStr.trim().split('');
 
@@ -167,5 +169,9 @@ export class RubikCube {
     } else {
       throw new Error(`Wrong toward: ${toward}`);
     }
+  }
+
+  check() {
+    return this.colors.join('') === clrsTable;
   }
 }

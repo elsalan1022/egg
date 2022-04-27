@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import TWEEN from '@tweenjs/tween.js';
 import { Phynit, PhynitUnit } from 'egg/src/browser/devs/screen/phynit';
 import { Scene } from 'egg/src/browser/devs/screen/scene';
-import { BlockConstructor, Egg, Property, runtime, Slot, Unit, } from 'egg';
+import { BlockConstructor, Egg, NativeData, Property, runtime, Slot, Unit, } from 'egg';
 import { makeNamesSlotData, makeProperty, makeSlot } from 'egg/src/utils';
 import { RubikCubeModel } from './model';
 import { LayerModel } from './layer';
@@ -92,6 +92,9 @@ class Runtime extends Phynit {
     this.layerGroup.group(layerRorationAxis, axisValue, this.model.group.children);
     await this.rotationTransition(layerRorationAxis, rotationRad);
   }
+  check(): boolean {
+    return this.model.check();
+  }
   onWorldSetup(scene: Scene, wolrd: any): void {
     scene.scene.add(this.layerGroup);
   }
@@ -172,6 +175,17 @@ export class Decoration extends PhynitUnit<Runtime> {
         };
         constructor(callee: Unit) {
           super(callee, 'move');
+        }
+      },
+      check: class extends ActionBase {
+        output: NativeData = {
+          type: 'boolean',
+          name: '.',
+          label: 'result',
+          description: 'result-desc',
+        };
+        constructor(callee: Unit) {
+          super(callee, 'check');
         }
       },
     };
