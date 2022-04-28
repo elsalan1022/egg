@@ -12,6 +12,7 @@ export namespace gclsids {
   export const scene = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB';
   export const pose = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC';
   export const joystick = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD';
+  export const mouse = '9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CE';
 
   // flow clsid for unit in scene
   export const box = '9E8B8E0E-B7B2-4E8E-A801-000000000001';
@@ -20,4 +21,5 @@ export namespace gclsids {
   export const text = '9E8B8E0E-B7B2-4E8E-A801-000000000004';
   export const bulb = '9E8B8E0E-B7B2-4E8E-A801-000000000005';
   export const cloth = '9E8B8E0E-B7B2-4E8E-A801-000000000006';
+  export const cube = '9E8B8E0E-B7B2-4E8E-A801-000000000007';
 }

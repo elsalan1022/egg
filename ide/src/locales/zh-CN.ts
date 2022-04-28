@@ -9,6 +9,7 @@ export default {
     die: '消失',
     do: '执行',
     delayExecute: '延迟',
+    check: '检查',
     close: '关闭',
     else: '否则',
     equal: '判断',
@@ -29,6 +30,7 @@ export default {
     stopSound: '停止音效',
     repeat: '重复',
     run: '跑步',
+    random: '随机',
     say: '说话',
     scale: '缩放',
     set: '设置',
@@ -76,6 +78,8 @@ export default {
     down: '按下',
     up: '弹起',
     axis: '轴位置',
+    mousedown: '鼠标按下',
+    mouseup: '鼠标抬起',
   },
   // name
   nm: {
@@ -86,6 +90,7 @@ export default {
     camera: '相机',
     cube: '立方体',
     chick: 'EGG',
+    cloth: '布料',
     death: '死亡',
     default: '默认',
     device: '设备',
@@ -103,6 +108,7 @@ export default {
     material: '材质',
     math: '数学',
     millisecond: '毫秒',
+    mouse: '鼠标',
     name: '名称',
     plane: '平面',
     pose: '姿势',
@@ -113,6 +119,7 @@ export default {
     second: '秒',
     scene: '场景',
     screen: '屏幕',
+    skeleton: '骨骼',
     speech: '语音',
     sphere: '球体',
     spot: '点光源',
@@ -129,6 +136,7 @@ export default {
     victory: 'V字形',
     unit: '对象',
     wind: '风',
+    rubik: '魔方',
   },
   // property
   pr: {
@@ -177,6 +185,16 @@ export default {
       },
       widthSegments: '宽度分段',
       heightSegments: '高度分段',
+      scale: '缩放',
+      scene: '场景',
+      texture: '纹理',
+      camera: {
+        position: '设置相机位置',
+        rotation: '设置相机角度',
+        anchor: '设置相机锚点',
+      },
+      confidence: '置信度',
+      current: '当前值',
     },
     texture: {
       offset: '偏移',

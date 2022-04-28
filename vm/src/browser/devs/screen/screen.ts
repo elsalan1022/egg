@@ -9,7 +9,7 @@ import { Phynit, Phynit2D } from './phynit';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
 import { gclsids } from '../../../clsids';
-import { makeProperty, makeSlot } from '../../../utils';
+import { debounce, makeProperty, makeSlot } from '../../../utils';
 import { DevRuntime, DevUnit } from '../../../devs/base';
 import { MaterialLoader, TextureLoader } from 'three';
 import { Scene, Decoration as SceneDecoration } from './scene';
@@ -369,6 +369,9 @@ export class Screen extends DevRuntime {
     const it = Object.values(this.textures).find(e => e.name === name);
     return it?.value;
   }
+  getTextureFromId(id: string): THREE.Texture | null {
+    return (this.textures[id] || {}).value;
+  }
   async addTexture(name: string) {
     const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${name}`);
     const info = {
@@ -466,7 +469,7 @@ export class Decoration extends DevUnit {
   protected orbit: OrbitControls;
   protected controls: TransformControls;
   protected axesHelper: THREE.AxesHelper;
-  protected cbChanged?: (unit: Unit) => void;
+  protected cbChanged?: (unit?: Unit) => void;
   constructor(egg: Egg, instance: runtime.Unit) {
     super(egg, instance);
     const ins = this.instance as any as Screen;
@@ -487,8 +490,14 @@ export class Decoration extends DevUnit {
 
     // orbit
     this.orbit = new OrbitControls(camera, renderer.domElement);
-    this.orbit.addEventListener('change', (ins as any).render.bind(ins));
-    this.orbit.maxPolarAngle = Math.PI / 2;
+    this.orbit.addEventListener('change', () => {
+      instance.properties['camera.position'] = { x: camera.position.x, y: camera.position.y, z: camera.position.z };
+      instance.properties['camera.rotation'] = { x: camera.rotation.x, y: camera.rotation.y, z: camera.rotation.z };
+      if (this.cbChanged) {
+        debounce(this.cbChanged, 100)();
+      }
+    });
+    // this.orbit.maxPolarAngle = Math.PI / 2;
     this.orbit.enableZoom = false;
     this.orbit.enablePan = false;
     this.orbit.enableDamping = false;
@@ -625,7 +634,7 @@ export class Decoration extends DevUnit {
     }
   }
 
-  setupObsever(cb: (unit: Unit) => void) {
+  setupObsever(cb: (unit?: Unit) => void) {
     this.cbChanged = cb;
   }
 
