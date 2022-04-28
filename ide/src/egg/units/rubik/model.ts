@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import TWEEN from '@tweenjs/tween.js';
 import { RubikCube, Cubelet } from './cube';
 import { roundedEdgeBox, roundedPlane } from './geometries';
 
@@ -24,8 +25,10 @@ export interface CubeletModel extends THREE.Mesh {
 
 export class RubikCubeModel extends RubikCube {
   group = new THREE.Group();
+  tracker = new THREE.Mesh(new THREE.BoxGeometry(3.2, 3.2, 1), new THREE.MeshPhongMaterial({ color: 0x16ee16, opacity: 0.5, transparent: true }));
   constructor(fb?: string) {
     super(fb);
+    this.group.add(this.tracker);
     for (const cubeInfo of this.cubelets) {
       const cubeletModel = this.generateCubeletModel(cubeInfo);
       cubeletModel.name = 'cubelet';
@@ -33,8 +36,37 @@ export class RubikCubeModel extends RubikCube {
       cubeletModel.num = cubeInfo.num;
       cubeletModel.position.set(cubeInfo.x, cubeInfo.y, cubeInfo.z);
       cubeletModel.initPosition = new THREE.Vector3().set(cubeInfo.x, cubeInfo.y, cubeInfo.z);
+      cubeInfo.mesh = cubeletModel;
       this.group.add(cubeletModel);
     }
+  }
+
+  async rotate(step: number) {
+    // this.group.rotation.y += step * Math.PI / 2;
+    this.tracker.rotation.y -= step * Math.PI / 2;
+
+    const current = { value: this.group.rotation.y };
+    const end = { value: this.group.rotation.y + step * Math.PI / 2 };
+    const time = 500;
+
+    return new Promise((resolve, reject) => {
+      try {
+        new TWEEN.Tween(current)
+          .to(end, time)
+          .easing(TWEEN.Easing.Quadratic.Out)
+          .onUpdate(() => {
+            this.group.rotation.y = current.value;
+            // Updates the global transform If you need to get rotation immediately
+            // this.updateWorldMatrix(false, false);
+          })
+          .onComplete(resolve)
+          // Parameter 'undefined' is needed in version 18.6.0
+          // Reference: https://github.com/tweenjs/tween.js/pull/550
+          .start(undefined);
+      } catch (err) {
+        reject(err);
+      }
+    });
   }
 
   generateCubeletModel(info: Cubelet) {

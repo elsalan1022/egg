@@ -28,6 +28,7 @@ export interface Cubelet {
   num: number,
   type: string,
   color?: { [index: string]: string },
+  mesh: THREE.Mesh,
 }
 
 const clrsTable = 'UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB';
@@ -56,7 +57,7 @@ export class RubikCube {
           if (n === 2) type = 'edge'; // Edge block
           if (n === 1) type = 'center'; // Center block
 
-          this.cubelets.push({ x, y, z, num, type });
+          this.cubelets.push({ x, y, z, num, type, mesh: null as any });
           num++;
         }
       }

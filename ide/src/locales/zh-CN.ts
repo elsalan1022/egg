@@ -75,6 +75,8 @@ export default {
     say: '人有说话',
     start: '开始',
     stop: '停止',
+    mousedown: '鼠标按下',
+    mouseup: '鼠标抬起',
   },
   // name
   nm: {
@@ -103,6 +105,7 @@ export default {
     material: '材质',
     math: '数学',
     millisecond: '毫秒',
+    mouse: '鼠标',
     name: '名称',
     plane: '平面',
     pose: '姿势',

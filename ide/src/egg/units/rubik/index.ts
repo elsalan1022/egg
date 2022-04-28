@@ -28,7 +28,7 @@ class Runtime extends Phynit {
       return v;
     }
     if (name === 'material') {
-      const mesh = this.model.group.children[0] as THREE.Mesh;
+      const mesh = this.model.group.children[1] as THREE.Mesh;
       if (!mesh.isMesh) {
         return;
       }
@@ -45,8 +45,8 @@ class Runtime extends Phynit {
     if (name === 'material') {
       // is uuid
       const mat = typeof value === 'string' ? this.getMaterialFromId(value) : (value ?? new THREE.MeshPhongMaterial({ color: '#333', depthWrite: false, transparent: true }));
-      for (const cube of this.model.group.children) {
-        (cube as THREE.Mesh).material = mat;
+      for (const { mesh } of this.model.cubelets) {
+        mesh.material = mat;
       }
     } else if (name === 'scale') {
       this.layerGroup.scale.set(value, value, value);
@@ -55,8 +55,8 @@ class Runtime extends Phynit {
     } else if (name === 'texture') {
       // is uuid
       const text = typeof value === 'string' ? this.getTextureFromId(value) : value;
-      for (const cube of this.model.group.children) {
-        for (const plane of cube.children) {
+      for (const { mesh } of this.model.cubelets) {
+        for (const plane of mesh.children) {
           const mat = (plane as THREE.Mesh).material as THREE.MeshStandardMaterial;
           mat.bumpMap = text;
           mat.bumpScale = 1;
@@ -80,7 +80,7 @@ class Runtime extends Phynit {
       const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
       this.model.move(notation);
 
-      this.layerGroup.group(layerRorationAxis, axisValue, this.model.group.children);
+      this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubelets.map(e => e.mesh));
       await this.rotationTransition(layerRorationAxis, rotationRad);
       i++;
     }
@@ -91,8 +91,11 @@ class Runtime extends Phynit {
     const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
     this.model.move(notation);
 
-    this.layerGroup.group(layerRorationAxis, axisValue, this.model.group.children);
+    this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubelets.map(e => e.mesh));
     await this.rotationTransition(layerRorationAxis, rotationRad);
+  }
+  async rotate({ step }: { step: number }) {
+    this.model.rotate(step);
   }
   check(): boolean {
     return this.model.check();
@@ -177,6 +180,20 @@ export class Decoration extends PhynitUnit<Runtime> {
         };
         constructor(callee: Unit) {
           super(callee, 'move');
+        }
+      },
+      rotate: class extends ActionBase {
+        slots: Record<string, Slot> = {
+          step: makeSlot({
+            name: 'step',
+            data: {
+              type: 'number',
+              values: [1, 2, 3]
+            },
+          }),
+        };
+        constructor(callee: Unit) {
+          super(callee, 'rotate');
         }
       },
       check: class extends ActionBase {

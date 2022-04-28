@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7206140",
+      "name": "Mouse",
+      "font_class": "mouse",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
       "icon_id": "1226737",
       "name": "time",
       "font_class": "time",
@@ -207,6 +214,13 @@
       "font_class": "unit",
       "unicode": "efd6",
       "unicode_decimal": 61398
+    },
+    {
+      "icon_id": "29382179",
+      "name": "立方体,正方形,应用",
+      "font_class": "cube",
+      "unicode": "efd9",
+      "unicode_decimal": 61401
     },
     {
       "icon_id": "24874765",
