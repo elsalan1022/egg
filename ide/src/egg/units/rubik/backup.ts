@@ -5,7 +5,7 @@ import { Phynit, PhynitUnit } from 'egg/src/browser/devs/screen/phynit';
 import { Scene } from 'egg/src/browser/devs/screen/scene';
 import { BlockConstructor, Egg, NativeData, Property, runtime, Slot, Unit, } from 'egg';
 import { makeNamesSlotData, makeProperty, makeSlot } from 'egg/src/utils';
-import { RubikCubeModel } from './model';
+import { RubikCubeModel } from './model-bk';
 import { LayerModel } from './layer';
 import { ActionBase } from 'egg/src/unit';
 import { bases, randomNotation, toRotation } from './utils';
@@ -28,7 +28,7 @@ class Runtime extends Phynit {
       return v;
     }
     if (name === 'material') {
-      const mesh = this.model.cubes[0] as THREE.Mesh;
+      const mesh = this.model.group.children[1] as THREE.Mesh;
       if (!mesh.isMesh) {
         return;
       }
@@ -45,7 +45,7 @@ class Runtime extends Phynit {
     if (name === 'material') {
       // is uuid
       const mat = typeof value === 'string' ? this.getMaterialFromId(value) : (value ?? new THREE.MeshPhongMaterial({ color: '#333', depthWrite: false, transparent: true }));
-      for (const mesh of this.model.cubes) {
+      for (const { mesh } of this.model.cubelets) {
         mesh.material = mat;
       }
     } else if (name === 'scale') {
@@ -55,7 +55,7 @@ class Runtime extends Phynit {
     } else if (name === 'texture') {
       // is uuid
       const text = typeof value === 'string' ? this.getTextureFromId(value) : value;
-      for (const mesh of this.model.cubes) {
+      for (const { mesh } of this.model.cubelets) {
         for (const plane of mesh.children) {
           const mat = (plane as THREE.Mesh).material as THREE.MeshStandardMaterial;
           mat.bumpMap = text;
@@ -77,9 +77,9 @@ class Runtime extends Phynit {
       lastNotation = notation;
 
       const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
-      // this.model.move(notation);
+      this.model.move(notation);
 
-      this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
+      this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubelets.map(e => e.mesh));
       await this.rotationTransition(layerRorationAxis, rotationRad);
       i++;
     }
@@ -90,15 +90,14 @@ class Runtime extends Phynit {
     const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
     // this.model.move(notation);
 
-    this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
+    this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubelets.map(e => e.mesh));
     await this.rotationTransition(layerRorationAxis, rotationRad);
   }
   async rotate({ step }: { step: number }) {
-    this.model.rotateX(step);
+    this.model.rotate(step);
   }
   check(): boolean {
-    // return this.model.check();
-    return true;
+    return this.model.check();
   }
   onWorldSetup(scene: Scene, wolrd: any): void {
     scene.scene.add(this.layerGroup);
