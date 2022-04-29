@@ -6,7 +6,7 @@ import { Scene } from 'egg/src/browser/devs/screen/scene';
 import { BlockConstructor, Egg, NativeData, Property, runtime, Slot, Unit, } from 'egg';
 import { makeNamesSlotData, makeProperty, makeSlot } from 'egg/src/utils';
 import { RubikCubeModel } from './model';
-import { LayerModel } from './layer';
+// import { LayerModel } from './layer';
 import { ActionBase } from 'egg/src/unit';
 import { bases, randomNotation, toRotation } from './utils';
 import { Axis } from './types';
@@ -16,7 +16,7 @@ class Runtime extends Phynit {
   static clsname: ClsName = 'rubik';
   static clsid = '2e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f9f';
   model: RubikCubeModel;
-  layerGroup = new LayerModel(false);
+  // layerGroup = new LayerModel(false);
   constructor(uuid?: string, parent?: runtime.Unit) {
     const model = new RubikCubeModel();
     super(uuid, parent, { object: model.group });
@@ -48,10 +48,10 @@ class Runtime extends Phynit {
       for (const mesh of this.model.cubes) {
         mesh.material = mat;
       }
-    } else if (name === 'scale') {
-      this.layerGroup.scale.set(value, value, value);
-    } else if (name === 'position') {
-      this.layerGroup.position.set(value.x, value.y, value.z);
+      // } else if (name === 'scale') {
+      //   this.layerGroup.scale.set(value, value, value);
+      // } else if (name === 'position') {
+      //   this.layerGroup.position.set(value.x, value.y, value.z);
     } else if (name === 'texture') {
       // is uuid
       const text = typeof value === 'string' ? this.getTextureFromId(value) : value;
@@ -79,7 +79,7 @@ class Runtime extends Phynit {
       const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
       // this.model.move(notation);
 
-      this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
+      // this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
       await this.rotationTransition(layerRorationAxis, rotationRad);
       i++;
     }
@@ -102,18 +102,18 @@ class Runtime extends Phynit {
     return true;
   }
   onWorldSetup(scene: Scene, wolrd: any): void {
-    scene.scene.add(this.layerGroup);
+    // scene.scene.add(this.layerGroup);
   }
   onWorldTeardown(scene: Scene, wolrd: any): void {
-    scene.scene.remove(this.layerGroup);
+    // scene.scene.remove(this.layerGroup);
   }
   update(delta: number, now: number, scene: Scene, wolrd: any): void {
     TWEEN.update();
   }
   private async rotationTransition(axis: Axis, endRad: number) {
-    await this.layerGroup.rotationAnimation(axis, endRad);
-    this.layerGroup.ungroup(this.model.group);
-    this.layerGroup.initRotation();
+    // await this.layerGroup.rotationAnimation(axis, endRad);
+    // this.layerGroup.ungroup(this.model.group);
+    // this.layerGroup.initRotation();
   }
 }
 

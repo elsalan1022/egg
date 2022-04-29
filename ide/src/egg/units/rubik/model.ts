@@ -1,22 +1,23 @@
 import * as THREE from 'three';
 import TWEEN from '@tweenjs/tween.js';
-import { generateCoords, faceColorTable } from './cube';
+import { generateCoords, } from './cube';
 import { roundedEdgeBox, roundedPlane } from './geometries';
-import { Axis, CubeInfo, CudeType, FaceName, NotationBase } from './types';
+import { Axis, Colors, CubeInfo, CudeType, FaceName, NotationBase } from './types';
 
 const faceInfo: {
   [index: string]: {
     position: [number, number, number];
     rotation: [number, number, number];
     name: FaceName;
+    color: Colors;
   }
 } = {
-  U: { position: [0, 0.51, 0], rotation: [-Math.PI / 2, 0, 0], name: 'up' },
-  D: { position: [0, -0.51, 0], rotation: [Math.PI / 2, 0, 0], name: 'down' },
-  F: { position: [0, 0, 0.51], rotation: [0, 0, 0], name: 'front' },
-  B: { position: [0, 0, -0.51], rotation: [Math.PI, 0, 0], name: 'back' },
-  L: { position: [-0.51, 0, 0], rotation: [0, -Math.PI / 2, 0], name: 'left' },
-  R: { position: [0.51, 0, 0], rotation: [0, Math.PI / 2, 0], name: 'right' },
+  U: { position: [0, 0.51, 0], rotation: [-Math.PI / 2, 0, 0], name: 'up', color: Colors.White },
+  D: { position: [0, -0.51, 0], rotation: [Math.PI / 2, 0, 0], name: 'down', color: Colors.Yellow },
+  F: { position: [0, 0, 0.51], rotation: [0, 0, 0], name: 'front', color: Colors.Green },
+  B: { position: [0, 0, -0.51], rotation: [Math.PI, 0, 0], name: 'back', color: Colors.Blue },
+  L: { position: [-0.51, 0, 0], rotation: [0, -Math.PI / 2, 0], name: 'left', color: Colors.Orange },
+  R: { position: [0.51, 0, 0], rotation: [0, Math.PI / 2, 0], name: 'right', color: Colors.Red },
 };
 
 type RotateTask = {
@@ -73,11 +74,11 @@ export class RubikCubeModel {
         const planeGeometry = roundedPlane(0, 0, 0.9, 0.9, 0.1);
         const planeMaterial = new THREE.MeshStandardMaterial({ color: color[key], side: THREE.DoubleSide, bumpScale: 0.05 });
         const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-        plane.userData.color = faceColorTable[key];
         const clrInfo = faceInfo[key];
         plane.rotation.fromArray(clrInfo.rotation);
         plane.position.fromArray(clrInfo.position);
         plane.name = 'face';
+        plane.userData.color = clrInfo.color;
         mesh.attach(plane);
         this.faces[clrInfo.name].push(plane);
         this.faces.all.push(plane);
@@ -90,6 +91,17 @@ export class RubikCubeModel {
     }
   }
 
+  check() {
+    for (const faces of [this.faces.up, this.faces.down, this.faces.front, this.faces.back, this.faces.left, this.faces.right]) {
+      const color = faces[0].userData.color;
+      for (let index = 1; index < faces.length; index++) {
+        if (faces[index].userData.color !== color) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
   /**
    *
    * @param step  rad = step * Math.PI / 2, counterclockwise if step > 0
@@ -98,7 +110,7 @@ export class RubikCubeModel {
   async rotateWithName(name: NotationBase, step: number) {
     const stepLocal = (4 + step % 4) % 4;
     const faceName = (faceInfo[name] || {} as any).name;
-    const cubes = this.faces[faceName] || [];
+    const faces = this.faces[faceName] || [];
     const facesUpdate: Array<THREE.Mesh[]> = [];
     let axis: Axis = 'x';
 
@@ -111,41 +123,47 @@ export class RubikCubeModel {
         if (this.faces.left.includes(iterator) || this.faces.right.includes(iterator)) {
           continue;
         }
-        cubes.push(iterator);
+        faces.push(iterator);
       }
     } else if (name === 'R') {
       facesUpdate.push(this.faces.up, this.faces.front, this.faces.down, this.faces.back);
     } else if (name === 'U') {
+      axis = 'y';
       facesUpdate.push(this.faces.left, this.faces.front, this.faces.right, this.faces.back);
     } else if (name === 'E') {
-      facesUpdate.push(this.faces.left, this.faces.front, this.faces.right, this.faces.back);
       axis = 'y';
+      facesUpdate.push(this.faces.left, this.faces.front, this.faces.right, this.faces.back);
       for (const iterator of this.faces.all) {
         if (this.faces.up.includes(iterator) || this.faces.down.includes(iterator)) {
           continue;
         }
-        cubes.push(iterator);
+        faces.push(iterator);
       }
     } else if (name === 'D') {
+      axis = 'y';
       facesUpdate.push(this.faces.left, this.faces.back, this.faces.right, this.faces.front);
     } else if (name === 'F') {
+      axis = 'z';
       facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
     } else if (name === 'S') {
-      facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
       axis = 'z';
+      facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
       for (const iterator of this.faces.all) {
         if (this.faces.front.includes(iterator) || this.faces.back.includes(iterator)) {
           continue;
         }
-        cubes.push(iterator);
+        faces.push(iterator);
       }
     } else if (name === 'B') {
+      axis = 'z';
       facesUpdate.push(this.faces.up, this.faces.right, this.faces.down, this.faces.left);
     }
 
+    const cubes = faces.map(iterator => iterator.parent as THREE.Mesh);
+
     for (let index = 0; index < stepLocal; index++) {
       const [f1, f2, f3, f4] = facesUpdate;
-      const [ms1, ms2, ms3, ms4] = facesUpdate.map(face => arrayRemove(face, iterator => cubes.includes(iterator.parent as any)));
+      const [ms1, ms2, ms3, ms4] = facesUpdate.map(face => arrayRemove(face, iterator => cubes.includes(iterator.parent)));
       f1.push(...ms4);
       f2.push(...ms1);
       f3.push(...ms2);
