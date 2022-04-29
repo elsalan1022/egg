@@ -85,13 +85,14 @@ class Runtime extends Phynit {
     }
   }
   async move({ name, step }: { name: string; step: string }) {
-    const notation = `${name}${step}`;
+    this.model.rotateWithName('U', 1);
+    // const notation = `${name}${step}`;
 
-    const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
-    // this.model.move(notation);
+    // const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
+    // // this.model.move(notation);
 
-    this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
-    await this.rotationTransition(layerRorationAxis, rotationRad);
+    // this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
+    // await this.rotationTransition(layerRorationAxis, rotationRad);
   }
   async rotate({ step }: { step: number }) {
     this.model.rotateX(step);

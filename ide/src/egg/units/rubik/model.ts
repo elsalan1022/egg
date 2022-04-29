@@ -27,6 +27,14 @@ type RotateTask = {
   reject: any;
 };
 
+function arrayRemove(arr: Array<any>, filter: (item: any) => boolean) {
+  const removed = arr.filter(filter);
+  for (const iterator of removed) {
+    arr.splice(arr.indexOf(iterator), 1);
+  }
+  return removed;
+}
+
 export class RubikCubeModel {
   group = new THREE.Group();
   tracker = new THREE.Mesh(new THREE.BoxGeometry(3.2, 3.2, 1), new THREE.MeshPhongMaterial({ color: 0x16ee16, opacity: 0.5, transparent: true }));
@@ -91,19 +99,26 @@ export class RubikCubeModel {
     const stepLocal = (4 + step % 4) % 4;
     const faceName = (faceInfo[name] || {} as any).name;
     const cubes = this.faces[faceName] || [];
+    const facesUpdate: Array<THREE.Mesh[]> = [];
     let axis: Axis = 'x';
 
     if (name === 'L') {
-      //
+      facesUpdate.push(this.faces.up, this.faces.back, this.faces.down, this.faces.front);
     }
     else if (name === 'M') {
+      facesUpdate.push(this.faces.up, this.faces.front, this.faces.down, this.faces.back);
       for (const iterator of this.faces.all) {
         if (this.faces.left.includes(iterator) || this.faces.right.includes(iterator)) {
           continue;
         }
         cubes.push(iterator);
       }
+    } else if (name === 'R') {
+      facesUpdate.push(this.faces.up, this.faces.front, this.faces.down, this.faces.back);
+    } else if (name === 'U') {
+      facesUpdate.push(this.faces.left, this.faces.front, this.faces.right, this.faces.back);
     } else if (name === 'E') {
+      facesUpdate.push(this.faces.left, this.faces.front, this.faces.right, this.faces.back);
       axis = 'y';
       for (const iterator of this.faces.all) {
         if (this.faces.up.includes(iterator) || this.faces.down.includes(iterator)) {
@@ -111,7 +126,12 @@ export class RubikCubeModel {
         }
         cubes.push(iterator);
       }
+    } else if (name === 'D') {
+      facesUpdate.push(this.faces.left, this.faces.back, this.faces.right, this.faces.front);
+    } else if (name === 'F') {
+      facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
     } else if (name === 'S') {
+      facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
       axis = 'z';
       for (const iterator of this.faces.all) {
         if (this.faces.front.includes(iterator) || this.faces.back.includes(iterator)) {
@@ -119,14 +139,17 @@ export class RubikCubeModel {
         }
         cubes.push(iterator);
       }
+    } else if (name === 'B') {
+      facesUpdate.push(this.faces.up, this.faces.right, this.faces.down, this.faces.left);
     }
 
     for (let index = 0; index < stepLocal; index++) {
-      const face = this.faces.up;
-      this.faces.up = this.faces.back;
-      this.faces.back = this.faces.down;
-      this.faces.down = this.faces.front;
-      this.faces.front = face;
+      const [f1, f2, f3, f4] = facesUpdate;
+      const [ms1, ms2, ms3, ms4] = facesUpdate.map(face => arrayRemove(face, iterator => cubes.includes(iterator.parent as any)));
+      f1.push(...ms4);
+      f2.push(...ms1);
+      f3.push(...ms2);
+      f4.push(...ms3);
     }
 
     return new Promise((resolve, reject) => {
