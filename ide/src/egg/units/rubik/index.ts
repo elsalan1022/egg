@@ -8,7 +8,7 @@ import { makeNamesSlotData, makeProperty, makeSlot } from 'egg/src/utils';
 import { RubikCubeModel } from './model';
 // import { LayerModel } from './layer';
 import { ActionBase } from 'egg/src/unit';
-import { bases, randomNotation, toRotation } from './utils';
+import { bases, randomChoice, randomNotation, toRotation } from './utils';
 import { Axis } from './types';
 
 class Runtime extends Phynit {
@@ -66,54 +66,44 @@ class Runtime extends Phynit {
   }
   async random() {
     let i = 0;
-    let lastNotation = '';
     const total = 20;
     while (i < total) {
-      const notation = randomNotation();
-
-      if (lastNotation && notation[0] === lastNotation[0]) {
-        continue;
-      }
-      lastNotation = notation;
-
-      const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
-      // this.model.move(notation);
-
-      // this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
-      await this.rotationTransition(layerRorationAxis, rotationRad);
+      const notation = randomChoice(['L', 'R', 'U', 'F', 'D', 'B', 'M', 'E', 'S']);
+      this.model.rotateWithName(notation as any, randomChoice([-1, 1, 2]));
       i++;
     }
+    this.model.clearHistory();
   }
-  async move({ name, step }: { name: string; step: string }) {
-    this.model.rotateWithName('U', 1);
-    // const notation = `${name}${step}`;
-
-    // const [layerRorationAxis, axisValue, rotationRad] = toRotation(notation);
-    // // this.model.move(notation);
-
-    // this.layerGroup.group(layerRorationAxis, axisValue, this.model.cubes);
-    // await this.rotationTransition(layerRorationAxis, rotationRad);
+  async reset() {
+    this.model.reset();
   }
-  async rotate({ step }: { step: number }) {
+  async rollback() {
+    this.model.rollback();
+  }
+  async save() {
+    return this.model.clearHistory();
+  }
+  async move({ name, step }: { name: string; step: number }) {
+    this.model.rotateWithName(name as any, step);
+    this.playSound({ name: 'rotate' });
+  }
+  async rotateX({ step }: { step: number }) {
+    if (!step) {
+      return;
+    }
     this.model.rotateX(step);
   }
+  async rotateY({ step }: { step: number }) {
+    if (!step) {
+      return;
+    }
+    this.model.rotateY(step);
+  }
   check(): boolean {
-    // return this.model.check();
-    return true;
-  }
-  onWorldSetup(scene: Scene, wolrd: any): void {
-    // scene.scene.add(this.layerGroup);
-  }
-  onWorldTeardown(scene: Scene, wolrd: any): void {
-    // scene.scene.remove(this.layerGroup);
+    return this.model.check();
   }
   update(delta: number, now: number, scene: Scene, wolrd: any): void {
     TWEEN.update();
-  }
-  private async rotationTransition(axis: Axis, endRad: number) {
-    // await this.layerGroup.rotationAnimation(axis, endRad);
-    // this.layerGroup.ungroup(this.model.group);
-    // this.layerGroup.initRotation();
   }
 }
 
@@ -149,6 +139,21 @@ export class Decoration extends PhynitUnit<Runtime> {
           super(callee, 'random');
         }
       },
+      reset: class extends ActionBase {
+        constructor(callee: Unit) {
+          super(callee, 'reset');
+        }
+      },
+      save: class extends ActionBase {
+        constructor(callee: Unit) {
+          super(callee, 'save');
+        }
+      },
+      rollback: class extends ActionBase {
+        constructor(callee: Unit) {
+          super(callee, 'rollback');
+        }
+      },
       move: class extends ActionBase {
         slots: Record<string, Slot> = {
           name: makeSlot({
@@ -161,21 +166,17 @@ export class Decoration extends PhynitUnit<Runtime> {
           step: makeSlot({
             name: 'step',
             data: {
-              type: 'string',
-              values: [
-                {
-                  value: '',
-                  label: 'step-1',
-                },
-                {
-                  value: '2',
-                  label: 'step-2',
-                },
-                {
-                  value: `'`,
-                  label: 'back-1',
-                },
-              ]
+              type: 'number',
+              values: [{
+                value: 1,
+                label: 'rotate-cw-1',
+              }, {
+                value: 2,
+                label: 'rotate-cw-2',
+              }, {
+                value: -1,
+                label: 'rotate-ccw-1',
+              }]
             },
           }),
         };
@@ -183,18 +184,50 @@ export class Decoration extends PhynitUnit<Runtime> {
           super(callee, 'move');
         }
       },
-      rotate: class extends ActionBase {
+      rotateX: class extends ActionBase {
         slots: Record<string, Slot> = {
           step: makeSlot({
             name: 'step',
             data: {
               type: 'number',
-              values: [1, 2, 3]
+              values: [{
+                value: 1,
+                label: 'rotate-cw-1',
+              }, {
+                value: 2,
+                label: 'rotate-cw-2',
+              }, {
+                value: -1,
+                label: 'rotate-ccw-1',
+              }]
             },
           }),
         };
         constructor(callee: Unit) {
-          super(callee, 'rotate');
+          super(callee, 'rotateX');
+        }
+      },
+      rotateY: class extends ActionBase {
+        slots: Record<string, Slot> = {
+          step: makeSlot({
+            name: 'step',
+            data: {
+              type: 'number',
+              values: [{
+                value: 1,
+                label: 'rotate-cw-1',
+              }, {
+                value: 2,
+                label: 'rotate-cw-2',
+              }, {
+                value: -1,
+                label: 'rotate-ccw-1',
+              }]
+            },
+          }),
+        };
+        constructor(callee: Unit) {
+          super(callee, 'rotateY');
         }
       },
       check: class extends ActionBase {

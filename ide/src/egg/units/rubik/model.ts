@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import TWEEN from '@tweenjs/tween.js';
 import { generateCoords, } from './cube';
 import { roundedEdgeBox, roundedPlane } from './geometries';
-import { Axis, Colors, CubeInfo, CudeType, FaceName, NotationBase } from './types';
+import { Axis, color2Face, Colors, CubeInfo, CudeType, face2Color, FaceName, NotationBase, StickerInfo } from './types';
 
 const faceInfo: {
   [index: string]: {
@@ -26,6 +26,12 @@ type RotateTask = {
   cubes: Array<THREE.Mesh>;
   resolve: any;
   reject: any;
+};
+
+type RotateAction = {
+  axis: Axis;
+  name?: NotationBase;
+  step: number;
 };
 
 function arrayRemove(arr: Array<any>, filter: (item: any) => boolean) {
@@ -52,8 +58,9 @@ export class RubikCubeModel {
   } = { all: [], up: [], down: [], front: [], back: [], left: [], right: [] } as any;
   rotateTasks: RotateTask[] = [];
   rotating: RotateTask | null = null;
+  history: Array<RotateAction> = [];
   constructor() {
-    this.group.add(this.tracker);
+    // this.group.add(this.tracker);
     this.group.add(this.transformer);
 
     const cubes = generateCoords();
@@ -78,7 +85,7 @@ export class RubikCubeModel {
         plane.rotation.fromArray(clrInfo.rotation);
         plane.position.fromArray(clrInfo.position);
         plane.name = 'face';
-        plane.userData.color = clrInfo.color;
+        plane.userData.color = face2Color[clrInfo.name];
         mesh.attach(plane);
         this.faces[clrInfo.name].push(plane);
         this.faces.all.push(plane);
@@ -102,6 +109,45 @@ export class RubikCubeModel {
     }
     return true;
   }
+
+  reset() {
+    this.clearHistory();
+    this.cubes.forEach(cube => {
+      const userData = cube.userData as CubeInfo;
+      cube.position.copy(userData.initPosition);
+      cube.rotation.set(0, 0, 0);
+    });
+    this.faces.back = [];
+    this.faces.front = [];
+    this.faces.left = [];
+    this.faces.right = [];
+    this.faces.up = [];
+    this.faces.down = [];
+    this.faces.all.forEach(face => {
+      const userData = face.userData as StickerInfo;
+      const faceName = color2Face[userData.color];
+      (this.faces as any)[faceName].push(face);
+    });
+    this.group.updateWorldMatrix(false, false);
+  }
+
+  clearHistory() {
+    this.history = [];
+  }
+
+  rollback() {
+    for (const iterator of [...this.history]) {
+      if (iterator.name) {
+        this.rotateWithName(iterator.name, -iterator.step);
+      } else if (iterator.axis === 'x') {
+        this.rotateX(-iterator.step);
+      } else {
+        this.rotateY(-iterator.step);
+      }
+    }
+    this.clearHistory();
+  }
+
   /**
    *
    * @param step  rad = step * Math.PI / 2, counterclockwise if step > 0
@@ -114,13 +160,17 @@ export class RubikCubeModel {
     const facesUpdate: Array<THREE.Mesh[]> = [];
     let axis: Axis = 'x';
 
+    const findCube = function (cube: THREE.Mesh, ls1: Array<THREE.Mesh>, ls2: Array<THREE.Mesh>) {
+      return ls1.find(it => it.parent === cube) || ls2.find(it => it.parent === cube);
+    }
+
     if (name === 'L') {
-      facesUpdate.push(this.faces.up, this.faces.back, this.faces.down, this.faces.front);
+      facesUpdate.push(this.faces.up, this.faces.front, this.faces.down, this.faces.back);
     }
     else if (name === 'M') {
       facesUpdate.push(this.faces.up, this.faces.front, this.faces.down, this.faces.back);
       for (const iterator of this.faces.all) {
-        if (this.faces.left.includes(iterator) || this.faces.right.includes(iterator)) {
+        if (findCube(iterator.parent as any, this.faces.left, this.faces.right)) {
           continue;
         }
         faces.push(iterator);
@@ -134,14 +184,14 @@ export class RubikCubeModel {
       axis = 'y';
       facesUpdate.push(this.faces.left, this.faces.front, this.faces.right, this.faces.back);
       for (const iterator of this.faces.all) {
-        if (this.faces.up.includes(iterator) || this.faces.down.includes(iterator)) {
+        if (findCube(iterator.parent as any, this.faces.up, this.faces.down)) {
           continue;
         }
         faces.push(iterator);
       }
     } else if (name === 'D') {
       axis = 'y';
-      facesUpdate.push(this.faces.left, this.faces.back, this.faces.right, this.faces.front);
+      facesUpdate.push(this.faces.left, this.faces.front, this.faces.right, this.faces.back);
     } else if (name === 'F') {
       axis = 'z';
       facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
@@ -149,14 +199,14 @@ export class RubikCubeModel {
       axis = 'z';
       facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
       for (const iterator of this.faces.all) {
-        if (this.faces.front.includes(iterator) || this.faces.back.includes(iterator)) {
+        if (findCube(iterator.parent as any, this.faces.front, this.faces.back)) {
           continue;
         }
         faces.push(iterator);
       }
     } else if (name === 'B') {
       axis = 'z';
-      facesUpdate.push(this.faces.up, this.faces.right, this.faces.down, this.faces.left);
+      facesUpdate.push(this.faces.up, this.faces.left, this.faces.down, this.faces.right);
     }
 
     const cubes = faces.map(iterator => iterator.parent as THREE.Mesh);
@@ -169,6 +219,8 @@ export class RubikCubeModel {
       f3.push(...ms2);
       f4.push(...ms3);
     }
+
+    this.history.push({ axis, name, step });
 
     return new Promise((resolve, reject) => {
       this.rotateTasks.push({
@@ -198,6 +250,8 @@ export class RubikCubeModel {
       this.faces.front = face;
     }
 
+    this.history.push({ axis: 'x', step });
+
     return new Promise((resolve, reject) => {
       this.rotateTasks.push({
         axis: 'x',
@@ -214,16 +268,18 @@ export class RubikCubeModel {
     const stepLocal = (4 + step % 4) % 4;
 
     for (let index = 0; index < stepLocal; index++) {
-      const face = this.faces.up;
-      this.faces.up = this.faces.back;
-      this.faces.back = this.faces.down;
-      this.faces.down = this.faces.front;
-      this.faces.front = face;
+      const face = this.faces.front;
+      this.faces.front = this.faces.left;
+      this.faces.left = this.faces.back;
+      this.faces.back = this.faces.right;
+      this.faces.right = face;
     }
+
+    this.history.push({ axis: 'y', step });
 
     return new Promise((resolve, reject) => {
       this.rotateTasks.push({
-        axis: 'x',
+        axis: 'y',
         rad: step * Math.PI / 2,
         cubes: this.cubes,
         resolve,

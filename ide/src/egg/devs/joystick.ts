@@ -12,6 +12,8 @@ const btnsNames = {
   'y': 'Y',
   'back': 'back',
   'forward': 'forward',
+  'back-2': 'back-2',
+  'forward-2': 'forward-2',
   'select': 'select',
   'start': 'start',
   'mode': 'mode',
@@ -25,7 +27,17 @@ const axisNames = {
   'joy-y-2': 'joy-y-2',
   'forward-2': 'forward-2',
   'axis-x': 'axis-x',
-  'axis-y': 'axis-y'
+  'axis-y': 'axis-y',
+  // axis-x|y
+  'up': 'up',
+  'down': 'down',
+  'left': 'left',
+  'right': 'right',
+  // joy-x|y
+  'joy-up': 'joy-up',
+  'joy-down': 'joy-down',
+  'joy-left': 'joy-left',
+  'joy-right': 'joy-right',
 };
 
 export class Runtime extends DevRuntime {
@@ -38,6 +50,19 @@ export class Runtime extends DevRuntime {
         this.emit(value ? 'down' : 'up', { name, value });
       } else if (type === 'axis') {
         this.emit('axis', { name, value });
+        if (Math.abs(value) == 32767) {
+          if (name === 'axis-x') {
+            this.emit('axis', { name: value > 0 ? 'right' : 'left', value });
+          } else if (name === 'axis-y') {
+            this.emit('axis', { name: value < 0 ? 'up' : 'down', value });
+          } else if (name === 'joy-x') {
+            this.emit('axis', { name: value > 0 ? 'joy-right' : 'joy-left', value });
+          } else if (name === 'joy-y') {
+            this.emit('axis', { name: value < 0 ? 'joy-up' : 'joy-down', value });
+          } else if (name === 'back-2' || name === 'forward-2') {
+            this.emit(value === 32767 ? 'down' : 'up', { name, value });
+          }
+        }
       }
     }, this);
   }

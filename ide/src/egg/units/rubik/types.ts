@@ -26,6 +26,24 @@ export interface CubeInfo {
   initPosition: THREE.Vector3;
 }
 
+export const face2Color = {
+  up: 'white',
+  down: 'yellow',
+  front: 'green',
+  back: 'blue',
+  left: 'orange',
+  right: 'red',
+}
+
+export const color2Face = {
+  white: 'up',
+  red: 'right',
+  green: 'front',
+  yellow: 'down',
+  blue: 'back',
+  orange: 'left',
+};
+
 export interface StickerInfo {
-  color: Colors;
+  color: 'white' | 'red' | 'green' | 'yellow' | 'blue' | 'orange';
 }
