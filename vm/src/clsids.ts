@@ -22,4 +22,6 @@ export namespace gclsids {
   export const bulb = '9E8B8E0E-B7B2-4E8E-A801-000000000005';
   export const cloth = '9E8B8E0E-B7B2-4E8E-A801-000000000006';
   export const cube = '9E8B8E0E-B7B2-4E8E-A801-000000000007';
+  export const axis = '9E8B8E0E-B7B2-4E8E-A801-000000000008';
+  export const text3d = '9E8B8E0E-B7B2-4E8E-A801-000000000009';
 }

@@ -166,6 +166,7 @@ export default {
       width: '宽度',
       height: '高度',
       depth: '深度',
+      length: '长度',
       ground: {
         material: '材质',
       },
@@ -203,6 +204,8 @@ export default {
       },
       confidence: '置信度',
       current: '当前值',
+      lineMaterial: '线材质',
+      arrowMaterial: '箭头材质',
     },
     texture: {
       offset: '偏移',

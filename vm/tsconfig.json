@@ -30,7 +30,6 @@
     "./test/*.ts",
     "./examples/*.ts",
     "./examples/**/*.ts",
-    "../ide/src/egg/devs/joystick.ts",
   ],
   "exclude": [
     "node_modules",

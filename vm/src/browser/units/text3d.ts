@@ -2,15 +2,15 @@
 import * as THREE from 'three';
 import { Font } from 'three/examples/jsm/loaders/FontLoader.js';
 import { Egg, Property, runtime, Unit, } from 'egg';
-import { Phynit2D, PhynitUnit2D } from '../devs/screen/phynit';
+import { Phynit, PhynitUnit } from '../devs/screen/phynit';
 import { makeProperty } from '../../utils';
 import { gScreen } from '../devs/screen/screen';
 import { gclsids } from '../../clsids';
 
-export class Runtime extends Phynit2D {
+export class Runtime extends Phynit {
   static type: UnitType = 'object';
-  static clsname: ClsName = 'text';
-  static clsid = gclsids.text;
+  static clsname: ClsName = 'text3d';
+  static clsid = gclsids.text3d;
 
   group: THREE.Group;
   textMesh: THREE.Mesh | null = null;
@@ -28,7 +28,7 @@ export class Runtime extends Phynit2D {
     if (v === undefined) {
       switch (name) {
         case 'size':
-          return 32;
+          return 1;
         case 'opacity':
           return 1;
       }
@@ -127,9 +127,9 @@ export class Runtime extends Phynit2D {
   }
 }
 
-export class Decoration extends PhynitUnit2D<Runtime> {
+export class Decoration extends PhynitUnit<Runtime> {
   static runtime = Runtime;
-  static tags: string[] = ['text', '2d'];
+  static tags: string[] = ['text', '3d'];
   constructor(egg: Egg, instance: Runtime, parent: Unit) {
     super(egg, instance, parent);
     // properties
@@ -185,8 +185,6 @@ export class Decoration extends PhynitUnit2D<Runtime> {
       const [key, value] = iterator;
       this.properties[key] = value;
     }
-    delete this.properties['scale'];
-    delete this.properties['rotation'];
     delete this.properties['material'];
   }
 }

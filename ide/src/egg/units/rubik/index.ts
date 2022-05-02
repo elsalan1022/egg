@@ -19,7 +19,7 @@ class Runtime extends Phynit {
   // layerGroup = new LayerModel(false);
   constructor(uuid?: string, parent?: runtime.Unit) {
     const model = new RubikCubeModel();
-    super(uuid, parent, { object: model.group });
+    super(uuid, parent, { object: model.group as any });
     this.model = model;
   }
   get({ name }: { name: string; }) {

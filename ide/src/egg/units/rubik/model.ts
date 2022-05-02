@@ -136,7 +136,7 @@ export class RubikCubeModel {
   }
 
   rollback() {
-    for (const iterator of [...this.history]) {
+    for (const iterator of [...this.history].reverse()) {
       if (iterator.name) {
         this.rotateWithName(iterator.name, -iterator.step);
       } else if (iterator.axis === 'x') {
