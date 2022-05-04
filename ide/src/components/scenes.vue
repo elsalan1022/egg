@@ -22,7 +22,7 @@
           <img v-if="isImg(item.icon)" :src="item.icon" />
           <i v-else :class="toIconClass(item.icon)" />
         </div>
-        <div class="cls-name text-ellipsis">{{ $t(`nm.${item.label || item.name}`, item.label || item.name) }}</div>
+        <div class="cls-name text-ellipsis">{{ nameOf(item) }}</div>
         <div class="item-slot" :selected="selectedId === item.uuid" style="max-width: 8em; color: black; flex: 1 1 auto; justify-content: start; padding: 0 1em">
           <label class="prop-value text-ellipsis">{{ item.uuid }}</label>
         </div>
@@ -86,6 +86,9 @@ export default {
     },
     toIconClass(name: string) {
       return icons.glyphs.find((e) => e.font_class === name) ? `icon-${name}` : 'icon-component';
+    },
+    nameOf(item: any) {
+      return item.name || this.$t(`nm.${item.label || item.name}`, item.label || item.name);
     },
     async onClassDragStart(clsname: string, ev: DragEvent) {
       fillDragClass(ev, clsname);
@@ -172,6 +175,7 @@ export default {
             }
             units.push({
               uuid: iterator.uuid,
+              name: iterator.instance.get({ name: 'name' }),
               label: iterator.constructor.label || iterator.name,
               icon: iterator.constructor.icon || iterator.name,
             });
@@ -185,6 +189,7 @@ export default {
         }
         units.push({
           uuid: iterator.uuid,
+          name: iterator.instance.get({ name: 'name' }),
           label: iterator.constructor.label || iterator.name,
           icon: iterator.constructor.icon || iterator.name,
         });

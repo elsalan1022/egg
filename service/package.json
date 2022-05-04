@@ -11,7 +11,7 @@
     "build-web": "cd ../ide && npm run build && cd -",
     "verup": "npm version patch",
     "apis": "ts-node ./scripts/apis.ts ./src/types/index.d.ts --out ../ide/src/apis/index.ts --force",
-    "pm2": "pm2 start node_modules/ts-node/dist/bin.js --name egg -- src/index.ts --root=local --port=8080"
+    "pm2": "pm2 start node_modules/ts-node/dist/bin.js --name egg-s -- src/index.ts --root=local --port=8080"
   },
   "dependencies": {
     "axios": "^0.24.0",

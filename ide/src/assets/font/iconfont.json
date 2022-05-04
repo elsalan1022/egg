@@ -76,6 +76,13 @@
       "unicode_decimal": 58887
     },
     {
+      "icon_id": "29440467",
+      "name": "人机交互3D-三维坐标",
+      "font_class": "axis",
+      "unicode": "efda",
+      "unicode_decimal": 61402
+    },
+    {
       "icon_id": "1444787",
       "name": "json",
       "font_class": "json",
@@ -214,6 +221,13 @@
       "font_class": "unit",
       "unicode": "efd6",
       "unicode_decimal": 61398
+    },
+    {
+      "icon_id": "29440468",
+      "name": "text",
+      "font_class": "text3d",
+      "unicode": "efdb",
+      "unicode_decimal": 61403
     },
     {
       "icon_id": "29382179",

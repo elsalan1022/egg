@@ -44,6 +44,8 @@ export default {
     stop: '停止',
     thumbsUp: '点赞',
     time: '当前时间',
+    timeBegin: '开始计时',
+    timeElapsed: '计时',
     to3D: '转3D坐标',
     turn: '转向',
     valueFromEvent: '从事件中获取值',
@@ -170,6 +172,7 @@ export default {
       depth: '深度',
       length: '长度',
       ground: {
+        visible: '是否可见',
         material: '材质',
       },
       light: {
@@ -198,6 +201,11 @@ export default {
       heightSegments: '高度分段',
       scale: '缩放',
       scene: '场景',
+      size: '大小',
+      text: '文本',
+      align: '对齐方式',
+      valign: '垂直对齐方式',
+      opacity: '透明度',
       texture: '纹理',
       camera: {
         position: '设置相机位置',
@@ -302,6 +310,26 @@ export default {
       shader: '着色器材质',
       shadow: '阴影材质',
       sprite: '精灵材质',
+    },
+  },
+  // values
+  vs: {
+    text: {
+      align: {
+        left: '左',
+        center: '中',
+        right: '右',
+        top: '上',
+        middle: '中',
+        bottom: '下',
+      },
+    },
+    rotate: {
+      x: 'X轴',
+      y: 'Y轴',
+      cw90: '顺时针90度',
+      cw180: '顺时针180度',
+      ccw90: '逆时针90度',
     },
   },
   g: {

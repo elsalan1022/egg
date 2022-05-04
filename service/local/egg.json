@@ -138,14 +138,14 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 2.5351369308650797,
-          "y": 1.7476906721752707,
-          "z": 2.553166280546979
+          "x": 2.6475382168171704,
+          "y": 1.9624208550874962,
+          "z": 2.2670345780283725
         },
         "camera.rotation": {
-          "x": -0.600260252640832,
-          "y": 0.6864357519711487,
-          "z": 0.4093320532606112
+          "x": -0.7135003346824575,
+          "y": 0.723330039626579,
+          "z": 0.5202918178406049
         }
       },
       "events": {},
@@ -454,7 +454,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "B7BA6679-BB46-4490-864C-64EAD718A111",
+              "image": "D75D4763-B65E-40E4-9775-FF2C88828D8C",
               "mapping": 300,
               "repeat": [
                 10,
@@ -494,7 +494,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "04918AB9-4681-4500-9248-3AD005DDED52",
+              "image": "EB11694D-4FD6-4E88-B85F-AD391C1ECDBF",
               "mapping": 300,
               "repeat": [
                 10,
@@ -534,7 +534,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "1BD71AF5-757F-43DD-B505-0592FB10F531",
+              "image": "8EFA9269-355D-4085-B0DF-905418F608DD",
               "mapping": 300,
               "repeat": [
                 10,
@@ -574,7 +574,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "7ACB6419-CAC9-42F0-A837-8A3DF6D10236",
+              "image": "C549F506-E070-4CC7-B003-4539E3B0808C",
               "mapping": 300,
               "repeat": [
                 1,
@@ -614,7 +614,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-              "image": "500EA859-B7DC-4FB0-A532-D4BA7B5FB7B4",
+              "image": "FA1885CC-8879-420C-AB67-FB7693FA5D33",
               "mapping": 300,
               "repeat": [
                 1,
@@ -654,7 +654,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-              "image": "E6E29D21-6782-494B-B02D-8692E11CF3A8",
+              "image": "50360BB7-7160-46D4-90AC-B44BF1FA42E6",
               "mapping": 300,
               "repeat": [
                 1,
@@ -694,7 +694,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-              "image": "207A6954-78C5-4F71-85A1-3EA7BA66D68B",
+              "image": "09B97351-92F1-4DD3-99E6-C88ED4D88037",
               "mapping": 300,
               "repeat": [
                 1,
@@ -734,7 +734,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-              "image": "5609A09B-21D9-479A-B536-C05BA6313D12",
+              "image": "65D6784B-4392-478C-B4B1-273DACF885E7",
               "mapping": 300,
               "repeat": [
                 1,
@@ -1824,7 +1824,7 @@
           "bound": {
             "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
             "event": "axis",
-            "filter": "down"
+            "filter": "left"
           }
         },
         {
@@ -1851,7 +1851,7 @@
           "bound": {
             "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
             "event": "axis",
-            "filter": "left"
+            "filter": "down"
           }
         },
         {
@@ -2525,13 +2525,14 @@
       "cls": "text",
       "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000004",
       "properties": {
+        "name": "",
         "position": {
           "x": 10,
           "y": 10,
           "z": 0
         },
         "visible": true,
-        "text": "0:7:15",
+        "text": "0:2:45",
         "size": 16,
         "align": "left",
         "valign": "top",

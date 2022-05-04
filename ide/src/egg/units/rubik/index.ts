@@ -169,13 +169,13 @@ export class Decoration extends PhynitUnit<Runtime> {
               type: 'number',
               values: [{
                 value: 1,
-                label: 'rotate-cw-1',
+                label: 'rotate.cw90',
               }, {
                 value: 2,
-                label: 'rotate-cw-2',
+                label: 'rotate.cw180',
               }, {
                 value: -1,
-                label: 'rotate-ccw-1',
+                label: 'rotate.ccw90',
               }]
             },
           }),
@@ -192,13 +192,13 @@ export class Decoration extends PhynitUnit<Runtime> {
               type: 'number',
               values: [{
                 value: 1,
-                label: 'rotate-cw-1',
+                label: 'rotate.cw90',
               }, {
                 value: 2,
-                label: 'rotate-cw-2',
+                label: 'rotate.cw180',
               }, {
                 value: -1,
-                label: 'rotate-ccw-1',
+                label: 'rotate.ccw90',
               }]
             },
           }),
@@ -215,13 +215,13 @@ export class Decoration extends PhynitUnit<Runtime> {
               type: 'number',
               values: [{
                 value: 1,
-                label: 'rotate-cw-1',
+                label: 'rotate.cw90',
               }, {
                 value: 2,
-                label: 'rotate-cw-2',
+                label: 'rotate.cw180',
               }, {
                 value: -1,
-                label: 'rotate-ccw-1',
+                label: 'rotate.ccw90',
               }]
             },
           }),

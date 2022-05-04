@@ -17,7 +17,7 @@
         <div class="item-slot">
           <img class="tex-item" :src="item.url" />
         </div>
-        <label :title="item.name" class="cls-name text-ellipsis">{{ item.name }}</label>
+        <label class="cls-name text-ellipsis">{{ item.name }}</label>
       </div>
     </div>
   </div>

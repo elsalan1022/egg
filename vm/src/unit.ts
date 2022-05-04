@@ -1,6 +1,6 @@
 import { Unit, runtime, Event, Property, BlockConstructor, Field, NativeData, BlockChain, Slot, BlockAction, Block, Egg, ExecuteFunc, BlockType, BlockData, } from "egg";
 import { BlockBase, } from "./block";
-import { makeSlot, makeEvent, buildUnit, genUniqueId, excuteBlocks, makeNamesSlotData, cloneBlock, makeRelativeTypeSlotData } from "./utils";
+import { makeSlot, makeEvent, buildUnit, genUniqueId, excuteBlocks, makeNamesSlotData, cloneBlock, makeRelativeTypeSlotData, makeProperty } from "./utils";
 
 export abstract class ActionBase extends BlockBase implements BlockAction {
   static type: BlockType = 'action';
@@ -110,6 +110,12 @@ export class UnitImpl implements Unit {
   constructor(protected egg: Egg, public instance: runtime.Unit, public parent?: Unit) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const unit = this;
+    this.properties = {
+      name: makeProperty(instance, {
+        name: 'name',
+        type: 'string',
+      }),
+    };
     this.actions = {
       clone: class extends ActionBase {
         constructor(callee: Unit) {

@@ -1,8 +1,8 @@
 <template>
   <el-select v-model="value" :placeholder="'请选择'" size="mini" clearable>
-    <el-option v-for="(item, i) in prop.values" :key="i" :value="item.hasOwnProperty('value') ? item.value : item" :label="item.label || item.value || item">
+    <el-option v-for="(item, i) in prop.values" :key="i" :value="item.hasOwnProperty('value') ? item.value : item" :label="nameOf(item)">
       <div style="align-items: center; display: flex; flex-direction: row">
-        <span>{{ item.hasOwnProperty('value') ? item.label || item.value : item }}</span>
+        <span>{{ nameOf(item) }}</span>
       </div>
     </el-option>
   </el-select>
@@ -38,6 +38,15 @@ export default {
           this.$makeDirty();
         }
       },
+    },
+  },
+  methods: {
+    nameOf(item) {
+      if (item.hasOwnProperty('label')) {
+        return this.$t(`vs.${item.label}`, item.label);
+      } else {
+        return item;
+      }
     },
   },
 };
