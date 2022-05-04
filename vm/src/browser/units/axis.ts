@@ -36,7 +36,7 @@ class Runtime extends Phynit {
     const arrowGeometry = new THREE.CylinderGeometry(0, 0.03, 0.1, 12);
     arrowGeometry.translate(0, 0.05, 0);
 
-    const lineGeometry = new THREE.CylinderGeometry(0.0075, 0.0075, 1, 3);
+    const lineGeometry = new THREE.CylinderGeometry(0.0045, 0.0045, 1, 3);
     lineGeometry.translate(0, 0.5, 0);
 
     const gizmoTranslate = {

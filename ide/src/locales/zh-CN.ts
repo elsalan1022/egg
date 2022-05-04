@@ -90,6 +90,7 @@ export default {
   nm: {
     all: '全部',
     ambient: '环境光',
+    axis: '坐标轴',
     box: '盒子',
     bulb: '灯泡',
     camera: '相机',
@@ -134,6 +135,7 @@ export default {
     storage: '存储',
     test: '测试',
     text: '文本',
+    text3d: '3D文本',
     texture: '纹理',
     time: '时间',
     times: '次',
@@ -220,9 +222,10 @@ export default {
       type: '类型',
       anisotropy: '各向异性',
       encoding: '编码',
+      name: '名称',
     },
     material: {
-      name: '材质',
+      name: '名称',
     },
   },
   // sentence

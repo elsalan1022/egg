@@ -2,10 +2,11 @@
   <div class="paneContainer" style="display: flex; flex-direction: row">
     <div class="mainBoard" style="flex: 1 1 auto; align-items: stretch; display: flex; flex-direction: column" @drop="onMainBoardDrop">
       <div class="x-item body-item" v-for="item in items" :key="item.uuid" draggable="true" showTrash="true" @click="sel(item.uuid, item.type)" @dragstart="onItemDragStart(item.uuid, $event)" @dragend="onItemDragEnd(item.uuid, $event)">
-        <div class="item-slot" style="margin-right: 0.5em">
+        <div class="item-slot">
           <img class="tex-item" :src="item.url" />
         </div>
-        <div class="item-slot" :selected="selected === item.uuid" style="max-width: 12em; color: black; flex: 1 1 auto; justify-content: start; padding: 0 1em">
+        <div class="cls-name text-ellipsis">{{ nameOf(item) }}</div>
+        <div class="item-slot" :selected="selected === item.uuid" style="max-width: 8em; color: black; flex: 1 1 auto; justify-content: start; padding: 0 1em">
           <label class="prop-value text-ellipsis">{{ item.uuid }}</label>
         </div>
       </div>
@@ -43,6 +44,9 @@ export default {
     },
   },
   methods: {
+    nameOf(item: any) {
+      return item.name || item.image || '';
+    },
     async onTypeDragStart(clsname: string, ev: DragEvent) {
       fillDragType(ev, clsname, 'textures');
     },
@@ -72,7 +76,8 @@ export default {
       }));
       this.items = Object.values(project.screen.getTextures()).map((e) => ({
         uuid: e.value.uuid,
-        name: e.name,
+        name: e.value.name,
+        image: e.image,
         url: e.value.image.src,
       }));
     },

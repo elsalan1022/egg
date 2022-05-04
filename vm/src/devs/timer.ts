@@ -1,7 +1,7 @@
-import { Egg, Field, NativeData, runtime, Unit } from "egg";
+import { Egg, Field, NativeData, runtime, Slot, Unit } from "egg";
 import { gclsids } from "../clsids";
-import { DataBase, } from "../unit";
-import { makeEvent } from "../utils";
+import { ActionBase, DataBase, } from "../unit";
+import { makeEvent, makeNamesSlotData, makeSlot } from "../utils";
 import { DevRuntime, DevUnit } from "./base";
 
 class Runtime extends DevRuntime {
@@ -9,6 +9,7 @@ class Runtime extends DevRuntime {
   static clsname = 'timer';
   static clsid = gclsids.timer;
   enable = true;
+  counter: Record<string, number> = {};
   constructor(uuid?: string, parent?: runtime.Unit) {
     super(uuid, parent);
   }
@@ -48,6 +49,21 @@ class Runtime extends DevRuntime {
   async time(): Promise<number> {
     return Date.now();
   }
+  async timeBegin({ name }: { name: string }) {
+    this.counter[name] = Date.now();
+  }
+  async timeElapsed({ name }: { name: string }): Promise<string> {
+    const begin = this.counter[name];
+    if (!begin) {
+      throw new Error("No begin.");
+    }
+    let diff = Date.now() - begin;
+    diff = Math.floor(diff / 1000);
+    const s = diff % 60; diff = Math.floor(diff / 60);
+    const m = diff % 60; diff = Math.floor(diff / 60);
+    const h = diff % 24; diff = Math.floor(diff / 24);
+    return `${h}:${m}:${s}`;
+  }
   clone(): Promise<runtime.Unit> {
     throw new Error("Not allowed.");
   }
@@ -67,6 +83,40 @@ export class Timer extends DevUnit {
         };
         constructor(callee: Unit) {
           super(callee, 'time');
+        }
+      },
+      timeBegin: class extends ActionBase {
+        slots: Record<string, Slot> = {
+          name: makeSlot({
+            name: 'name',
+            data: {
+              type: 'string',
+            },
+            required: true,
+          }),
+        };
+        constructor(callee: Unit) {
+          super(callee, 'timeBegin');
+        }
+      },
+      timeElapsed: class extends ActionBase {
+        output: Record<string, Field> | NativeData = {
+          type: 'string',
+          name: '.',
+          label: 'timeElapsed',
+          description: 'timeElapsed-desc',
+        };
+        slots: Record<string, Slot> = {
+          name: makeSlot({
+            name: 'name',
+            data: {
+              type: 'string',
+            },
+            required: true,
+          }),
+        };
+        constructor(callee: Unit) {
+          super(callee, 'timeElapsed');
         }
       },
     };

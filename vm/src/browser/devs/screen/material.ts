@@ -3,6 +3,7 @@ import { Property } from "egg";
 import * as THREE from "three";
 
 const MaterialParameters = [
+  'name',
   'alphaTest',
   'alphaToCoverage',
   'blendDst',
@@ -21,7 +22,6 @@ const MaterialParameters = [
   'depthTest',
   'depthWrite',
   'fog',
-  'name',
   'opacity',
   'polygonOffset',
   'polygonOffsetFactor',
@@ -332,6 +332,9 @@ export const decoration: Decoration = {
     SpriteMaterial: SpriteMaterialParameters,
   },
   allProps: {
+    name: {
+      type: 'string',
+    },
     color: {
       type: 'color',
     },

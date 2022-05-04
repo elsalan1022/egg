@@ -5,7 +5,7 @@
         <div class="item-slot">
           <i :class="toIconClass(item.type)" />
         </div>
-        <div class="cls-name text-ellipsis">{{ $t(`ty.material.${item.label}`) }}</div>
+        <div class="cls-name text-ellipsis">{{ nameOf(item) }}</div>
         <div class="item-slot" :selected="selected === item.uuid" style="max-width: 8em; color: black; flex: 1 1 auto; justify-content: start; padding: 0 1em">
           <label class="prop-value text-ellipsis">{{ item.uuid }}</label>
         </div>
@@ -59,6 +59,9 @@ export default {
       const [, shortName] = /(?:Mesh)?(\w+)Material/.exec(name) || [];
       return icons.glyphs.find((e) => e.font_class === shortName) ? `icon-${shortName}` : 'icon-material';
     },
+    nameOf(item: any) {
+      return item.name || this.$t(`ty.material.${item.label}`);
+    },
     async onTypeDragStart(clsname: string, ev: DragEvent) {
       fillDragType(ev, clsname, 'materials');
     },
@@ -87,6 +90,7 @@ export default {
       this.items = Object.values(project.screen.getMaterials()).map((e) => ({
         type: e.type,
         uuid: e.uuid,
+        name: e.name,
         label: /(?:Mesh)?(\w+)Material/.exec(e.type)[1].toLowerCase(),
       }));
     },

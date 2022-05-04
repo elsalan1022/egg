@@ -91,6 +91,9 @@ export class VisRuntime<T extends THREE.Object3D = THREE.Object3D> extends UnitR
   getTextureFromId(id: string): THREE.Texture | null {
     return gScreen.getTextureFromId(id);
   }
+  update(delta: number, now: number, scene: Scene, _: any) {
+    //
+  }
 }
 
 export class VisUnit<T extends VisRuntime> extends UnitImpl {

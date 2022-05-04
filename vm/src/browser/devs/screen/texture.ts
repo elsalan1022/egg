@@ -8,6 +8,9 @@ type Decoration = {
 
 export const decoration: Decoration = {
   allProps: {
+    name: {
+      type: 'string',
+    },
     offset: {
       type: 'vec2',
     },
@@ -43,10 +46,6 @@ export const decoration: Decoration = {
         {
           value: THREE.CubeUVReflectionMapping,
           label: 'CubeUVReflectionMapping',
-        },
-        {
-          value: THREE.CubeUVRefractionMapping,
-          label: 'CubeUVRefractionMapping',
         },
       ]
     },

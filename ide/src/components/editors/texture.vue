@@ -60,7 +60,7 @@ export default {
       } else {
         this.maximized = true;
         const tex = texInfo.value;
-        this.type = texInfo.name;
+        this.type = texInfo.image;
         const props: Record<string, Property> = {};
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const self = this;

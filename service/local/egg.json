@@ -14,6 +14,10 @@
           {
             "unit": "9f8b3d31-af89-4b4c-a135-0176001e8436",
             "chain": "a625acbd-4b97-45ac-a7f4-0652d4f56304"
+          },
+          {
+            "unit": "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356",
+            "chain": "0c81d8df-ca17-4347-b06c-f1904256732c"
           }
         ],
         "stop": [
@@ -117,7 +121,12 @@
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
       "properties": {},
       "events": {
-        "change": []
+        "change": [
+          {
+            "unit": "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356",
+            "chain": "39747e48-d8a5-4a22-ad58-aab71ace442b"
+          }
+        ]
       },
       "chains": [],
       "children": [],
@@ -129,20 +138,21 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 2.4194031304913963,
-          "y": 2.153912357582837,
-          "z": 2.3467317801545944
+          "x": 2.5351369308650797,
+          "y": 1.7476906721752707,
+          "z": 2.553166280546979
         },
         "camera.rotation": {
-          "x": -0.7425817189797377,
-          "y": 0.6495784748322844,
-          "z": 0.5067909647525025
+          "x": -0.600260252640832,
+          "y": 0.6864357519711487,
+          "z": 0.4093320532606112
         }
       },
       "events": {},
       "chains": [],
       "children": [
-        "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec"
+        "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
+        "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356"
       ],
       "userData": {
         "materials": {
@@ -435,7 +445,7 @@
         },
         "textures": {
           "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D": {
-            "name": "hardwood2_diffuse.jpg",
+            "image": "hardwood2_diffuse.jpg",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -444,7 +454,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "E3761173-4630-42CF-A6B3-B24F20B8C490",
+              "image": "B7BA6679-BB46-4490-864C-64EAD718A111",
               "mapping": 300,
               "repeat": [
                 10,
@@ -475,7 +485,7 @@
             }
           },
           "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2": {
-            "name": "hardwood2_bump.jpg",
+            "image": "hardwood2_bump.jpg",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -484,7 +494,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "F369C49C-1382-476C-A755-0143323C2D36",
+              "image": "04918AB9-4681-4500-9248-3AD005DDED52",
               "mapping": 300,
               "repeat": [
                 10,
@@ -515,7 +525,7 @@
             }
           },
           "D8A5362C-918C-48EC-BC9E-DD9E29B26766": {
-            "name": "hardwood2_roughness.jpg",
+            "image": "hardwood2_roughness.jpg",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -524,7 +534,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "1862AC18-5666-42CF-84C4-9AF5D8A9A8D6",
+              "image": "1BD71AF5-757F-43DD-B505-0592FB10F531",
               "mapping": 300,
               "repeat": [
                 10,
@@ -555,7 +565,7 @@
             }
           },
           "DDAB45B4-73E5-4720-8EF4-02F3720206EA": {
-            "name": "earth_atmos_2048.jpg",
+            "image": "earth_atmos_2048.jpg",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -564,7 +574,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "6799723D-87A1-47F6-BA89-C91613979369",
+              "image": "7ACB6419-CAC9-42F0-A837-8A3DF6D10236",
               "mapping": 300,
               "repeat": [
                 1,
@@ -595,7 +605,7 @@
             }
           },
           "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48": {
-            "name": "hen-egg.jpeg",
+            "image": "hen-egg.jpeg",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -604,7 +614,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-              "image": "68F79258-F5AF-4D9A-A438-19F0A15E6B3B",
+              "image": "500EA859-B7DC-4FB0-A532-D4BA7B5FB7B4",
               "mapping": 300,
               "repeat": [
                 1,
@@ -635,7 +645,7 @@
             }
           },
           "70A0D3F0-97A1-4D70-8A37-2145CE6A3652": {
-            "name": "axis-R.png",
+            "image": "axis-R.png",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -644,7 +654,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-              "image": "56794E4A-658E-42BF-A507-8507109A47B0",
+              "image": "E6E29D21-6782-494B-B02D-8692E11CF3A8",
               "mapping": 300,
               "repeat": [
                 1,
@@ -675,7 +685,7 @@
             }
           },
           "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6": {
-            "name": "axis-U.png",
+            "image": "axis-U.png",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -684,7 +694,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-              "image": "5E9B8226-4AF6-424B-8A6B-71C8CB5E6FE5",
+              "image": "207A6954-78C5-4F71-85A1-3EA7BA66D68B",
               "mapping": 300,
               "repeat": [
                 1,
@@ -715,7 +725,7 @@
             }
           },
           "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3": {
-            "name": "axis-F.png",
+            "image": "axis-F.png",
             "value": {
               "metadata": {
                 "version": 4.5,
@@ -724,7 +734,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-              "image": "036A482E-9EF3-4EAC-8864-60C64ECD03CD",
+              "image": "5609A09B-21D9-479A-B536-C05BA6313D12",
               "mapping": 300,
               "repeat": [
                 1,
@@ -2508,6 +2518,90 @@
         "clone": []
       },
       "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356": {
+      "cls": "text",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000004",
+      "properties": {
+        "position": {
+          "x": 10,
+          "y": 10,
+          "z": 0
+        },
+        "visible": true,
+        "text": "0:7:15",
+        "size": 16,
+        "align": "left",
+        "valign": "top",
+        "color": "rgba(250, 46, 0, 1)",
+        "opacity": 1
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [
+        {
+          "id": "39747e48-d8a5-4a22-ad58-aab71ace442b",
+          "unit": "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356",
+          "blocks": [
+            {
+              "id": "6b06a2ee-3a6e-4bce-b927-730a837cd42e",
+              "type": "block",
+              "unit": "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356",
+              "action": "set",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "text"
+                },
+                "value": [
+                  {
+                    "id": "bb4fe25f-0dc6-4522-b46f-3e4e118cc7c8",
+                    "type": "block",
+                    "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+                    "action": "timeElapsed",
+                    "slots": {
+                      "name": {
+                        "type": "data",
+                        "value": "elapsed"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+            "event": "change",
+            "filter": "second"
+          }
+        },
+        {
+          "id": "0c81d8df-ca17-4347-b06c-f1904256732c",
+          "unit": "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356",
+          "blocks": [
+            {
+              "id": "2b593856-e094-4243-aeb7-e7d0783a1dca",
+              "type": "block",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+              "action": "timeBegin",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "elapsed"
+                }
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "event": "start"
+          }
+        }
+      ],
       "children": [],
       "userData": {}
     },

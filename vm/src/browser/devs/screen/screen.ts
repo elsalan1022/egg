@@ -66,7 +66,7 @@ export class Screen extends DevRuntime {
   protected paths: Paths = {} as any;
   // materials and textures
   readonly materials: Record<string, THREE.Material> = {};
-  readonly textures: Record<string, { name: string; value: THREE.Texture }> = {};
+  readonly textures: Record<string, { image: string; value: THREE.Texture }> = {};
   readonly images: Array<[string, string]> = [];
   readonly sounds: Record<string, { filename: string; buffer: AudioBuffer }> = {};
   // state
@@ -283,7 +283,7 @@ export class Screen extends DevRuntime {
     }
   }
   appendChild(unit: runtime.Unit): void {
-    if (!(unit instanceof Phynit) && !(unit instanceof Scene)) {
+    if (!(unit instanceof Phynit2D) && !(unit instanceof Phynit) && !(unit instanceof Scene)) {
       throw new Error("Not allowed.");
     }
     super.appendChild(unit);
@@ -365,17 +365,17 @@ export class Screen extends DevRuntime {
   getTextures() {
     return this.textures;
   }
-  getTextureFromName(name: string): THREE.Texture | undefined {
-    const it = Object.values(this.textures).find(e => e.name === name);
+  getTextureFromImage(image: string): THREE.Texture | undefined {
+    const it = Object.values(this.textures).find(e => e.image === image);
     return it?.value;
   }
   getTextureFromId(id: string): THREE.Texture | null {
     return (this.textures[id] || {}).value;
   }
-  async addTexture(name: string) {
+  async addTexture(image: string) {
     const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${name}`);
     const info = {
-      name,
+      image,
       value: texture,
     };
     this.textures[texture.uuid] = info;
@@ -411,8 +411,8 @@ export class Screen extends DevRuntime {
     const loaded: any = {};
     if (textures) {
       for (const [uuid, it] of Object.entries(textures)) {
-        const name: string = (it as any).name || it;
-        const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${name}`);
+        const image: string = (it as any).image || it;
+        const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${image}`);
         texture.uuid = uuid;
         const cfg = (it as any).value;
         if (cfg) {
@@ -435,8 +435,8 @@ export class Screen extends DevRuntime {
             }
           }
         }
-        this.textures[uuid] = { name: name as string, value: texture };
-        loaded[name as any] = true;
+        this.textures[uuid] = { image: image as string, value: texture };
+        loaded[image as any] = true;
       }
     }
     loader.setTextures(Object.fromEntries(Object.entries(this.textures).map(([id, { value }]) => [id, value])));
@@ -452,7 +452,7 @@ export class Screen extends DevRuntime {
     const textures = Object.fromEntries(Object.entries(this.textures).map(([id, { value }]) => [id, value]));
     return {
       materials: Object.fromEntries(Object.entries(this.materials).map(([uuid, material]) => [uuid, removeImages(material.toJSON({ textures }))])),
-      textures: Object.fromEntries(Object.entries(this.textures).map(([uuid, it]) => [uuid, { name: it.name, value: it.value.toJSON(undefined) }])),
+      textures: Object.fromEntries(Object.entries(this.textures).map(([uuid, it]) => [uuid, { image: it.image, value: it.value.toJSON(undefined) }])),
     };
   }
 }
