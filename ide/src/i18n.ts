@@ -25,15 +25,11 @@ export function setLang(lang: string) {
 
 export default i18n;
 
-function toCamelString(s: string) {
-  return s.replace(/[-_](\w)/g, (all, letter) => letter.toUpperCase()).replace(/^\w/, (all) => all.toLowerCase());
-}
-
 export function t(key: string, optional?: string): string {
   if (!key || typeof key !== 'string') {
     return key ?? '';
   }
-  const s = i18n.global.t(toCamelString(key));
+  const s = i18n.global.t(key);
   if (s.indexOf('.') !== -1 && optional) {
     return t(optional as any);
   }

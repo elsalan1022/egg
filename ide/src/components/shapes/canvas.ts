@@ -88,7 +88,14 @@ export default {
       rs.height = Math.max(rs.height, height);
     } else if (it.data) {
       // is data slot
-      const text = canvas.text(`${t(it.data.value ?? '')}`).addClass('it-slot-text');
+      let textValue = it.data.value;
+      if (it.data.values) {
+        const filterItem = it.data.values?.find((e: any) => e.value === textValue) as any;
+        if (filterItem?.label) {
+          textValue = t(`vs.${filterItem.label}`);
+        }
+      }
+      const text = canvas.text(textValue || '').addClass('it-slot-text');
       text.y(minBlockHeight / 2 - text.bbox().height / 2);
       text.x(textMargin.x);
       const cg = Shapes.dataSlot(canvas, text.bbox().width + textMargin.x * 2, minSlotHeight).addClass('it-theme-slot');
@@ -400,11 +407,13 @@ export default {
     const linker = Shapes.chainStart(canvas, 0, subEvents?.length ? minBlockHeight : 0).addClass('it-block').addClass('it-theme-event');
     linker.id(`chain.${id}`);
     if (subEvents) {
-      text.y(minBlockHeight / 2 - text.bbox().height / 2);
+      text.y(minBlockHeight - text.bbox().height / 2);
       text.x(24);
 
       // is data slot
-      const filter = canvas.text(`${bound?.filter ?? t('all')}`).addClass('it-slot-text').x(textMargin.x);
+      const filterItem = subEvents?.find((it: any) => it.value === bound?.filter);
+      const filterValue = filterItem?.label || bound?.filter;
+      const filter = canvas.text(filterValue ? t(`vs.${filterValue}`) : t('all')).addClass('it-slot-text').x(textMargin.x);
       filter.y(minBlockHeight / 2 - filter.bbox().height / 2);
       const slotWidth = Math.max(minBlockWidth - textMargin.x * 2, filter.bbox().width + textMargin.x * 2);
       const cg = Shapes.dataSlot(canvas, slotWidth, minSlotHeight).addClass('it-theme-event-name');

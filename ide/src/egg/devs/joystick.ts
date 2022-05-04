@@ -2,48 +2,19 @@ import { BlockConstructor, Egg, Property, runtime, Unit, } from "egg";
 import { gclsids } from "egg/src/clsids";
 import { DevRuntime, DevUnit } from "egg/src/devs/base";
 import { ActionBase } from "egg/src/unit";
-import { makeEvent, makeProperty, } from "egg/src/utils";
+import { makeEvent, } from "egg/src/utils";
 import { rpc } from '../../rpc';
 
-const btnsNames = {
-  'a': 'A',
-  'b': 'B',
-  'x': 'X',
-  'y': 'Y',
-  'back': 'back',
-  'forward': 'forward',
-  'back-2': 'back-2',
-  'forward-2': 'forward-2',
-  'select': 'select',
-  'start': 'start',
-  'mode': 'mode',
-};
+const btnsNames = [
+  'a', 'b', 'x', 'y', 'back', 'forward', 'back-2', 'forward-2', 'select', 'start', 'mode'
+].map((value) => ({ value, label: `joystick.${value}` }));
 
-const axisNames = {
-  'joy-x': 'joy-x',
-  'joy-y': 'joy-y',
-  'back-2': 'back-2',
-  'joy-x-2': 'joy-x-2',
-  'joy-y-2': 'joy-y-2',
-  'forward-2': 'forward-2',
-  'axis-x': 'axis-x',
-  'axis-y': 'axis-y',
-  // axis-x|y
-  'up': 'up',
-  'down': 'down',
-  'left': 'left',
-  'right': 'right',
-  // joy-x|y
-  'joy-up': 'joy-up',
-  'joy-down': 'joy-down',
-  'joy-left': 'joy-left',
-  'joy-right': 'joy-right',
-  // joy-x|y-2
-  'joy-up-2': 'joy-up-2',
-  'joy-down-2': 'joy-down-2',
-  'joy-left-2': 'joy-left-2',
-  'joy-right-2': 'joy-right-2',
-};
+const axisNames = [
+  'joy-x', 'joy-y', 'joy-x-2', 'joy-y-2', 'axis-x', 'axis-y',
+  'up', 'down', 'left', 'right',
+  'joy-up', 'joy-down', 'joy-left', 'joy-right',
+  'joy-up-2', 'joy-down-2', 'joy-left-2', 'joy-right-2'
+].map((value) => ({ value, label: `joystick.${value}` }));
 
 export class Runtime extends DevRuntime {
   static type: UnitType = 'joystick';
@@ -116,7 +87,7 @@ export class Decoration extends DevUnit {
           name: {
             type: 'string',
             name: 'name',
-            values: Object.keys(btnsNames),
+            values: btnsNames,
           },
         }
       }),
@@ -126,7 +97,7 @@ export class Decoration extends DevUnit {
           name: {
             type: 'string',
             name: 'name',
-            values: Object.keys(btnsNames),
+            values: btnsNames,
           },
         }
       }),
@@ -136,7 +107,7 @@ export class Decoration extends DevUnit {
           name: {
             type: 'string',
             name: 'name',
-            values: Object.keys(axisNames),
+            values: axisNames,
           },
           value: {
             type: 'number',

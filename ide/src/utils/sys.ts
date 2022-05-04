@@ -26,6 +26,10 @@ export default {
     }
   },
 
+  toCamelString(s: string) {
+    return s.replace(/[-_](\w)/g, (all, letter) => letter.toUpperCase()).replace(/^\w/, (all) => all.toLowerCase());
+  },
+
   /**
    * 获取系统语言设置
    */

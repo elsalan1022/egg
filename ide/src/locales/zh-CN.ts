@@ -314,6 +314,40 @@ export default {
   },
   // values
   vs: {
+    joystick: {
+      'a': 'A',
+      'b': 'B',
+      'x': 'X',
+      'y': 'Y',
+      'back': '后退（上）',
+      'forward': '前进（上）',
+      'back-2': '后退（下）',
+      'forward-2': '后退（下）',
+      'select': '选择',
+      'start': '开始',
+      'mode': '模式',
+      'joy-x': '摇杆-X轴（左）',
+      'joy-y': '摇杆-Y轴（左）',
+      'joy-x-2': '摇杆-X轴（右）',
+      'joy-y-2': '摇杆-Y轴（右）',
+      'axis-x': '按钮-X轴',
+      'axis-y': '按钮-Y轴',
+      // axis-x|y
+      'up': '上',
+      'down': '下',
+      'left': '左',
+      'right': '右',
+      // joy-x|y
+      'joy-up': '摇杆-上（左）',
+      'joy-down': '摇杆-下（左）',
+      'joy-left': '摇杆-左（左）',
+      'joy-right': '摇杆-右（左）',
+      // joy-x|y-2
+      'joy-up-2': '摇杆-上（右）',
+      'joy-down-2': '摇杆-下（右）',
+      'joy-left-2': '摇杆-左（右）',
+      'joy-right-2': '摇杆-右（右）',
+    },
     text: {
       align: {
         left: '左',

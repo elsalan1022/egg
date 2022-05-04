@@ -138,14 +138,14 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 2.6475382168171704,
-          "y": 1.9624208550874962,
-          "z": 2.2670345780283725
+          "x": 2.281221752396233,
+          "y": 2.0052373756402564,
+          "z": 2.6028926953863354
         },
         "camera.rotation": {
-          "x": -0.7135003346824575,
-          "y": 0.723330039626579,
-          "z": 0.5202918178406049
+          "x": -0.6564222719638467,
+          "y": 0.6068776430480454,
+          "z": 0.4139676070488232
         }
       },
       "events": {},
@@ -454,7 +454,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "D75D4763-B65E-40E4-9775-FF2C88828D8C",
+              "image": "CE0FB2DA-C444-496D-8F24-28BFDE5A56BD",
               "mapping": 300,
               "repeat": [
                 10,
@@ -494,7 +494,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "EB11694D-4FD6-4E88-B85F-AD391C1ECDBF",
+              "image": "3C47A385-259D-4A2B-8A9F-736B9385CE89",
               "mapping": 300,
               "repeat": [
                 10,
@@ -534,7 +534,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "8EFA9269-355D-4085-B0DF-905418F608DD",
+              "image": "76A7A0A2-48F2-4732-834A-2FB227E46393",
               "mapping": 300,
               "repeat": [
                 10,
@@ -574,7 +574,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "C549F506-E070-4CC7-B003-4539E3B0808C",
+              "image": "9632BEB3-44EF-49ED-AD29-E3E93E03849B",
               "mapping": 300,
               "repeat": [
                 1,
@@ -614,7 +614,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-              "image": "FA1885CC-8879-420C-AB67-FB7693FA5D33",
+              "image": "AFDB3604-517B-4423-A25F-8CB644E6DBB7",
               "mapping": 300,
               "repeat": [
                 1,
@@ -654,7 +654,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-              "image": "50360BB7-7160-46D4-90AC-B44BF1FA42E6",
+              "image": "68BFB804-2FBE-419F-B7F4-CFE7489D3DDC",
               "mapping": 300,
               "repeat": [
                 1,
@@ -694,7 +694,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-              "image": "09B97351-92F1-4DD3-99E6-C88ED4D88037",
+              "image": "5D52B5D0-4C29-43AF-B2AF-66A6D6DC0162",
               "mapping": 300,
               "repeat": [
                 1,
@@ -734,7 +734,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-              "image": "65D6784B-4392-478C-B4B1-273DACF885E7",
+              "image": "94FEC994-C2F2-4AEE-B3AA-F463F1E50274",
               "mapping": 300,
               "repeat": [
                 1,
@@ -2532,7 +2532,7 @@
           "z": 0
         },
         "visible": true,
-        "text": "0:2:45",
+        "text": "0:1:0",
         "size": 16,
         "align": "left",
         "valign": "top",
