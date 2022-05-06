@@ -60,7 +60,7 @@ export default {
   redraw() {
     store.state.revision++;
   },
-  drawSlot(canvas: SVG.Doc, uint: Unit, chain: BlockChain, it: Slot): DrawResult {
+  drawSlot(canvas: SVG.Doc, uint: Unit, chain: BlockChain, block: Block, it: Slot): DrawResult {
     const group = canvas.group();
     const rs: DrawResult = {
       g: group,
@@ -106,7 +106,7 @@ export default {
       x += cg.width() + textMargin.x;
       if (chain) {
         cg.click(() => {
-          setVar({ scope: 'slot', type: it.data?.type || 'unknown', name: it.name, slot: it });
+          setVar({ scope: 'slot', type: it.data?.type || 'unknown', name: it.name, slot: it, block });
         });
         hookDrop(cg, (ev: DragEvent) => {
           const data = parseDragEvent(ev);
@@ -136,6 +136,7 @@ export default {
             action.slots.name.data.value = data.name;
             it.block = action;
             action.chain = chain;
+            action.parent = block;
             this.redraw();
           } else {
             console.log(ev);
@@ -248,7 +249,7 @@ export default {
         if ((slot as any).isLabelOnly && !slot.label) {
           continue;
         }
-        const { g: slotIt, width, height } = this.drawSlot(canvas, unit, chain, slot);
+        const { g: slotIt, width, height } = this.drawSlot(canvas, unit, chain, it, slot);
         slotIt.translate(x, y);
         slots.push(slotIt);
         const rlHeight = Math.max(height, minBlockHeight);

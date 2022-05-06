@@ -65,8 +65,9 @@ export abstract class LogicBase extends BlockBase {
   }
 }
 
-class Switch extends LogicBase {
+export class Switch extends LogicBase {
   slots: Record<string, Slot> = {};
+  cases: Record<string, Block> = {};
   constructor(callee: Unit) {
     super(callee, 'switch');
     // eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -82,7 +83,7 @@ class Switch extends LogicBase {
         set(target: any, p: string | symbol, value: any, receiver: any): boolean {
           const rs = Reflect.set(target, p, value, receiver);
           if (rs && p === 'block' && typeof value === 'object') {
-            self.reset();
+            self.updateSlots();
           }
           return rs;
         },
@@ -92,7 +93,7 @@ class Switch extends LogicBase {
       }),
     };
   }
-  reset(): void {
+  updateSlots(): void {
     const { output } = this.slots.target.block as any;
     const { values } = output || {} as any;
     // debugger;

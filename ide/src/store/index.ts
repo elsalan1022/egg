@@ -1,5 +1,5 @@
 import { ProjectBrowser } from 'egg/src/browser/index';
-import { Slot } from 'egg';
+import { Block, Slot } from 'egg';
 import { createStore } from 'vuex';
 
 export type VarProp = {
@@ -11,6 +11,8 @@ export type VarProp = {
   readonly name: string;
   /** slot */
   readonly slot?: Slot;
+  /** block */
+  readonly block?: Block;
 };
 
 export type PropUUID = {

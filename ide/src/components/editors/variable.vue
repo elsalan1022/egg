@@ -126,6 +126,7 @@ export default {
           changed = true;
         }
       } else {
+        debugger;
         const prop = v.slot.data;
         if (prop.value != value) {
           prop.value = value;

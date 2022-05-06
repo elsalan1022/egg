@@ -439,8 +439,13 @@ export class Project extends UnitImpl implements Egg {
     const unpackChain = (unit: Unit, cfg: config.BlockChain): BlockChain => {
       let head: Block | undefined;
       let tail: Block | undefined;
+      const chain: BlockChain = {
+        id: cfg.id,
+        unit,
+      };
       cfg.blocks.forEach(b => {
         const block = traverseBlock(b);
+        block.chain = chain;
         if (!head) {
           head = block;
         }
@@ -449,12 +454,9 @@ export class Project extends UnitImpl implements Egg {
         }
         tail = block;
       });
-      return {
-        id: cfg.id,
-        unit,
-        head,
-        bound: cfg.bound ? { unit: this.allUnits[cfg.bound.unit], event: cfg.bound.event, filter: cfg.bound.filter } : undefined,
-      };
+      chain.head = head;
+      chain.bound = cfg.bound ? { unit: this.allUnits[cfg.bound.unit], event: cfg.bound.event, filter: cfg.bound.filter } : undefined;
+      return chain;
     };
 
     // unpack properties and chains
