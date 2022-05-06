@@ -38,13 +38,8 @@ declare module 'egg' {
   /** properties */
   type Properties = Record<string, Property>;
 
-  /** Native data */
-  interface NativeData extends Field {
-    name: '.';
-  }
-
-  /** Event field */
-  interface EventField extends Field {
+  /** Field with values */
+  interface FieldWithValues extends Field {
     /** value list */
     values?: Array<boolean | number | string | {
       /** value */
@@ -55,6 +50,14 @@ declare module 'egg' {
       description?: TextLocalized;
     }>;
   }
+
+  /** Native data */
+  interface NativeData extends FieldWithValues {
+    name: '.';
+  }
+
+  /** Event field */
+  type EventField = FieldWithValues;
 
   /** Event */
   interface Event extends Discriable {

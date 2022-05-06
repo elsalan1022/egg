@@ -9,7 +9,21 @@
         "start": [],
         "stop": []
       },
-      "chains": [],
+      "chains": [
+        {
+          "id": "7f7b9061-c283-40a5-8e7e-d8c1c3175e30",
+          "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+          "blocks": [
+            {
+              "id": "53311452-058a-46a7-9f91-dce8403ea5ca",
+              "type": "block",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+              "action": "switch",
+              "slots": {}
+            }
+          ]
+        }
+      ],
       "children": [
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C3",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",

@@ -1,4 +1,5 @@
-import { runtime, Egg, Slot, Unit, ExecuteFunc, BlockType } from "egg";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { runtime, Egg, Slot, Unit, ExecuteFunc, Block, BlockType } from "egg";
 import { BlockBase } from "../block";
 import { gclsids } from "../clsids";
 import { UnitImpl, UnitRuntime } from "../unit";
@@ -27,6 +28,17 @@ class Runtime extends UnitRuntime {
       await excuteBlocks(alternative, {}, event);
     }
   }
+  async switch(blocks: Record<string, runtime.Block | any>, event?: runtime.Event): Promise<any> {
+    const { target, star } = blocks;
+    const rs = target ? await excuteBlocks(target, {}, event) : false;
+    const ca = blocks[rs];
+    if (ca) {
+      await excuteBlocks(ca, {}, event);
+    }
+    if (star) {
+      await excuteBlocks(star, {}, event);
+    }
+  }
   async loop({ action }: Record<string, runtime.Block | any>, event?: runtime.Event) {
     const chick = this.parent as runtime.Chick;
     while ((chick as runtime.Chick).isRunning()) {
@@ -50,6 +62,40 @@ export abstract class LogicBase extends BlockBase {
   static type: BlockType = 'logic';
   constructor(callee: Unit, name: string, execute?: ExecuteFunc, label?: string) {
     super(callee, name, execute, label);
+  }
+}
+
+class Switch extends LogicBase {
+  slots: Record<string, Slot> = {};
+  constructor(callee: Unit) {
+    super(callee, 'switch');
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const self = this;
+    this.slots = {
+      target: new Proxy({
+        name: 'target',
+        data: {
+          type: 'unknown',
+        },
+        required: true,
+      }, {
+        set(target: any, p: string | symbol, value: any, receiver: any): boolean {
+          const rs = Reflect.set(target, p, value, receiver);
+          if (rs && p === 'block' && typeof value === 'object') {
+            self.reset();
+          }
+          return rs;
+        },
+      }),
+      star: makeSlot({
+        name: 'star',
+      }),
+    };
+  }
+  reset(): void {
+    const { output } = this.slots.target.block as any;
+    const { values } = output || {} as any;
+    // debugger;
   }
 }
 
@@ -98,6 +144,7 @@ export class Decoration extends UnitImpl {
           super(callee, 'ifElse');
         }
       },
+      switch: Switch,
       loop: class extends LogicBase {
         ending = true;
         slots: Record<string, Slot> = {

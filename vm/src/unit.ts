@@ -136,12 +136,19 @@ export class UnitImpl implements Unit {
             suffix: 'valueof',
           }),
         };
-        output: NativeData = {
-          type: 'unknown',
-          name: '.',
-          label: 'value',
-          description: 'value-desc',
-        };
+        get output(): NativeData {
+          const name = this.slots.name.data?.value;
+          if (typeof name === 'object') {
+            return name;
+          }
+          const pr = unit.properties[name];
+          return pr as any || {
+            type: 'unknown',
+            name: '.',
+            label: 'value',
+            description: 'value-desc',
+          };
+        }
         constructor(callee: Unit) {
           super(callee, 'get');
         }
@@ -200,6 +207,9 @@ export class UnitImpl implements Unit {
     if (this.chains[chain.id]) {
       throw 'duplicate chain';
     }
+    if (block) {
+      block.chain = chain;
+    }
     this.chains[chain.id] = chain;
     return chain;
   }
@@ -236,6 +246,7 @@ export class UnitImpl implements Unit {
     }
   }
   appendBlock(chain: BlockChain, block: Block): void {
+    block.chain = chain;
     if (!chain.head) {
       chain.head = block;
     } else {
@@ -259,6 +270,7 @@ export class UnitImpl implements Unit {
       }
       prev.next = block.next;
     }
+    block.chain = undefined;
     (block as any).next = undefined;
   }
   findBlock(chain: BlockChain, id: GUID): Block | undefined {
