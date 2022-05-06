@@ -5,9 +5,15 @@ declare module 'egg/project' {
    * @label EGG系统
    */
   interface Module extends Dispatchable {
+    /** list */
+    list(cxt: DispContext): RecSet<string>;
+    /** create */
+    create(cxt: DispContext, name: string): config.Project;
     /** load */
-    load(cxt: DispContext): Promise<config.Project>;
+    load(cxt: DispContext, name: string): config.Project;
     /** save */
-    save(cxt: DispContext, cfg: config.Project): Promise<void>;
+    save(cxt: DispContext, name: string, cfg: config.Project): void;
+    /** remove */
+    remove(cxt: DispContext, name: string): void;
   }
 }

@@ -127,6 +127,9 @@ export default {
         const clsname = data.name;
         if (clsname === 'scene') {
           await project.createUnit(clsname, project.screenEditor);
+          if (!project.screen.scene) {
+            project.screenEditor.setCurrentScene(project.screenEditor.getScenes()[0]);
+          }
         } else {
           const cls = project.classes[clsname];
           const { is2D } = cls.runtime as any;

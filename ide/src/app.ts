@@ -4,7 +4,7 @@ import { Router } from 'vue-router';
 import { Store } from 'vuex';
 import { ElNotification } from 'element-plus';
 import rpcService, { rpc } from './rpc';
-import store, { project } from './store/index';
+import store, { project, projectName } from './store/index';
 import * as apis from './apis';
 import { loadUsrLibs } from './egg';
 import Stats from 'stats.js';
@@ -42,10 +42,10 @@ export default {
       try {
         await project.screen.setup({
           font: '/assets/fonts/helvetiker_regular.typeface.json',
-          texture: '/__egg__/assets/textures',
-          sounds: '/__egg__/assets/sounds',
+          texture: `/__egg__/${projectName}/assets/textures`,
+          sounds: `/__egg__/${projectName}/assets/sounds`,
         });
-        const cfg = await apis.project.load();
+        const cfg = await apis.project.load(projectName);
         await project.unserialize(cfg);
         project.screenEditor.afterLoad();
       } catch (e) {

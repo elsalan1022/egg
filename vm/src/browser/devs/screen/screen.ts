@@ -373,7 +373,7 @@ export class Screen extends DevRuntime {
     return (this.textures[id] || {}).value;
   }
   async addTexture(image: string) {
-    const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${name}`);
+    const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${image}`);
     const info = {
       image,
       value: texture,

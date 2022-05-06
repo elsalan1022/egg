@@ -42,6 +42,7 @@ import type { SpeechCommandRecognizer, TransferSpeechCommandRecognizer } from '.
 import * as tfvis from '@tensorflow/tfjs-vis';
 import * as apis from '../apis';
 import type { Model } from 'egg/speech';
+import { projectName } from '../store';
 
 const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 const directions = ['up', 'down', 'left', 'right'];
@@ -81,11 +82,12 @@ function sortWords(words: Array<string>): Array<string> {
 let recognizer: SpeechCommandRecognizer = null;
 let transferRecognizer: TransferSpeechCommandRecognizer = null;
 async function createTransferRecognizer(model: Model) {
-  recognizer = speechCommands.create('BROWSER_FFT', null, `${window.location.origin}/__egg__/assets/models/speech/${model.name}/model.json`, `${window.location.origin}/__egg__/assets/models/speech/${model.name}/metadata.json`);
+  // eslint-disable-next-line max-len
+  recognizer = speechCommands.create('BROWSER_FFT', null, `${window.location.origin}/__egg__/${projectName}/assets/models/speech/${model.name}/model.json`, `${window.location.origin}/__egg__/assets/models/speech/${model.name}/metadata.json`);
   await recognizer.ensureModelLoaded();
   transferRecognizer = recognizer.createTransfer(`${model.name}-transfer`);
   if (model.transfer) {
-    await transferRecognizer.load(`${window.location.origin}/__egg__/assets/models/speech/${model.name}/transfer/model.json`);
+    await transferRecognizer.load(`${window.location.origin}/__egg__/${projectName}/assets/models/speech/${model.name}/transfer/model.json`);
     transferRecognizer.setWords(model.transfer.words);
   }
 }
@@ -218,7 +220,7 @@ export default {
     async save() {
       const rs = await transferRecognizer.save(`${window.location.origin}/__egg__/uploadmodel?name=${this.sel.name}`);
       const meta = transferRecognizer.getMetadata();
-      await apis.speech.saveTransferMeta(this.sel.name, meta);
+      await apis.speech.saveTransferMeta(projectName, this.sel.name, meta);
       console.log(rs);
     },
     async listen() {
@@ -246,7 +248,7 @@ export default {
     },
   },
   async mounted() {
-    this.models = await apis.speech.models();
+    this.models = await apis.speech.models(projectName);
     const sel = this.models[0] || { words: [] };
     this.setModel(sel);
   },

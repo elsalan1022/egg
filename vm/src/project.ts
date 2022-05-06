@@ -160,10 +160,18 @@ export class Project extends UnitImpl implements Egg {
             required: true,
           }),
         };
-        output: Record<string, Field> | NativeData = {
-          type: 'unknown',
-          name: '.',
-        };
+        get output(): Record<string, Field> | NativeData {
+          const paramName = this.slots.name.data?.value;
+          if (this.chain?.bound) {
+            const { unit, event } = this.chain.bound;
+            const ev = unit.events[event];
+            return ev.params[paramName] as any;
+          }
+          return {
+            type: 'unknown',
+            name: '.',
+          };
+        }
         constructor(callee: Unit) {
           super(callee, 'valueFromEvent', undefined, 'valueFromEvent');
         }

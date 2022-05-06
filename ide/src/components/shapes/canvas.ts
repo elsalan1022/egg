@@ -128,12 +128,14 @@ export default {
             } else {
               it.block = unit.createAction(data.action);
             }
+            it.block.chain = chain;
             this.redraw();
           } else if (data.type === 'var') {
             const storage = project.devices['storage'] as Storage;
             const action = storage.createAction('get') as any;
             action.slots.name.data.value = data.name;
             it.block = action;
+            action.chain = chain;
             this.redraw();
           } else {
             console.log(ev);
@@ -158,6 +160,7 @@ export default {
             throw new Error('no unit');
           }
           it.block = unit.createAction(data.action);
+          it.block.chain = chain;
           this.redraw();
         } else if (data.type === 'block') {
           // move block
@@ -170,6 +173,7 @@ export default {
           if (itMove) {
             unitFrom.removeBlock(chainFrom, itMove);
             it.block = itMove;
+            itMove.chain = chain;
             this.redraw();
           } else {
             throw new Error('no block');
@@ -359,6 +363,7 @@ export default {
           }
           const block = unit.createAction(data.action);
           (tail as any).next = block;
+          block.chain = chain;
           this.redraw();
         } else if (data.type === 'block') {
           // move block
@@ -375,6 +380,7 @@ export default {
             } else {
               chain.head = next;
             }
+            next.chain = chain;
             this.redraw();
           } else {
             throw new Error('no block');
@@ -580,6 +586,7 @@ export default {
               } else {
                 chain.head = next;
               }
+              next.chain = chain;
               this.redraw();
             } else {
               throw new Error('no block');

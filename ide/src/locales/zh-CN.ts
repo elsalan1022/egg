@@ -265,6 +265,11 @@ export default {
       '!': '!',
       '%': '%',
     },
+    new: '新建',
+    'inpjname': '请输入项目名称',
+    ok: '确定',
+    cancel: '取消',
+    invalidName: '名称不合法',
   },
   // state
   st: {

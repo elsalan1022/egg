@@ -1,4 +1,4 @@
-import { Block, runtime, Slot, Unit, ExecuteFunc } from "egg";
+import { Block, runtime, Slot, Unit, ExecuteFunc, BlockChain } from "egg";
 import { bornSlot, excuteBlocks, genUniqueId } from "./utils";
 
 export class BlockBase implements Block {
@@ -9,6 +9,7 @@ export class BlockBase implements Block {
   execute: ExecuteFunc;
   ending?: boolean | undefined;
   next?: Block | undefined;
+  chain?: BlockChain;
   constructor(public callee: Unit, public name: string, execute?: ExecuteFunc, label?: string, description?: string) {
     this.label = label || name;
     this.description = description || `${this.label}-desc`;

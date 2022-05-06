@@ -48,6 +48,8 @@ declare module 'egg' {
     readonly ending?: boolean;
     /** next */
     readonly next?: Block;
+    /** chain of */
+    chain?: BlockChain;
     /** Execute */
     readonly execute: ExecuteFunc;
     /** can bind */
