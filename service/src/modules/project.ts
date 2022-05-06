@@ -11,14 +11,45 @@ import { lookupModule } from '../transformer/lookup';
 import xs from '../transformer/xs';
 
 const absRoot = env.options.root;
-const absPath = path.resolve(absRoot, 'egg.json');
+const absProjectsRoot = path.join(absRoot, 'projects');
+const absShare = path.join(absRoot, 'share');
 
 export class Class implements Module {
-  load(_cxt: DispContext): Promise<config.Project> {
-    return JSON.parse(fs.readFileSync(absPath, 'utf8'));
+  list(cxt: DispContext): RecSet<string> {
+    const items = fs.readdirSync(absProjectsRoot).filter(e => fs.statSync(path.resolve(absProjectsRoot, e)).isDirectory());
+    return {
+      total: items.length,
+      items,
+    };
   }
-  async save(cxt: DispContext, cfg: config.Project): Promise<void> {
-    fs.writeFileSync(absPath, JSON.stringify(cfg, null, 2));
+  create(cxt: DispContext, name: string): config.Project {
+    const dir = path.resolve(absProjectsRoot, name);
+    if (fs.existsSync(dir)) {
+      throw new Error(`project ${name} already exists`);
+    }
+    fs.mkdirSync(dir);
+    fs.mkdirSync(path.join(dir, 'assets'));
+    fs.mkdirSync(path.join(dir, 'extensions'));
+    const cfg = {
+      version: '0.0.1',
+      units: {},
+      variables: {}
+    };
+    const file = path.resolve(absProjectsRoot, name, 'egg.json');
+    fs.writeFileSync(file, JSON.stringify(cfg, null, 2));
+    return cfg;
+  }
+  load(_cxt: DispContext, name: string): config.Project {
+    const file = path.resolve(absProjectsRoot, name, 'egg.json');
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  }
+  save(cxt: DispContext, name: string, cfg: config.Project): void {
+    const file = path.resolve(absProjectsRoot, name, 'egg.json');
+    fs.writeFileSync(file, JSON.stringify(cfg, null, 2));
+  }
+  remove(cxt: DispContext, name: string): void {
+    const dir = path.resolve(absProjectsRoot, name);
+    fs.rmSync(dir, { recursive: true, force: true });
   }
   [key: string]: (cxt: DispContext, ...args: any[]) => any;
 }
@@ -31,13 +62,29 @@ function parseHttpDate(date: string) {
     : NaN;
 }
 
+function resolvePath(originalUrl: string): [string, string] {
+  let orgPath = originalUrl.split('?')[0].replace(/^\/__egg__\//, '');
+  let filePath = '';
+  if (fs.existsSync(filePath = path.resolve(absProjectsRoot, orgPath))) {
+    return [filePath, orgPath];
+  } else if (fs.existsSync(filePath = path.resolve(absShare, orgPath))) {
+    return [filePath, orgPath];
+  }
+  orgPath = orgPath.replace(/^[^/]+\//, '');
+  if (fs.existsSync(filePath = path.resolve(absProjectsRoot, orgPath))) {
+    return [filePath, orgPath];
+  } else if (fs.existsSync(filePath = path.resolve(absShare, orgPath))) {
+    return [filePath, orgPath];
+  }
+  return ['', ''];
+}
+
 export default function (expr: express.Express) {
-  expr.use('/__egg__/*', async (request, response, next) => {
-    const filePathRel = request.originalUrl.split('?')[0].replace(/^\/+/, '');
-    if (!filePathRel) {
+  expr.use('/__egg__/*/extensions', async (request, response, next) => {
+    const [filePath, filePathRel] = resolvePath(request.originalUrl);
+    if (!filePath) {
       return next();
     }
-    const filePath = path.resolve(absRoot, filePathRel);
     const exists = fs.existsSync(filePath);
     if (exists && fs.statSync(filePath).isDirectory()) {
       return response.redirect(`/${request.path}/index`.replace(/\/\/+/, '/'));
@@ -49,7 +96,7 @@ export default function (expr: express.Express) {
         }
       }
       if (/^\/node_modules\//.test(filePathRel)) {
-        const newPath = lookupModule(absRoot, filePathRel.substring(14));
+        const newPath = lookupModule(absProjectsRoot, filePathRel.substring(14));
         if (newPath) {
           return response.redirect(302, `/${newPath}${request.url.substring(1)}`);
         }
@@ -64,22 +111,20 @@ export default function (expr: express.Express) {
       response.statusCode = 304;
       return response.end();
     }
-    let mimeType = mime.lookup(filePath);
+    let mimeType = mime.getType(filePath) || '';
     if (!/\.(ts)$/i.test(filePath) && !/^text|application/.test(mimeType)) {
       return next();
     }
     let src = '';
-    const secFetchDest = request.header('Sec-Fetch-Dest');
     const importType = request.query.import?.toString() || '';
     const moduleType = request.query.type?.toString() || '';
-    const scoped = request.query.scoped?.toString() || '';
     if (/\.(js|ts)$/i.test(filePath)) {
       src = fs.readFileSync(filePath, 'utf-8');
       mimeType = 'application/javascript';
       if (moduleType === 'wx-component') {
-        src = xs(absRoot, filePathRel, src, importType, `window.__FILE__='${filePathRel}';`);
+        src = xs(absProjectsRoot, filePathRel, src, importType, `window.__FILE__='${filePathRel}';`);
       } else {
-        src = xs(absRoot, filePathRel, src, importType);
+        src = xs(absProjectsRoot, filePathRel, src, importType);
       }
     } else {
       src = fs.readFileSync(filePath, 'utf-8');
@@ -100,10 +145,9 @@ export default function (expr: express.Express) {
     }
     readStream.pipe(response);
   });
-  expr.use('/__egg__/', express.static(absRoot));
-  expr.use('/__egg__/assets/', (request, response, next) => {
-    const filePath = path.resolve(absRoot, request.originalUrl.split('?')[0].replace(/^\/__egg__\//, ''));
-    if (!fs.existsSync(filePath)) {
+  expr.use('/__egg__/*/assets/', (request, response, next) => {
+    const [filePath, orgPath] = resolvePath(request.originalUrl);
+    if (!filePath) {
       return next();
     }
     const stats = fs.statSync(filePath);
@@ -116,15 +160,17 @@ export default function (expr: express.Express) {
       const files = fs.readdirSync(filePath);
       return response.json(files);
     }
-    const mimeType = mime.lookup(filePath);
+    const mimeType = mime.getType(filePath);
     const fileContents = fs.readFileSync(filePath);
     const readStream = new stream.PassThrough();
     readStream.end(fileContents);
 
-    if (!/^text\//.test(mimeType)) {
+    if (mimeType && !/^text\//.test(mimeType)) {
       response.set('Content-disposition', `attachment; filename=${path.basename(filePath)}`);
     }
-    response.set('Content-Type', `${mimeType}; charset=UTF-8`);
+    if (mimeType) {
+      response.set('Content-Type', `${mimeType}; charset=UTF-8`);
+    }
     response.set('Last-Modified', stats.mtime.toUTCString());
     response.set('Cache-Control', ['no-cache', 'no-store', 'must-revalidate', 'max-age=0']);
     readStream.pipe(response);

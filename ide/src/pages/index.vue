@@ -3,15 +3,27 @@
     <div class="topbar" style="align-items: stretch; display: flex; flex-direction: row; width: auto">
       <div class="leftside" style="align-items: center; display: flex; flex: 1 1 auto; flex-direction: row; font-size: 2rem; padding-left: 0.5rem">
         <i class="icon-egg" style="cursor: default; font-size: 3rem"></i>
-        <label>{{ $prj.name }}</label>
+        <el-dropdown @command="selectProject" style="flex: 1 1 auto">
+          <div style="display: flex; flex-direction: row; align-items: center">
+            <label style="color: white; font-size: 2rem; margin-left: 0.5em">{{ projectName }}</label>
+            <i class="icon-arrow-dropdown" style="color: white"></i>
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item v-for="name in names" :key="name" :command="name">{{ name }}</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
       <div class="center topbtns" style="padding-left: 0.5em; align-items: center; display: flex; flex: 1 1 auto; flex-direction: row">
-        <i class="icon-save" :isDirty="isDirty" @click="save"></i>
+        <i class="icon-add" @click="newProject"></i>
+        <i class="icon-save" :disabled="!isDirty" @click="save"></i>
+        <i class="icon-trash" :disabled="names.length == 1" @click="removeProject"></i>
         <!-- <i class="icon-recorder" @click="speechDlg.visible = true"></i> -->
       </div>
       <div class="rightside topbtns" style="align-items: center; display: flex; flex-direction: row">
-        <i class="icon-start" :isRunning="isRunning" @click="start"></i>
-        <i class="icon-stop" :isRunning="isRunning" @click="stop"></i>
+        <i class="icon-start" :disabled="isRunning" @click="start"></i>
+        <i class="icon-stop" :disabled="!isRunning" @click="stop"></i>
         <i class="icon-loading" v-if="isPending" style="margin-right: 8px"></i>
         <p style="flex: 1 1 auto"></p>
         <i class="icon-reset" @click="resetScreen" style="margin-right: 8px"></i>
@@ -115,10 +127,11 @@
         </el-tabs>
       </div>
     </div>
-    <Speech :prop="speechDlg" :title="$t('speech.train')"></Speech>
+    <!-- <Speech :prop="speechDlg" :title="$t('speech.train')"></Speech> -->
   </div>
 </template>
 <script lang='ts'>
+import { ElMessageBox } from 'element-plus';
 import Blocks from '../components/blocks.vue';
 import Editor from '../components/editor.vue';
 import Preview from '../components/preview.vue';
@@ -128,8 +141,8 @@ import Scenes from '../components/scenes.vue';
 import Materials from '../components/materials.vue';
 import Textures from '../components/textures.vue';
 import Devices from '../components/devices.vue';
-import Speech from '../components/speech.vue';
-import { project } from '../store/index';
+// import Speech from '../components/speech.vue';
+import { project, projectName } from '../store/index';
 import * as apis from '../apis';
 import { setLang } from '../i18n';
 import { Dragable } from '../utils/dragable';
@@ -145,18 +158,22 @@ export default {
     Textures,
     Devices,
     Panel,
-    Speech,
+    // Speech,
   },
   data() {
     return {
       isRunning: false,
       localRev: -1,
-      speechDlg: {
-        visible: false,
-      },
+      names: [] as string[],
+      // speechDlg: {
+      //   visible: false,
+      // },
     };
   },
   computed: {
+    projectName() {
+      return projectName;
+    },
     isDirty() {
       return this.localRev !== this.$store.state.revision;
     },
@@ -226,7 +243,7 @@ export default {
     },
     async save() {
       const cfg = project.serialize();
-      await apis.project.save(cfg);
+      await apis.project.save(projectName, cfg);
       this.localRev = this.$store.state.revision;
     },
     async addUnit(clsname) {
@@ -254,10 +271,34 @@ export default {
     resetScreen() {
       project.screen.reset();
     },
+    async newProject() {
+      const { action, value } = (await ElMessageBox.prompt(this.$t('se.inpjname'), this.$t('se.new'), {
+        confirmButtonText: this.$t('se.ok'),
+        cancelButtonText: this.$t('se.cancel'),
+        inputPattern: /\w{1,30}/,
+        inputErrorMessage: this.$t('se.invalidName'),
+      })) as any;
+      if (action === 'confirm' && value) {
+        await apis.project.create(value);
+        localStorage.setItem('project', value);
+        location.reload();
+      }
+    },
+    async selectProject(name) {
+      localStorage.setItem('project', name);
+      location.reload();
+    },
+    async removeProject() {
+      await apis.project.remove(projectName);
+      const rs = await apis.project.list();
+      this.names = rs.items;
+    },
   },
   async mounted() {
     this.localRev = this.$store.state.revision <= 0 ? 0 : this.$store.state.revision;
     this.dragable = new Dragable(this.$refs.main);
+    const rs = await apis.project.list();
+    this.names = rs.items;
     const preview = document.getElementById('preview');
     const screen = project.screen;
     screen.attach(preview);
@@ -328,36 +369,28 @@ export default {
 
 .topbtns i {
   font-size: 2rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
   cursor: pointer;
 }
 
-.icon-save,
-.icon-save[isDirty='false'] {
-  cursor: default;
-  color: #ccc;
-}
-.icon-save[isDirty='true'] {
+i {
   color: white;
   cursor: pointer;
 }
 
-.icon-start[isRunning='false'] {
+i[disabled='true'] {
+  cursor: default;
+  color: #ccc;
+  pointer-events: none;
+}
+
+.icon-start[disabled='false'] {
   color: greenyellow;
 }
 
-.icon-start[isRunning='true'] {
-  cursor: default;
-}
-
-.icon-stop[isRunning='false'] {
-  cursor: default;
-}
-
-.icon-stop[isRunning='true'] {
+.icon-stop[disabled='false'] {
   color: red;
-  cursor: pointer;
 }
 
 .icon-egg {

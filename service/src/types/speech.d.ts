@@ -12,8 +12,8 @@ declare module 'egg/speech' {
    */
   interface Module extends Dispatchable {
     /** get models list */
-    models(cxt: DispContext): Promise<Array<Model>>;
+    models(cxt: DispContext, projectName: string): Promise<Array<Model>>;
     /** save meta data  */
-    saveTransferMeta(cxt: DispContext, name: string, data: any): Promise<void>;
+    saveTransferMeta(cxt: DispContext, projectName: string, name: string, data: any): Promise<void>;
   }
 }

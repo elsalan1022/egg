@@ -6,11 +6,11 @@ import { Module, Model } from 'egg/speech';
 import { env } from '../environment';
 
 const absRoot = env.options.root;
-const modelRoot = path.join(absRoot, 'assets/models/speech');
 
 export class Class implements Module {
   [key: string]: (cxt: DispContext, ...args: any[]) => any;
-  async models(cxt: DispContext): Promise<Model[]> {
+  async models(cxt: DispContext, projectName: string): Promise<Model[]> {
+    const modelRoot = path.join(absRoot, projectName, 'assets/models/speech');
     return fs.readdirSync(modelRoot).map(e => {
       const data = JSON.parse(fs.readFileSync(path.join(modelRoot, e, 'metadata.json'), 'utf-8'));
       const model: Model = {
@@ -29,7 +29,8 @@ export class Class implements Module {
       return model;
     });
   }
-  async saveTransferMeta(cxt: DispContext, name: string, data: any): Promise<void> {
+  async saveTransferMeta(cxt: DispContext, projectName: string, name: string, data: any): Promise<void> {
+    const modelRoot = path.join(absRoot, projectName, 'assets/models/speech');
     const modelPath = path.join(modelRoot, name);
     if (!fs.existsSync(modelPath)) {
       throw new Error(`model ${name} not found`);
@@ -62,10 +63,15 @@ export async function uploadModel(req: express.Request): Promise<boolean> {
   if (!req.files) {
     throw 'No files or more than one files were uploaded.';
   }
+  const projectName = req.query.projectName as string;
+  if (!projectName) {
+    throw 'No project name was specified.';
+  }
   const name = req.query.name as string;
   if (!name) {
     throw 'No model name was specified.';
   }
+  const modelRoot = path.join(absRoot, projectName, 'assets/models/speech');
   const modelPath = path.join(modelRoot, name);
   if (!fs.existsSync(modelPath)) {
     throw new Error(`model ${name} not found`);

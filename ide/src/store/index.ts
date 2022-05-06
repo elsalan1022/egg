@@ -22,6 +22,8 @@ export type MatProp = PropUUID;
 
 export const project = new ProjectBrowser();
 
+export const projectName = localStorage.getItem('project') || 'test';
+
 export const state = {
   isLoading: false,
   isNetBusy: false,
