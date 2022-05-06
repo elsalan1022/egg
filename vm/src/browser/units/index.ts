@@ -8,6 +8,7 @@ import { Decoration as Cube } from './cube';
 import { Decoration as Box } from './box';
 import { Decoration as Bulb } from './bulb';
 import { Decoration as Cloth } from './cloth';
+// import { Decoration as Shadertoy } from './shadertoy';
 
 export default [
   Scene,
@@ -20,4 +21,5 @@ export default [
   Box,
   Bulb,
   Cloth,
+  // Shadertoy,
 ];

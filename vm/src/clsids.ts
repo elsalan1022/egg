@@ -24,4 +24,5 @@ export namespace gclsids {
   export const cube = '9E8B8E0E-B7B2-4E8E-A801-000000000007';
   export const axis = '9E8B8E0E-B7B2-4E8E-A801-000000000008';
   export const text3d = '9E8B8E0E-B7B2-4E8E-A801-000000000009';
+  export const shadertoy = '9E8B8E0E-B7B2-4E8E-A801-00000000000A';
 }

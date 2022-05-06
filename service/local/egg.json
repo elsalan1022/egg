@@ -138,14 +138,14 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 2.281221752396233,
-          "y": 2.0052373756402564,
-          "z": 2.6028926953863354
+          "x": 3.037734138271988,
+          "y": 1.446899964861707,
+          "z": 2.1630191392639513
         },
         "camera.rotation": {
-          "x": -0.6564222719638467,
-          "y": 0.6068776430480454,
-          "z": 0.4139676070488232
+          "x": -0.5895651983500984,
+          "y": 0.8624419701872779,
+          "z": 0.47003101475356057
         }
       },
       "events": {},
@@ -164,6 +164,7 @@
             },
             "uuid": "02232F8B-E112-418D-8FAC-0361A734E2B8",
             "type": "MeshStandardMaterial",
+            "name": "木板",
             "color": 16777215,
             "roughness": 0.8,
             "metalness": 0.2,
@@ -174,6 +175,7 @@
             "roughnessMap": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
             "envMapIntensity": 1,
             "refractionRatio": 0.98,
+            "side": 2,
             "depthFunc": 3,
             "depthTest": true,
             "depthWrite": true,
@@ -363,7 +365,7 @@
             "color": 16777215,
             "roughness": 1,
             "metalness": 0,
-            "emissive": 0,
+            "emissive": 16777215,
             "map": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
             "envMapIntensity": 1,
             "refractionRatio": 0.98,
@@ -393,7 +395,7 @@
             "color": 16777215,
             "roughness": 1,
             "metalness": 0,
-            "emissive": 0,
+            "emissive": 16777215,
             "map": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
             "envMapIntensity": 1,
             "refractionRatio": 0.98,
@@ -423,12 +425,45 @@
             "color": 16777215,
             "roughness": 1,
             "metalness": 0,
-            "emissive": 0,
+            "emissive": 16777215,
             "map": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
             "envMapIntensity": 1,
             "refractionRatio": 0.98,
             "side": 2,
             "transparent": true,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "colorWrite": true,
+            "stencilWrite": false,
+            "stencilWriteMask": 255,
+            "stencilFunc": 519,
+            "stencilRef": 0,
+            "stencilFuncMask": 255,
+            "stencilFail": 7680,
+            "stencilZFail": 7680,
+            "stencilZPass": 7680
+          },
+          "219354B4-9BAE-4C25-BD97-894F586741C6": {
+            "metadata": {
+              "version": 4.5,
+              "type": "Material",
+              "generator": "Material.toJSON"
+            },
+            "uuid": "219354B4-9BAE-4C25-BD97-894F586741C6",
+            "type": "MeshPhongMaterial",
+            "name": "地面",
+            "color": 10716251,
+            "emissive": 0,
+            "specular": 1118481,
+            "shininess": 100,
+            "lightMap": "8D8B7756-5CFA-462F-9BB2-DA544CB921DD",
+            "lightMapIntensity": 0.75,
+            "bumpMap": "5F33177C-AE23-4D4C-80D5-76D08D4098DB",
+            "bumpScale": 2,
+            "specularMap": "5F33177C-AE23-4D4C-80D5-76D08D4098DB",
+            "reflectivity": 1,
+            "refractionRatio": 0.98,
             "depthFunc": 3,
             "depthTest": true,
             "depthWrite": true,
@@ -454,7 +489,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "CE0FB2DA-C444-496D-8F24-28BFDE5A56BD",
+              "image": "D1EC3AB0-2EFC-4A05-B687-646EA4D85839",
               "mapping": 300,
               "repeat": [
                 10,
@@ -494,7 +529,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "3C47A385-259D-4A2B-8A9F-736B9385CE89",
+              "image": "B5D4817B-6389-425F-9F9B-56F4958F8D60",
               "mapping": 300,
               "repeat": [
                 10,
@@ -534,7 +569,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "76A7A0A2-48F2-4732-834A-2FB227E46393",
+              "image": "8C5C1D3E-9531-42DD-A6A4-DCD01F4F6C82",
               "mapping": 300,
               "repeat": [
                 10,
@@ -574,7 +609,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "9632BEB3-44EF-49ED-AD29-E3E93E03849B",
+              "image": "DCA19D83-625B-4040-8F63-A56B143AD621",
               "mapping": 300,
               "repeat": [
                 1,
@@ -614,7 +649,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-              "image": "AFDB3604-517B-4423-A25F-8CB644E6DBB7",
+              "image": "F4344D3B-F938-4452-9DC5-73E60457D036",
               "mapping": 300,
               "repeat": [
                 1,
@@ -654,7 +689,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-              "image": "68BFB804-2FBE-419F-B7F4-CFE7489D3DDC",
+              "image": "3F6263A2-F1BA-4FF2-8F9D-71B8E9BC303F",
               "mapping": 300,
               "repeat": [
                 1,
@@ -694,7 +729,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-              "image": "5D52B5D0-4C29-43AF-B2AF-66A6D6DC0162",
+              "image": "FD969B0F-105C-4DE5-BE28-EAB59BFC601D",
               "mapping": 300,
               "repeat": [
                 1,
@@ -734,7 +769,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-              "image": "94FEC994-C2F2-4AEE-B3AA-F463F1E50274",
+              "image": "14430C87-3F28-49A3-B6EA-1D1F86F0B6FF",
               "mapping": 300,
               "repeat": [
                 1,
@@ -759,6 +794,206 @@
               "minFilter": 1008,
               "magFilter": 1006,
               "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "C27E3212-55C7-4E0B-B6A7-1AE2950B6E23": {
+            "image": "FloorsCheckerboard_S_Diffuse.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "C27E3212-55C7-4E0B-B6A7-1AE2950B6E23",
+              "name": "",
+              "image": "21DD16A7-3CDC-4281-96AC-160DC203A86D",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "7AFB8038-5D53-432E-897D-1DD325329FEE": {
+            "image": "FloorsCheckerboard_S_Normal.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "7AFB8038-5D53-432E-897D-1DD325329FEE",
+              "name": "地面",
+              "image": "6317FD67-A2B3-43E3-9955-C4289786EB80",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "8D8B7756-5CFA-462F-9BB2-DA544CB921DD": {
+            "image": "lightmap-ao-shadow.png",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "8D8B7756-5CFA-462F-9BB2-DA544CB921DD",
+              "name": "",
+              "image": "E883D972-516A-4881-BD6D-F94DB238E595",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 4,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "4DC3E77E-1D8D-4564-B847-6DC6171E6FAE": {
+            "image": "rocks.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "4DC3E77E-1D8D-4564-B847-6DC6171E6FAE",
+              "name": "",
+              "image": "9EEDCBA7-64D0-4D3B-8F9B-5034D0A5ABE7",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "5F33177C-AE23-4D4C-80D5-76D08D4098DB": {
+            "image": "stone.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "5F33177C-AE23-4D4C-80D5-76D08D4098DB",
+              "name": "",
+              "image": "F59E5571-440E-4688-BF79-8CF95AADF0DC",
+              "mapping": 300,
+              "repeat": [
+                16,
+                16
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1000,
+                1000
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 4,
               "flipY": true,
               "premultiplyAlpha": false,
               "unpackAlignment": 4
@@ -975,17 +1210,17 @@
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB",
       "properties": {
         "name": "scene",
-        "sky.color": "rgba(197, 213, 237, 1)",
+        "sky.color": "rgba(0, 0, 0, 1)",
         "ground.visible": false,
         "ground.material": "02232F8B-E112-418D-8FAC-0361A734E2B8",
-        "light.on": false,
-        "light.color": "#ffffff",
+        "light.on": true,
+        "light.color": "rgba(255, 255, 255, 1)",
         "light.position": {
           "x": 3,
-          "y": 10,
-          "z": 10
+          "y": 3,
+          "z": 3
         },
-        "light.intensity": 1,
+        "light.intensity": 0.7,
         "spot.on": false,
         "spot.color": "rgba(255, 255, 255, 1)",
         "spot.position": {
@@ -993,7 +1228,7 @@
           "y": 10,
           "z": 0
         },
-        "ambient.on": true,
+        "ambient.on": false,
         "ambient.color": "rgba(255, 255, 255, 1)",
         "wind.force": {
           "x": 0.1,
@@ -1013,7 +1248,8 @@
         "df01fe9d-0d9b-42ae-8926-492a9a085a6d",
         "e67c86f2-8f1e-4fcc-b2d8-9fb934b1917b",
         "73179b69-389c-41ae-afb6-b3ff3cd6b248",
-        "2bf389dd-717a-4672-99d6-7314e27d6b0a"
+        "2bf389dd-717a-4672-99d6-7314e27d6b0a",
+        "9d8a25a9-103f-46de-b81c-da21e045db13"
       ],
       "userData": {}
     },
@@ -1027,7 +1263,7 @@
           "z": 3
         },
         "visible": true,
-        "power": 1700,
+        "power": 800,
         "color": "rgba(255, 255, 255, 1)",
         "distance": 100
       },
@@ -2440,6 +2676,33 @@
       "children": [],
       "userData": {}
     },
+    "9d8a25a9-103f-46de-b81c-da21e045db13": {
+      "cls": "plane",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000003",
+      "properties": {
+        "name": "地面",
+        "position": {
+          "x": 0,
+          "y": -0.8,
+          "z": 0
+        },
+        "rotation": {
+          "x": -1.57,
+          "y": 0,
+          "z": 0
+        },
+        "material": "219354B4-9BAE-4C25-BD97-894F586741C6",
+        "visible": true,
+        "width": 10,
+        "height": 10
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
     "1008b747-158a-4b2e-bbda-fc047a6457c2": {
       "cls": "text3d",
       "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000009",
@@ -2532,7 +2795,7 @@
           "z": 0
         },
         "visible": true,
-        "text": "0:1:0",
+        "text": "0:4:7",
         "size": 16,
         "align": "left",
         "valign": "top",
