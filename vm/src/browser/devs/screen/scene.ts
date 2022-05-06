@@ -308,6 +308,7 @@ export class Decoration extends UnitImpl {
       const [key, value] = iterator;
       this.actions[key] = value;
     }
+    delete this.actions['die'];
     delete this.actions['clone'];
 
     // events
