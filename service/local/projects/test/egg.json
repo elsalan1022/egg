@@ -95,6 +95,8 @@
         "2dfd9a82-3c2a-4cca-9922-0cb8338eb704",
         "f8686660-c4b2-4af3-8163-c53045fa6f0c",
         "3147a915-75c5-48f0-9638-638564d5c1c0",
+        "ff4fb7a9-545f-43df-b78a-94b132b99aec",
+        "92c4a965-3f5b-42d9-b468-7b468d55a966",
         "1008b747-158a-4b2e-bbda-fc047a6457c2",
         "8fcc08b0-7be8-4bc2-a4cf-ac029169fbc0",
         "6e702aae-3bd1-47b3-9a60-661f458d1395",
@@ -138,25 +140,14 @@
       "properties": {
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-<<<<<<< HEAD:service/local/egg.json
-          "x": 2.7554322810648073,
-          "y": 1.4786890352490147,
-          "z": 2.4942076259720545
+          "x": 2.5091616325588384,
+          "y": 1.725005880651161,
+          "z": 2.5939280277940595
         },
         "camera.rotation": {
-          "x": -0.5351449796808428,
-          "y": 0.7599125702786299,
-          "z": 0.38771726043290733
-=======
-          "x": 3.037734138271988,
-          "y": 1.446899964861707,
-          "z": 2.1630191392639513
-        },
-        "camera.rotation": {
-          "x": -0.5895651983500984,
-          "y": 0.8624419701872779,
-          "z": 0.47003101475356057
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+          "x": -0.5868595621122663,
+          "y": 0.6780690621709928,
+          "z": 0.3952102934437569
         }
       },
       "events": {},
@@ -500,11 +491,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "51E13FFF-D1B6-4097-AE7B-28FFE9844B1C",
-=======
-              "image": "D1EC3AB0-2EFC-4A05-B687-646EA4D85839",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "3C357B27-EBD1-4DF3-9153-311CA4144BBD",
               "mapping": 300,
               "repeat": [
                 10,
@@ -544,11 +531,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "412FDD83-0326-4632-9324-25FBE0F17A39",
-=======
-              "image": "B5D4817B-6389-425F-9F9B-56F4958F8D60",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "829A9C32-474F-47C8-84F1-21182E2CDBC7",
               "mapping": 300,
               "repeat": [
                 10,
@@ -588,11 +571,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "1AB9C1D9-3027-4402-B93F-14675A244948",
-=======
-              "image": "8C5C1D3E-9531-42DD-A6A4-DCD01F4F6C82",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "27D3E70B-DFF3-4427-A555-04BF3E35EB07",
               "mapping": 300,
               "repeat": [
                 10,
@@ -632,11 +611,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "7B220E80-8F51-4568-9F35-26079BB27322",
-=======
-              "image": "DCA19D83-625B-4040-8F63-A56B143AD621",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "10DC824F-E4EB-42D3-A472-C98ECB46133B",
               "mapping": 300,
               "repeat": [
                 1,
@@ -676,11 +651,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "5835E56D-B0C1-4684-8CED-162F7BA73316",
-=======
-              "image": "F4344D3B-F938-4452-9DC5-73E60457D036",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "54A8965F-2CE5-4F07-8B42-F95D16B30CD1",
               "mapping": 300,
               "repeat": [
                 1,
@@ -720,11 +691,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "307FC564-51FE-4111-A3C7-CBE7E4023584",
-=======
-              "image": "3F6263A2-F1BA-4FF2-8F9D-71B8E9BC303F",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "7239281D-32AF-4CB3-8857-4B0A3C197127",
               "mapping": 300,
               "repeat": [
                 1,
@@ -764,11 +731,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "8AA958B5-0C6E-4039-9417-AA062146602E",
-=======
-              "image": "FD969B0F-105C-4DE5-BE28-EAB59BFC601D",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "B0EF84DB-B654-449C-A4A1-F7F57B940357",
               "mapping": 300,
               "repeat": [
                 1,
@@ -808,10 +771,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-<<<<<<< HEAD:service/local/egg.json
-              "image": "5FB21044-86E4-4B43-92B1-19CE2F2CEF95",
-=======
-              "image": "14430C87-3F28-49A3-B6EA-1D1F86F0B6FF",
+              "image": "AF54A7CF-1800-49FC-A7C8-AE20787EE8E0",
               "mapping": 300,
               "repeat": [
                 1,
@@ -851,8 +811,7 @@
               },
               "uuid": "C27E3212-55C7-4E0B-B6A7-1AE2950B6E23",
               "name": "",
-              "image": "21DD16A7-3CDC-4281-96AC-160DC203A86D",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+              "image": "D2101C70-60F3-4B7E-BC8B-D4B04289BD6F",
               "mapping": 300,
               "repeat": [
                 1,
@@ -892,7 +851,7 @@
               },
               "uuid": "7AFB8038-5D53-432E-897D-1DD325329FEE",
               "name": "地面",
-              "image": "6317FD67-A2B3-43E3-9955-C4289786EB80",
+              "image": "0B7D336E-8F98-4554-8FD9-CAF2742B781C",
               "mapping": 300,
               "repeat": [
                 1,
@@ -932,7 +891,7 @@
               },
               "uuid": "8D8B7756-5CFA-462F-9BB2-DA544CB921DD",
               "name": "",
-              "image": "E883D972-516A-4881-BD6D-F94DB238E595",
+              "image": "57B0945D-C211-48F8-966A-C8CEE16556C7",
               "mapping": 300,
               "repeat": [
                 1,
@@ -972,7 +931,7 @@
               },
               "uuid": "4DC3E77E-1D8D-4564-B847-6DC6171E6FAE",
               "name": "",
-              "image": "9EEDCBA7-64D0-4D3B-8F9B-5034D0A5ABE7",
+              "image": "252EE50D-14A9-4C09-9AA3-84E927C5BB73",
               "mapping": 300,
               "repeat": [
                 1,
@@ -1012,7 +971,7 @@
               },
               "uuid": "5F33177C-AE23-4D4C-80D5-76D08D4098DB",
               "name": "",
-              "image": "F59E5571-440E-4688-BF79-8CF95AADF0DC",
+              "image": "F1C9E23B-D954-407D-B4C7-51FC9F8C0AD1",
               "mapping": 300,
               "repeat": [
                 16,
@@ -1292,14 +1251,7 @@
         "e67c86f2-8f1e-4fcc-b2d8-9fb934b1917b",
         "73179b69-389c-41ae-afb6-b3ff3cd6b248",
         "2bf389dd-717a-4672-99d6-7314e27d6b0a",
-<<<<<<< HEAD:service/local/egg.json
-        "c2d9cbca-565b-4fab-b128-ed826af494cf",
-        "cdc01e8e-a77e-45d3-b852-8ff816c8c99f",
-        "ff4fb7a9-545f-43df-b78a-94b132b99aec",
-        "92c4a965-3f5b-42d9-b468-7b468d55a966"
-=======
         "9d8a25a9-103f-46de-b81c-da21e045db13"
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
       ],
       "userData": {}
     },
@@ -2726,47 +2678,6 @@
       "children": [],
       "userData": {}
     },
-<<<<<<< HEAD:service/local/egg.json
-    "c2d9cbca-565b-4fab-b128-ed826af494cf": {
-      "cls": "mirror",
-      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000010",
-      "properties": {
-        "position": {
-          "x": 0,
-          "y": 0,
-          "z": -2
-        },
-        "rotation": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        },
-        "material": "2731E85D-6160-4064-8CBB-0BBF3C351F45",
-        "visible": true,
-        "width": 4,
-        "height": 4
-      },
-      "events": {
-        "clone": []
-      },
-      "chains": [],
-      "children": [],
-      "userData": {}
-    },
-    "cdc01e8e-a77e-45d3-b852-8ff816c8c99f": {
-      "cls": "bulb",
-      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000005",
-      "properties": {
-        "position": {
-          "x": -3,
-          "y": -3,
-          "z": -3
-        },
-        "visible": true,
-        "power": 800,
-        "color": "rgba(255, 255, 255, 1)",
-        "distance": 100
-=======
     "9d8a25a9-103f-46de-b81c-da21e045db13": {
       "cls": "plane",
       "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000003",
@@ -2786,7 +2697,58 @@
         "visible": true,
         "width": 10,
         "height": 10
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "ff4fb7a9-545f-43df-b78a-94b132b99aec": {
+      "cls": "mirror",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000010",
+      "properties": {
+        "position": {
+          "x": -2,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 1.57,
+          "z": 0
+        },
+        "material": "65C9F110-9F19-460B-93B2-9C12F0C2FD61",
+        "visible": true,
+        "width": 4,
+        "height": 4
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "92c4a965-3f5b-42d9-b468-7b468d55a966": {
+      "cls": "mirror",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000010",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": -2,
+          "z": 0
+        },
+        "rotation": {
+          "x": -1.57,
+          "y": 0,
+          "z": 0
+        },
+        "material": "7EEB957E-8715-4828-BDA1-A9C814F70B6A",
+        "visible": false,
+        "width": 4,
+        "height": 4
       },
       "events": {
         "clone": []
@@ -2887,11 +2849,7 @@
           "z": 0
         },
         "visible": true,
-<<<<<<< HEAD:service/local/egg.json
-        "text": "0:1:21",
-=======
         "text": "0:4:7",
->>>>>>> e2fcc64031380f2cc12e9e0ab9b9bfd90b8b119a:service/local/projects/test/egg.json
         "size": 16,
         "align": "left",
         "valign": "top",
@@ -3067,58 +3025,6 @@
           }
         }
       ],
-      "children": [],
-      "userData": {}
-    },
-    "ff4fb7a9-545f-43df-b78a-94b132b99aec": {
-      "cls": "mirror",
-      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000010",
-      "properties": {
-        "position": {
-          "x": -2,
-          "y": 0,
-          "z": 0
-        },
-        "rotation": {
-          "x": 0,
-          "y": 1.57,
-          "z": 0
-        },
-        "material": "65C9F110-9F19-460B-93B2-9C12F0C2FD61",
-        "visible": true,
-        "width": 4,
-        "height": 4
-      },
-      "events": {
-        "clone": []
-      },
-      "chains": [],
-      "children": [],
-      "userData": {}
-    },
-    "92c4a965-3f5b-42d9-b468-7b468d55a966": {
-      "cls": "mirror",
-      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000010",
-      "properties": {
-        "position": {
-          "x": 0,
-          "y": -2,
-          "z": 0
-        },
-        "rotation": {
-          "x": -1.57,
-          "y": 0,
-          "z": 0
-        },
-        "material": "7EEB957E-8715-4828-BDA1-A9C814F70B6A",
-        "visible": false,
-        "width": 4,
-        "height": 4
-      },
-      "events": {
-        "clone": []
-      },
-      "chains": [],
       "children": [],
       "userData": {}
     }
