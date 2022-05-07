@@ -151,15 +151,7 @@ export class Project extends UnitImpl implements Egg {
         }
       },
       valueFromEvent: class extends DataBase {
-        slots: Record<string, Slot> = {
-          name: makeSlot({
-            name: 'name',
-            data: {
-              type: 'string',
-            },
-            required: true,
-          }),
-        };
+        slots: Record<string, Slot> = {};
         get output(): Record<string, Field> | NativeData {
           const paramName = this.slots.name.data?.value;
           if (this.chain?.bound) {
@@ -174,6 +166,28 @@ export class Project extends UnitImpl implements Egg {
         }
         constructor(callee: Unit) {
           super(callee, 'valueFromEvent', undefined, 'valueFromEvent');
+          // eslint-disable-next-line @typescript-eslint/no-this-alias
+          const self = this;
+          this.slots = {
+            name: makeSlot({
+              name: 'name',
+              data: {
+                type: 'string',
+                get values() {
+                  return self.getValues();
+                }
+              },
+              required: true,
+            }),
+          };
+        }
+        getValues(): Array<string> {
+          if (this.chain?.bound) {
+            const { unit, event } = this.chain.bound;
+            const ev = unit.events[event];
+            return Object.keys(ev.params);
+          }
+          return [];
         }
       },
       delayExecute: class extends ActionBase {
@@ -184,7 +198,7 @@ export class Project extends UnitImpl implements Egg {
               type: 'number',
             },
             required: true,
-            suffix: 'milliseconds',
+            suffix: 'se.milliseconds',
           }),
           action: makeSlot({
             name: 'action',
@@ -352,16 +366,19 @@ export class Project extends UnitImpl implements Egg {
   async unserialize(config: config.Project): Promise<void> {
     this.reset();
 
+    const delayUpdateSlots: Array<Block> = [];
+
     /** traverse block */
-    const traverseBlock = (cfg: config.BlockData): Block => {
+    const traverseBlock = (cfg: config.BlockData, chain: BlockChain): Block => {
       const callee = this.allUnits[cfg.unit];
       if (!callee) {
         throw 'unknown unit';
       }
       const action = callee.createAction(cfg.action);
+      action.chain = chain;
       (action as any).id = cfg.id;
       for (const [name, slotCfg] of Object.entries(cfg.slots)) {
-        const slot = action.slots[name];
+        const slot = action.slots[name] || (action.slots[name] = makeSlot({ name }));
         if (!slot) {
           throw 'unknown slot';
         }
@@ -372,7 +389,7 @@ export class Project extends UnitImpl implements Egg {
             }
           } else if ((slotCfg as any).type === 'block') {
             // ver compitable
-            slot.block = traverseBlock(slotCfg as any);
+            slot.block = traverseBlock(slotCfg as any, chain);
           }
         } else {
           const firstCfg = slotCfg[0];
@@ -380,7 +397,7 @@ export class Project extends UnitImpl implements Egg {
           if (!calleeSlot) {
             throw 'unknown unit';
           }
-          let tail = traverseBlock(firstCfg);
+          let tail = traverseBlock(firstCfg, chain);
           slot.block = tail;
           const count = slotCfg.length;
           for (let i = 1; i < count; i++) {
@@ -389,10 +406,13 @@ export class Project extends UnitImpl implements Egg {
             if (!unit) {
               throw 'unknown unit';
             }
-            (tail as any).next = traverseBlock(cfg);
+            (tail as any).next = traverseBlock(cfg, chain);
             tail = tail.next as any;
           }
         }
+      }
+      if (action.updateSlots) {
+        delayUpdateSlots.push(action);
       }
       return action as Block;
     };
@@ -444,8 +464,7 @@ export class Project extends UnitImpl implements Egg {
         unit,
       };
       cfg.blocks.forEach(b => {
-        const block = traverseBlock(b);
-        block.chain = chain;
+        const block = traverseBlock(b, chain);
         if (!head) {
           head = block;
         }
@@ -510,6 +529,11 @@ export class Project extends UnitImpl implements Egg {
         });
       }
     });
+
+    // update slots
+    for (const action of delayUpdateSlots) {
+      (action as any).updateSlots();
+    }
   }
   findUnit(uuid: string): Unit | undefined {
     const u = this.allUnits[uuid];

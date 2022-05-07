@@ -13,6 +13,8 @@ export default {
     close: '关闭',
     else: '否则',
     equal: '判断',
+    enter: '进入',
+    leave: '离开',
     findUnit: '查找对象',
     gesture: '手势检测',
     get: '获取',
@@ -70,6 +72,7 @@ export default {
     var: {
       new: '新建变量',
     },
+    switch: '条件分支',
   },
   // event
   ev: {
@@ -87,6 +90,8 @@ export default {
     axis: '轴位置',
     mousedown: '鼠标按下',
     mouseup: '鼠标抬起',
+    enter: '进入',
+    leave: '离开',
   },
   // name
   nm: {
@@ -369,6 +374,12 @@ export default {
       cw90: '顺时针90度',
       cw180: '顺时针180度',
       ccw90: '逆时针90度',
+    },
+    gesture: {
+      'thumbs-up': '赞',
+      victory: '胜利',
+      five: '手掌',
+      fist: '拳头',
     },
   },
   g: {

@@ -181,7 +181,7 @@ export default {
       const maxWidth = Math.max(width, rs.width, cn.width + 300);
       canvas.line(0, rs.height, maxWidth, rs.height).stroke({ width: 1, color: '#eee' }).style({ opacity: 0.5 });
       rs.height += cn.height;
-      const height = Math.min(this.$el.clientHeight || 0, rs.height);
+      const height = Math.max(this.$el.clientHeight || 0, rs.height);
       this.$refs.root.setAttribute('width', `${maxWidth}px`);
       this.$refs.root.setAttribute('height', `${height}px`);
     },

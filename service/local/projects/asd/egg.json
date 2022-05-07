@@ -54,14 +54,14 @@
       "properties": {
         "scene": "d11354e9-916f-45e0-9ef4-1bb1c4dfcb61",
         "camera.position": {
-          "x": 0,
-          "y": 0.9999999999999997,
-          "z": 4
+          "x": 3.4448935195579122,
+          "y": 1.5912691925830276,
+          "z": -1.612628598172578
         },
         "camera.rotation": {
-          "x": -0.2449786631268641,
-          "y": 0,
-          "z": 0
+          "x": -2.3628610852445977,
+          "y": 0.9890592030555752,
+          "z": 2.45212411876547
         }
       },
       "events": {},
@@ -70,8 +70,158 @@
         "d11354e9-916f-45e0-9ef4-1bb1c4dfcb61"
       ],
       "userData": {
-        "materials": {},
-        "textures": {}
+        "materials": {
+          "B2E9256E-306B-4928-86FE-242508104209": {
+            "metadata": {
+              "version": 4.5,
+              "type": "Material",
+              "generator": "Material.toJSON"
+            },
+            "uuid": "B2E9256E-306B-4928-86FE-242508104209",
+            "type": "MeshPhongMaterial",
+            "name": "floor",
+            "color": 16777215,
+            "emissive": 0,
+            "specular": 1118481,
+            "shininess": 30,
+            "reflectivity": 1,
+            "refractionRatio": 0.98,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "colorWrite": true,
+            "stencilWrite": false,
+            "stencilWriteMask": 255,
+            "stencilFunc": 519,
+            "stencilRef": 0,
+            "stencilFuncMask": 255,
+            "stencilFail": 7680,
+            "stencilZFail": 7680,
+            "stencilZPass": 7680
+          }
+        },
+        "textures": {
+          "78B7402D-96A4-487E-A692-9E603E309801": {
+            "image": "lightmap-ao-shadow.png",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "78B7402D-96A4-487E-A692-9E603E309801",
+              "name": "",
+              "image": "2038968A-D08D-433B-9428-77FB8B2A2386",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "06558F63-D631-4434-8231-C4B63854E29E": {
+            "image": "stone.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "06558F63-D631-4434-8231-C4B63854E29E",
+              "name": "",
+              "image": "18D85D5B-B108-444C-B976-AA0BAE869110",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "534B3EB6-A167-4BB8-9722-1405752CA586": {
+            "image": "rocks.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "534B3EB6-A167-4BB8-9722-1405752CA586",
+              "name": "",
+              "image": "1F8016CE-FAE0-489F-95EB-B7FA4CB22143",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          }
+        }
       }
     },
     "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6": {
@@ -106,7 +256,12 @@
         "current": ""
       },
       "events": {
-        "gesture": []
+        "gesture": [
+          {
+            "unit": "d11354e9-916f-45e0-9ef4-1bb1c4dfcb61",
+            "chain": "1688aa68-c7b2-40d6-a782-db208ec76adf"
+          }
+        ]
       },
       "chains": [],
       "children": [],
@@ -187,7 +342,7 @@
         "name": "scene",
         "sky.color": "#bfd1e5",
         "ground.visible": true,
-        "ground.material": "A1A65204-9AAB-4F28-AA3F-DFB9702041A9",
+        "ground.material": "B2E9256E-306B-4928-86FE-242508104209",
         "light.on": true,
         "light.color": "#ffffff",
         "light.position": {
@@ -211,7 +366,55 @@
         "enter": [],
         "leave": []
       },
-      "chains": [],
+      "chains": [
+        {
+          "id": "1688aa68-c7b2-40d6-a782-db208ec76adf",
+          "unit": "d11354e9-916f-45e0-9ef4-1bb1c4dfcb61",
+          "blocks": [
+            {
+              "id": "d1b2955e-6b0b-44a2-8835-2902ae4ea7fa",
+              "type": "block",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+              "action": "switch",
+              "slots": {
+                "target": [
+                  {
+                    "id": "13cbe0c3-c858-449c-8faa-39ba82f70803",
+                    "type": "block",
+                    "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+                    "action": "valueFromEvent",
+                    "slots": {
+                      "name": {
+                        "type": "data",
+                        "value": "name"
+                      }
+                    }
+                  }
+                ],
+                "star": {
+                  "type": "data"
+                },
+                "thumbs-up": {
+                  "type": "data"
+                },
+                "victory": {
+                  "type": "data"
+                },
+                "five": {
+                  "type": "data"
+                },
+                "fist": {
+                  "type": "data"
+                }
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8",
+            "event": "gesture"
+          }
+        }
+      ],
       "children": [],
       "userData": {}
     }

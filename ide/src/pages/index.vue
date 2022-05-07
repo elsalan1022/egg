@@ -429,6 +429,8 @@ i[disabled='true'] {
 .editor {
   flex: 1 1 auto;
   background-color: white;
+  min-height: 400px;
+  max-height: calc(100vh - 4rem);
   overflow: scroll;
 }
 

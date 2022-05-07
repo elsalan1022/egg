@@ -198,7 +198,7 @@ export class Decoration extends DevUnit {
         name: {
           type: 'string',
           name: 'name',
-          values: ['thumbs-up', 'victory', 'five', 'fist'],
+          values: ['thumbs-up', 'victory', 'five', 'fist'].map(e => ({ value: e, label: `gesture.${e}` })),
         },
       }
     });

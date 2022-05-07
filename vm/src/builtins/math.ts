@@ -143,38 +143,38 @@ export class Decoration extends UnitImpl {
       add: class extends MathAction2Operands {
         constructor() {
           super('add');
-          this.slots.a.suffix = 'math.+';
+          this.slots.a.suffix = 'se.math.+';
         }
       },
       sub: class extends MathAction2Operands {
         constructor() {
           super('sub');
-          this.slots.a.suffix = 'math.-';
+          this.slots.a.suffix = 'se.math.-';
         }
       },
       mul: class extends MathAction2Operands {
         constructor() {
           super('mul');
-          this.slots.a.suffix = 'math.*';
+          this.slots.a.suffix = 'se.math.*';
         }
       },
       div: class extends MathAction2Operands {
         constructor() {
           super('div');
-          this.slots.a.suffix = 'math./';
+          this.slots.a.suffix = 'se.math./';
         }
       },
       mod: class extends MathAction2Operands {
         constructor() {
           super('mod');
-          this.slots.a.suffix = 'math.%';
+          this.slots.a.suffix = 'se.math.%';
         }
       },
       random: class extends MathAction2Operands {
         constructor() {
           super('random');
-          this.slots.a.prefix = 'from';
-          this.slots.a.suffix = 'to';
+          this.slots.a.prefix = 'se.from';
+          this.slots.a.suffix = 'se.to';
         }
       },
       not: class extends MathActionWithBool {
@@ -186,7 +186,7 @@ export class Decoration extends UnitImpl {
               type: 'boolean',
             },
             required: true,
-            prefix: 'math.!',
+            prefix: 'se.math.!',
           }),
         };
         constructor() {
@@ -196,31 +196,31 @@ export class Decoration extends UnitImpl {
       equal: class extends MathAction2OperandsWithBool {
         constructor() {
           super('equal');
-          this.slots.a.suffix = 'math.==';
+          this.slots.a.suffix = 'se.math.==';
         }
       },
       greaterThen: class extends MathAction2OperandsWithBool {
         constructor() {
           super('greaterThen');
-          this.slots.a.suffix = 'math.>';
+          this.slots.a.suffix = 'se.math.>';
         }
       },
       greaterThenOrEqual: class extends MathAction2OperandsWithBool {
         constructor() {
           super('greaterThenOrEqual');
-          this.slots.a.suffix = 'math.>=';
+          this.slots.a.suffix = 'se.math.>=';
         }
       },
       lessThen: class extends MathAction2OperandsWithBool {
         constructor() {
           super('lessThen');
-          this.slots.a.suffix = 'math.<';
+          this.slots.a.suffix = 'se.math.<';
         }
       },
       lessThenOrEqual: class extends MathAction2OperandsWithBool {
         constructor() {
           super('lessThenOrEqual');
-          this.slots.a.suffix = 'math.<=';
+          this.slots.a.suffix = 'se.math.<=';
         }
       },
     };

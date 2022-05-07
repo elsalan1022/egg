@@ -62,6 +62,8 @@ declare module 'egg' {
     dettach(): Block | undefined;
     /** born */
     born(): runtime.Block;
+    /** update slots */
+    updateSlots?(): boolean;
   }
 
   /** Block chain */

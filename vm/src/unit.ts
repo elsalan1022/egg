@@ -133,7 +133,7 @@ export class UnitImpl implements Unit {
             name: 'name',
             data: makeNamesSlotData(unit, {}),
             required: true,
-            suffix: 'valueof',
+            suffix: 'se.valueof',
           }),
         };
         get output(): NativeData {
@@ -159,13 +159,13 @@ export class UnitImpl implements Unit {
             name: 'name',
             data: makeNamesSlotData(unit, {}),
             required: true,
-            suffix: 'valueof',
+            suffix: 'se.valueof',
           }),
           value: makeSlot({
             name: 'value',
             data: makeRelativeTypeSlotData(unit, this, {}, 'name'),
             required: true,
-            prefix: 'tois',
+            prefix: 'se.tois',
           }),
         };
         constructor(callee: Unit) {

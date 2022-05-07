@@ -126,11 +126,18 @@ export default {
           changed = true;
         }
       } else {
-        debugger;
         const prop = v.slot.data;
         if (prop.value != value) {
           prop.value = value;
           changed = true;
+        }
+        for (const e of this.var.stack || []) {
+          if (e.name === 'switch') {
+            if (e.updateSlots()) {
+              this.$makeDirty();
+            }
+            break;
+          }
         }
       }
       if (changed) {

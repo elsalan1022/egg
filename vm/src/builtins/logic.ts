@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { runtime, Egg, Slot, Unit, ExecuteFunc, Block, BlockType } from "egg";
+import { runtime, Egg, Slot, Unit, ExecuteFunc, BlockType } from "egg";
 import { BlockBase } from "../block";
 import { gclsids } from "../clsids";
 import { UnitImpl, UnitRuntime } from "../unit";
@@ -67,7 +67,7 @@ export abstract class LogicBase extends BlockBase {
 
 export class Switch extends LogicBase {
   slots: Record<string, Slot> = {};
-  cases: Record<string, Block> = {};
+  cases: Record<string, Slot> = {};
   constructor(callee: Unit) {
     super(callee, 'switch');
     // eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -93,10 +93,49 @@ export class Switch extends LogicBase {
       }),
     };
   }
-  updateSlots(): void {
-    const { output } = this.slots.target.block as any;
-    const { values } = output || {} as any;
-    // debugger;
+  updateSlots(): boolean {
+    const { block } = this.slots.target as any;
+    if (!block) {
+      return false;
+    }
+    const { output } = block;
+    let { values } = output || {} as any;
+    if (!values) {
+      return false;
+    }
+    values = values.map((e: any) => typeof e === 'string' ? e : e.label || e.value);
+    if (values.includes('star') || values.includes('target')) {
+      throw new Error('Invalid value.');
+    }
+    const oldKeys = Object.keys(this.slots).filter(k => k !== 'star' && k !== 'target');
+    let changed = false;
+    for (const key of oldKeys) {
+      if (!values.includes(key)) {
+        changed = true;
+        delete this.slots[key];
+      }
+    }
+    for (const key of values) {
+      if (oldKeys.includes(key)) {
+        continue;
+      }
+      changed = true;
+      let slot = this.cases[key];
+      if (slot) {
+        this.slots[key] = slot;
+        if (!slot.prefix) {
+          slot.prefix = `vs.${key}`;
+        }
+      } else {
+        slot = makeSlot({
+          name: key,
+          prefix: `vs.${key}`,
+        });
+        this.slots[key] = slot;
+        this.cases[key] = slot;
+      }
+    }
+    return changed;
   }
 }
 
@@ -113,7 +152,7 @@ export class Decoration extends UnitImpl {
               type: 'boolean',
             },
             required: true,
-            suffix: 'logic.then',
+            suffix: 'se.logic.then',
           }),
           action: makeSlot({
             name: 'action',
@@ -130,7 +169,7 @@ export class Decoration extends UnitImpl {
             data: {
               type: 'boolean',
             },
-            suffix: 'logic.then',
+            suffix: 'se.logic.then',
             required: true,
           }),
           action: makeSlot({
@@ -138,7 +177,7 @@ export class Decoration extends UnitImpl {
           }),
           alternative: makeSlot({
             name: 'alternative',
-            prefix: 'logic.else',
+            prefix: 'se.logic.else',
           }),
         };
         constructor(callee: Unit) {
@@ -182,7 +221,7 @@ export class Decoration extends UnitImpl {
               type: 'number',
             },
             required: true,
-            suffix: 'logic.times',
+            suffix: 'se.logic.times',
           }),
           action: makeSlot({
             name: 'action',

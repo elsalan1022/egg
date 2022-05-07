@@ -12,7 +12,7 @@ export type VarProp = {
   /** slot */
   readonly slot?: Slot;
   /** block */
-  readonly block?: Block;
+  readonly stack?: Array<Block>;
 };
 
 export type PropUUID = {

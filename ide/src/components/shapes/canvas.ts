@@ -60,7 +60,7 @@ export default {
   redraw() {
     store.state.revision++;
   },
-  drawSlot(canvas: SVG.Doc, uint: Unit, chain: BlockChain, block: Block, it: Slot): DrawResult {
+  drawSlot(canvas: SVG.Doc, uint: Unit, chain: BlockChain, stack: Array<Block>, it: Slot): DrawResult {
     const group = canvas.group();
     const rs: DrawResult = {
       g: group,
@@ -69,7 +69,7 @@ export default {
     };
     let x = 0;
     if (it.prefix && it.data) {
-      const text = canvas.text(t(`se.${it.prefix}`)).addClass('it-block-title');
+      const text = canvas.text(t(it.prefix)).addClass('it-block-title');
       text.y(minBlockHeight / 2 - text.bbox().height / 2);
       x += text.bbox().width + textMargin.x;
       group.add(text);
@@ -81,7 +81,9 @@ export default {
       group.add(text);
       x += text.bbox().width + textMargin.x;
     } else if (it.block) {
-      const { width, height } = this.drawBlocks(canvas, uint, chain, it.block, group, 0, it, !!it.data);
+      stack.push(it.block);
+      const { width, height } = this.drawBlocks(canvas, uint, chain, it.block, stack, group, 0, it, !!it.data);
+      stack.pop();
       // group.add(g);
       // g.translate(x, 0);
       x += width + textMargin.x;
@@ -106,7 +108,7 @@ export default {
       x += cg.width() + textMargin.x;
       if (chain) {
         cg.click(() => {
-          setVar({ scope: 'slot', type: it.data?.type || 'unknown', name: it.name, slot: it, block });
+          setVar({ scope: 'slot', type: it.data?.type || 'unknown', name: it.name, slot: it, stack: [...stack] });
         });
         hookDrop(cg, (ev: DragEvent) => {
           const data = parseDragEvent(ev);
@@ -136,7 +138,6 @@ export default {
             action.slots.name.data.value = data.name;
             it.block = action;
             action.chain = chain;
-            action.parent = block;
             this.redraw();
           } else {
             console.log(ev);
@@ -185,7 +186,7 @@ export default {
       });
     }
     if (it.suffix) {
-      const text = canvas.text(t(`se.${it.suffix}`)).addClass('it-block-title');
+      const text = canvas.text(t(it.suffix)).addClass('it-block-title');
       text.y(minBlockHeight / 2 - text.bbox().height / 2);
       text.x(x);
       x += text.bbox().width + textMargin.x;
@@ -200,7 +201,7 @@ export default {
       'stroke-dasharray': '2,2',
     });
   },
-  drawBlock(canvas: SVG.Doc, unit: Unit, chain: BlockChain, it: Block, slot?: Slot, dataMode?: boolean): DrawResult {
+  drawBlock(canvas: SVG.Doc, unit: Unit, chain: BlockChain, it: Block, stack: Array<Block>, slot?: Slot, dataMode?: boolean): DrawResult {
     const rs: DrawResult = {
       g: null as any,
       width: minBlockWidth,
@@ -230,7 +231,7 @@ export default {
         if (slot.prefix) {
           last.push({
             isLabelOnly: true,
-            label: t(`se.${slot.prefix}`),
+            label: t(slot.prefix),
           } as any);
         }
         lines.push([slot], []);
@@ -249,7 +250,7 @@ export default {
         if ((slot as any).isLabelOnly && !slot.label) {
           continue;
         }
-        const { g: slotIt, width, height } = this.drawSlot(canvas, unit, chain, it, slot);
+        const { g: slotIt, width, height } = this.drawSlot(canvas, unit, chain, stack, slot);
         slotIt.translate(x, y);
         slots.push(slotIt);
         const rlHeight = Math.max(height, minBlockHeight);
@@ -315,7 +316,7 @@ export default {
     }
     return rs;
   },
-  drawBlocks(canvas: SVG.Doc, unit: Unit, chain: BlockChain, it: Block, g: SVG.G, yOffset: number, slot?: Slot, dataMode?: boolean): Size {
+  drawBlocks(canvas: SVG.Doc, unit: Unit, chain: BlockChain, it: Block, stack: Array<Block>, g: SVG.G, yOffset: number, slot?: Slot, dataMode?: boolean): Size {
     const rs: Size = {
       width: minBlockWidth,
       height: minBlockHeight,
@@ -326,7 +327,9 @@ export default {
     let block: Block | undefined = it;
     let tail = block;
     while (block) {
-      const { g: it, height, width } = this.drawBlock(canvas, unit, chain, block, slot, dataMode);
+      stack.push(block);
+      const { g: it, height, width } = this.drawBlock(canvas, unit, chain, block, stack, slot, dataMode);
+      stack.pop();
       it.translate(0, y);
       g.add(it);
       y += height;
@@ -539,7 +542,7 @@ export default {
       let block = chain.head;
       let tail = block;
       while (isVisible && block) {
-        const { g: it, height, width } = this.drawBlock(canvas, unit, chain, block);
+        const { g: it, height, width } = this.drawBlock(canvas, unit, chain, block, [block]);
         it.translate(0, y);
         chainGroup.add(it);
         y += height;
@@ -635,7 +638,7 @@ export default {
     let maxWidth = 0;
 
     for (const block of bocks) {
-      const { g: it, height, width } = this.drawBlock(canvas, block.callee, null as any, block);
+      const { g: it, height, width } = this.drawBlock(canvas, block.callee, null as any, block, [block]);
       it.translate(x, y);
       chainGroup.add(it);
       y += height + padding.gapy;

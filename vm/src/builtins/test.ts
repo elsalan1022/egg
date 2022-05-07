@@ -36,14 +36,14 @@ export class Decoration extends UnitImpl {
               type: 'string',
             },
             required: true,
-            suffix: 'and',
+            suffix: 'se.and',
           }),
           right: makeSlot({
             name: 'right',
             data: {
               type: 'string',
             },
-            suffix: 'same',
+            suffix: 'se.same',
           }),
         };
         output: NativeData = {
