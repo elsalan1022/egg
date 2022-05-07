@@ -52,16 +52,17 @@
       "cls": "screen",
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5",
       "properties": {
+        "light.physicallyCorrect": false,
         "scene": "d11354e9-916f-45e0-9ef4-1bb1c4dfcb61",
         "camera.position": {
-          "x": 3.4448935195579122,
-          "y": 1.5912691925830276,
-          "z": -1.612628598172578
+          "x": 13.191976033550782,
+          "y": 10.495952736544801,
+          "z": 3.975769671703775
         },
         "camera.rotation": {
-          "x": -2.3628610852445977,
-          "y": 0.9890592030555752,
-          "z": 2.45212411876547
+          "x": -1.208706419604846,
+          "y": 0.8658388250964206,
+          "z": 1.1092819798349907
         }
       },
       "events": {},
@@ -80,10 +81,14 @@
             "uuid": "B2E9256E-306B-4928-86FE-242508104209",
             "type": "MeshPhongMaterial",
             "name": "floor",
-            "color": 16777215,
+            "color": 10716251,
             "emissive": 0,
             "specular": 1118481,
-            "shininess": 30,
+            "shininess": 100,
+            "lightMap": "78B7402D-96A4-487E-A692-9E603E309801",
+            "lightMapIntensity": 0.75,
+            "bumpMap": "06558F63-D631-4434-8231-C4B63854E29E",
+            "bumpScale": 2,
             "reflectivity": 1,
             "refractionRatio": 0.98,
             "depthFunc": 3,
@@ -111,7 +116,7 @@
               },
               "uuid": "78B7402D-96A4-487E-A692-9E603E309801",
               "name": "",
-              "image": "2038968A-D08D-433B-9428-77FB8B2A2386",
+              "image": "DB50A09D-4BE5-4B83-AAB1-37EB60CC2258",
               "mapping": 300,
               "repeat": [
                 1,
@@ -130,12 +135,11 @@
                 1001,
                 1001
               ],
-              "format": 1023,
               "type": 1009,
-              "encoding": 3000,
+              "encoding": 3001,
               "minFilter": 1008,
               "magFilter": 1006,
-              "anisotropy": 1,
+              "anisotropy": 4,
               "flipY": true,
               "premultiplyAlpha": false,
               "unpackAlignment": 4
@@ -151,11 +155,11 @@
               },
               "uuid": "06558F63-D631-4434-8231-C4B63854E29E",
               "name": "",
-              "image": "18D85D5B-B108-444C-B976-AA0BAE869110",
+              "image": "BBDF035B-0CED-4BE0-8798-62FFE275C3EE",
               "mapping": 300,
               "repeat": [
-                1,
-                1
+                16,
+                16
               ],
               "offset": [
                 0,
@@ -167,15 +171,14 @@
               ],
               "rotation": 0,
               "wrap": [
-                1001,
-                1001
+                1000,
+                1000
               ],
-              "format": 1023,
               "type": 1009,
-              "encoding": 3000,
+              "encoding": 3001,
               "minFilter": 1008,
               "magFilter": 1006,
-              "anisotropy": 1,
+              "anisotropy": 4,
               "flipY": true,
               "premultiplyAlpha": false,
               "unpackAlignment": 4
@@ -191,7 +194,7 @@
               },
               "uuid": "534B3EB6-A167-4BB8-9722-1405752CA586",
               "name": "",
-              "image": "1F8016CE-FAE0-489F-95EB-B7FA4CB22143",
+              "image": "CE96DC0D-D9F5-449B-ACC9-7D0098218E57",
               "mapping": 300,
               "repeat": [
                 1,
@@ -344,21 +347,21 @@
         "ground.visible": true,
         "ground.material": "B2E9256E-306B-4928-86FE-242508104209",
         "light.on": true,
-        "light.color": "#ffffff",
+        "light.color": "rgba(240, 237, 237, 1)",
         "light.position": {
-          "x": 3,
-          "y": 10,
-          "z": 10
+          "x": 300,
+          "y": 250,
+          "z": -500
         },
-        "light.intensity": 1,
-        "spot.on": true,
+        "light.intensity": 0.3,
+        "spot.on": false,
         "spot.color": "#ffffff",
         "spot.position": {
           "x": 0,
           "y": 10,
           "z": 0
         },
-        "ambient.on": true,
+        "ambient.on": false,
         "ambient.color": "#404040"
       },
       "events": {
@@ -394,16 +397,16 @@
                 "star": {
                   "type": "data"
                 },
-                "thumbs-up": {
+                "gesture.thumbs-up": {
                   "type": "data"
                 },
-                "victory": {
+                "gesture.victory": {
                   "type": "data"
                 },
-                "five": {
+                "gesture.five": {
                   "type": "data"
                 },
-                "fist": {
+                "gesture.fist": {
                   "type": "data"
                 }
               }
@@ -415,6 +418,29 @@
           }
         }
       ],
+      "children": [
+        "12d114a9-dfdf-4583-8744-af605a792f79"
+      ],
+      "userData": {}
+    },
+    "12d114a9-dfdf-4583-8744-af605a792f79": {
+      "cls": "bulb",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000005",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 2,
+          "z": 0
+        },
+        "visible": false,
+        "power": 1700,
+        "color": "#ffee88",
+        "distance": 100
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
       "children": [],
       "userData": {}
     }

@@ -438,6 +438,14 @@ export const decoration: Decoration = {
     alphaTest: {
       type: 'number',
     },
+    depthFunc: {
+      type: 'number',
+      values: [{ value: THREE.NeverDepth, label: 'NeverDepth' }, { value: THREE.AlwaysDepth, label: 'AlwaysDepth' },
+      { value: THREE.LessDepth, label: 'LessDepth' }, { value: THREE.LessEqualDepth, label: 'LessEqualDepth' },
+      { value: THREE.EqualDepth, label: 'EqualDepth' }, { value: THREE.GreaterEqualDepth, label: 'GreaterEqualDepth' },
+      { value: THREE.GreaterDepth, label: 'GreaterDepth' }, { value: THREE.NotEqualDepth, label: 'NotEqualDepth' }
+      ],
+    },
     depthTest: {
       type: 'boolean',
     },

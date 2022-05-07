@@ -138,16 +138,17 @@
       "cls": "screen",
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5",
       "properties": {
+        "light.physicallyCorrect": true,
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 2.5091616325588384,
-          "y": 1.725005880651161,
-          "z": 2.5939280277940595
+          "x": 2.8288241319745615,
+          "y": 1.4745974967531181,
+          "z": 2.4131548340066367
         },
         "camera.rotation": {
-          "x": -0.5868595621122663,
-          "y": 0.6780690621709928,
-          "z": 0.3952102934437569
+          "x": -0.548516745414862,
+          "y": 0.7855385365030888,
+          "z": 0.4079109258650595
         }
       },
       "events": {},
@@ -491,7 +492,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "3C357B27-EBD1-4DF3-9153-311CA4144BBD",
+              "image": "048E3B63-E2E6-478B-BB25-8955500BA076",
               "mapping": 300,
               "repeat": [
                 10,
@@ -531,7 +532,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "829A9C32-474F-47C8-84F1-21182E2CDBC7",
+              "image": "4D367443-7A21-40CE-AEDD-955A32A8588D",
               "mapping": 300,
               "repeat": [
                 10,
@@ -571,7 +572,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "27D3E70B-DFF3-4427-A555-04BF3E35EB07",
+              "image": "04514806-72E2-435F-BD21-E987DD014236",
               "mapping": 300,
               "repeat": [
                 10,
@@ -611,7 +612,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "10DC824F-E4EB-42D3-A472-C98ECB46133B",
+              "image": "F159AA69-C764-43D8-B5A0-3AEA4A7A8017",
               "mapping": 300,
               "repeat": [
                 1,
@@ -651,7 +652,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-              "image": "54A8965F-2CE5-4F07-8B42-F95D16B30CD1",
+              "image": "07A30677-F82D-4900-8C43-E59152CB2D38",
               "mapping": 300,
               "repeat": [
                 1,
@@ -691,7 +692,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-              "image": "7239281D-32AF-4CB3-8857-4B0A3C197127",
+              "image": "28E62341-233F-43CD-A479-1D3E342627E9",
               "mapping": 300,
               "repeat": [
                 1,
@@ -731,7 +732,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-              "image": "B0EF84DB-B654-449C-A4A1-F7F57B940357",
+              "image": "AF234204-6A94-4F73-A251-ABE66B278523",
               "mapping": 300,
               "repeat": [
                 1,
@@ -771,7 +772,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-              "image": "AF54A7CF-1800-49FC-A7C8-AE20787EE8E0",
+              "image": "34E4013E-7D7F-48A3-B291-6C4490A55A2F",
               "mapping": 300,
               "repeat": [
                 1,
@@ -811,7 +812,7 @@
               },
               "uuid": "C27E3212-55C7-4E0B-B6A7-1AE2950B6E23",
               "name": "",
-              "image": "D2101C70-60F3-4B7E-BC8B-D4B04289BD6F",
+              "image": "7AEE8FE1-3EDF-4F13-A1E7-9C22A2E59FE0",
               "mapping": 300,
               "repeat": [
                 1,
@@ -851,7 +852,7 @@
               },
               "uuid": "7AFB8038-5D53-432E-897D-1DD325329FEE",
               "name": "地面",
-              "image": "0B7D336E-8F98-4554-8FD9-CAF2742B781C",
+              "image": "6EA99CAD-C124-4345-B754-26B4F784AE8D",
               "mapping": 300,
               "repeat": [
                 1,
@@ -891,7 +892,7 @@
               },
               "uuid": "8D8B7756-5CFA-462F-9BB2-DA544CB921DD",
               "name": "",
-              "image": "57B0945D-C211-48F8-966A-C8CEE16556C7",
+              "image": "D86431BB-DDD6-4CA8-9D8F-DB9D067C9E36",
               "mapping": 300,
               "repeat": [
                 1,
@@ -910,9 +911,8 @@
                 1001,
                 1001
               ],
-              "format": 1023,
               "type": 1009,
-              "encoding": 3000,
+              "encoding": 3001,
               "minFilter": 1008,
               "magFilter": 1006,
               "anisotropy": 4,
@@ -931,7 +931,7 @@
               },
               "uuid": "4DC3E77E-1D8D-4564-B847-6DC6171E6FAE",
               "name": "",
-              "image": "252EE50D-14A9-4C09-9AA3-84E927C5BB73",
+              "image": "33AB2D41-4689-4EC3-9DF0-25AD455A944C",
               "mapping": 300,
               "repeat": [
                 1,
@@ -950,9 +950,8 @@
                 1001,
                 1001
               ],
-              "format": 1023,
               "type": 1009,
-              "encoding": 3000,
+              "encoding": 3001,
               "minFilter": 1008,
               "magFilter": 1006,
               "anisotropy": 1,
@@ -971,7 +970,7 @@
               },
               "uuid": "5F33177C-AE23-4D4C-80D5-76D08D4098DB",
               "name": "",
-              "image": "F1C9E23B-D954-407D-B4C7-51FC9F8C0AD1",
+              "image": "A8A58F0B-88F2-4397-89C8-D0B989E3D1EB",
               "mapping": 300,
               "repeat": [
                 16,
@@ -990,9 +989,8 @@
                 1000,
                 1000
               ],
-              "format": 1023,
               "type": 1009,
-              "encoding": 3000,
+              "encoding": 3001,
               "minFilter": 1008,
               "magFilter": 1006,
               "anisotropy": 4,
@@ -2615,7 +2613,7 @@
           "z": 0
         },
         "material": "7C6EC48B-6E94-4AB2-924D-60F0F645C9B9",
-        "visible": false,
+        "visible": true,
         "width": 0.75,
         "height": 0.75
       },
@@ -2641,7 +2639,7 @@
           "z": 0
         },
         "material": "61B778BE-798E-4ED9-A2AD-07F6933CEB65",
-        "visible": false,
+        "visible": true,
         "width": 0.75,
         "height": 0.75
       },
@@ -2667,7 +2665,7 @@
           "z": 0
         },
         "material": "0306DA91-173D-4C78-AB55-F21F37B1CEFB",
-        "visible": false,
+        "visible": true,
         "width": 0.75,
         "height": 0.75
       },
@@ -2694,7 +2692,7 @@
           "z": 0
         },
         "material": "219354B4-9BAE-4C25-BD97-894F586741C6",
-        "visible": true,
+        "visible": false,
         "width": 10,
         "height": 10
       },

@@ -185,6 +185,7 @@ export default {
         color: '颜色',
         intensity: '强度',
         position: '位置',
+        physicallyCorrect: '物理修光',
       },
       sky: {
         color: '天空颜色',

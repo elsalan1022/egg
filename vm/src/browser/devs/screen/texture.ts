@@ -101,8 +101,11 @@ export const decoration: Decoration = {
     },
     format: {
       type: 'number',
-      values: [{ value: THREE.AlphaFormat, label: 'AlphaFormat' }, { value: THREE.RGBAFormat, label: 'RGBAFormat' }, { value: THREE.LuminanceFormat, label: 'LuminanceFormat' }, { value: THREE.LuminanceAlphaFormat, label: 'LuminanceAlphaFormat' }, { value: THREE.DepthFormat, label: 'DepthFormat' }, { value: THREE.DepthStencilFormat, label: 'DepthStencilFormat' },
-      { value: THREE.RedFormat, label: 'RedFormat' }, { value: THREE.RedIntegerFormat, label: 'RedIntegerFormat' }, { value: THREE.RGFormat, label: 'RGFormat' }, { value: THREE.RGIntegerFormat, label: 'RGIntegerFormat' }, { value: THREE.RGBAIntegerFormat, label: 'RGBAIntegerFormat' },
+      values: [{ value: THREE.AlphaFormat, label: 'AlphaFormat' }, { value: THREE._SRGBFormat, label: 'RGBFormat' }, { value: THREE.RGBAFormat, label: 'RGBAFormat' },
+      { value: THREE.LuminanceFormat, label: 'LuminanceFormat' }, { value: THREE.LuminanceAlphaFormat, label: 'LuminanceAlphaFormat' },
+      { value: THREE.DepthFormat, label: 'DepthFormat' }, { value: THREE.DepthStencilFormat, label: 'DepthStencilFormat' },
+      { value: THREE.RedFormat, label: 'RedFormat' }, { value: THREE.RedIntegerFormat, label: 'RedIntegerFormat' },
+      { value: THREE.RGFormat, label: 'RGFormat' }, { value: THREE.RGIntegerFormat, label: 'RGIntegerFormat' }, { value: THREE.RGBAIntegerFormat, label: 'RGBAIntegerFormat' },
       ],
     },
     type: {

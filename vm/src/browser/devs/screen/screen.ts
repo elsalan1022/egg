@@ -521,6 +521,11 @@ export class Decoration extends DevUnit {
     renderer.domElement.addEventListener('pointermove', this.onPointerMove.bind(this));
 
     const props: Record<string, Property> = {
+      'light.physicallyCorrect': makeProperty(instance, {
+        name: 'light.physicallyCorrect',
+        type: 'boolean',
+        label: 'scene.default',
+      }),
       scene: makeProperty(instance, {
         name: 'scene',
         type: 'unit',
