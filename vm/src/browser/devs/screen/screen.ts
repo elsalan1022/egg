@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
+import { ColladaLoader } from 'three/examples/jsm/loaders/ColladaLoader.js';
 import { FontLoader, Font } from 'three/examples/jsm/loaders/FontLoader.js';
 import Stats from 'three/examples/jsm/libs/stats.module.js';
 import { ActionBase, } from '../../../unit';
@@ -23,8 +26,7 @@ type PercentSize = {
 
 type Paths = {
   font: string;
-  texture: string;
-  sounds: string;
+  assets: string;
 };
 
 export let gScreen: Screen = null as any as Screen;
@@ -41,6 +43,11 @@ function removeImages(matJson: any) {
   delete matJson.images;
   return matJson;
 }
+
+export type ModelInfo = {
+  object: THREE.Object3D;
+  clips: Record<string, THREE.AnimationClip>;
+};
 
 export class Screen extends DevRuntime {
   static type: UnitType = 'screen';
@@ -64,11 +71,12 @@ export class Screen extends DevRuntime {
   protected font: Font | null = null;
   // paths
   protected paths: Paths = {} as any;
-  // materials and textures
+  // materials、textures and models
   readonly materials: Record<string, THREE.Material> = {};
   readonly textures: Record<string, { image: string; value: THREE.Texture }> = {};
   readonly images: Array<[string, string]> = [];
   readonly sounds: Record<string, { filename: string; buffer: AudioBuffer }> = {};
+  readonly models: Record<string, { filename: string; info?: ModelInfo; }> = {};
   // state
   protected working = false;
 
@@ -247,16 +255,23 @@ export class Screen extends DevRuntime {
   }
   async setup(paths: Paths): Promise<void> {
     this.paths = paths;
+    const assets = (await fetch(paths.assets).then((res) => res.json()));
+    // load font
     const loader = new FontLoader();
     this.font = await loader.loadAsync(paths.font);
-    (this as any).images = (await fetch(this.paths.texture).then((res) => res.json())).map((v: string) => [v, `${this.paths.texture}/${v}`]);
-    const sounds = (await fetch(this.paths.sounds).then((res) => res.json()));
+    // load textures
+    (this as any).images = assets.textures.map((v: string) => [v, `${this.paths.assets}/textures/${v}`]);
+    // load models
+    (this as any).models = {};
+    for (const filename of assets.models) {
+      const [name] = filename.split('/');
+      this.models[name] = { filename };
+    }
+    // load sounds
     const audioLoader = new THREE.AudioLoader();
     (this as any).sounds = {};
-    await Promise.all(sounds.map(async (v: string) => {
-      const buffer = await audioLoader.loadAsync(`${this.paths.sounds}/${v}`);
-      // const audio = new THREE.PositionalAudio(this.listener);
-      // audio.setBuffer(buffer);
+    await Promise.all(assets.sounds.map(async (v: string) => {
+      const buffer = await audioLoader.loadAsync(`${this.paths.assets}/sounds/${v}`);
       const name = v.replace(/\..+$/, '');
       this.sounds[name] = { filename: v, buffer };
     }));
@@ -373,7 +388,7 @@ export class Screen extends DevRuntime {
     return (this.textures[id] || {}).value;
   }
   async addTexture(image: string) {
-    const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${image}`);
+    const texture = await (new TextureLoader()).loadAsync(`${this.paths.assets}/textures/${image}`);
     const info = {
       image,
       value: texture,
@@ -386,6 +401,50 @@ export class Screen extends DevRuntime {
       throw new Error("Texture not found.");
     }
     delete this.textures[uuid];
+  }
+  async loadModel(name: string): Promise<ModelInfo> {
+    const model = this.models[name];
+    if (model.info) {
+      return model.info;
+    }
+    const [ext] = model.filename.split('.').pop() || '';
+    if (!ext) {
+      throw new Error("Model file name is invalid.");
+    }
+    const gltfLoader = async (path: string) => {
+      const loader = new GLTFLoader();
+      const gltf = await loader.loadAsync(path);
+      return {
+        object: gltf.scene,
+        clips: Object.fromEntries(gltf.animations.map(animation => [animation.name, animation])),
+      };
+    };
+    const Loaders: any = {
+      gltf: gltfLoader,
+      glb: gltfLoader,
+      async dae(path: string) {
+        const loader = new ColladaLoader();
+        const collada = await loader.loadAsync(path);
+        const avatar = collada.scene;
+        return {
+          object: avatar,
+          clips: Object.fromEntries(avatar.animations.map(animation => [animation.name, animation])),
+        };
+      },
+      async fbx(path: string) {
+        const loader = new FBXLoader();
+        const fbx = await loader.loadAsync(path);
+        return {
+          object: fbx,
+          clips: Object.fromEntries(fbx.animations.map(animation => [animation.name, animation])),
+        };
+      },
+    };
+    const Loader = Loaders[ext];
+    if (!Loader) {
+      throw new Error("Model not found.");
+    }
+    return await Loader(`${this.paths.assets}/models/${model.filename}`);
   }
   getScenes(): Array<SceneDecoration> {
     return Object.values(this.children).filter((e: any) => e.isScene) as any;
@@ -412,7 +471,7 @@ export class Screen extends DevRuntime {
     if (textures) {
       for (const [uuid, it] of Object.entries(textures)) {
         const image: string = (it as any).image || it;
-        const texture = await (new TextureLoader()).loadAsync(`${this.paths.texture}/${image}`);
+        const texture = await (new TextureLoader()).loadAsync(`${this.paths.assets}/textures/${image}`);
         texture.uuid = uuid;
         const cfg = (it as any).value;
         if (cfg) {

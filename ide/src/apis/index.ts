@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-rest-params */
 import { config } from 'egg';
+import { Assets } from 'egg/project';
 import { Model } from 'egg/speech';
 import { rpc } from '../rpc';
 export const project = {
@@ -34,6 +35,18 @@ export const project = {
    */
   remove(name: string): Promise<void> {
     return rpc.request('project.remove', ...arguments);
+  },
+  /**
+   * assets
+   */
+  assets(name: string): Promise<Assets> {
+    return rpc.request('project.assets', ...arguments);
+  },
+  /**
+   * remove resource from assets, filename = '[models|sounds|textures]/name'
+   */
+  removeAsset(name: string, filename: string): Promise<void> {
+    return rpc.request('project.removeAsset', ...arguments);
   },
 };
 

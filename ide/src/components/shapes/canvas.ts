@@ -97,7 +97,7 @@ export default {
           textValue = t(`vs.${filterItem.label}`);
         }
       }
-      const text = canvas.text(textValue || '').addClass('it-slot-text');
+      const text = canvas.text(`${textValue || ''}`).addClass('it-slot-text');
       text.y(minBlockHeight / 2 - text.bbox().height / 2);
       text.x(textMargin.x);
       const cg = Shapes.dataSlot(canvas, text.bbox().width + textMargin.x * 2, minSlotHeight).addClass('it-theme-slot');

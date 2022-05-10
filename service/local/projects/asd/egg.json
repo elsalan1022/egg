@@ -22,7 +22,11 @@
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA",
-        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1"
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+        "12d114a9-dfdf-4583-8744-af605a792f79",
+        "f936a277-e915-43ae-874c-9d1a1b6925d5",
+        "ef10ab44-1747-4dd4-a38a-a107e87def9a",
+        "2e9e4d23-2c2c-464f-b3e3-0f140527a201"
       ],
       "userData": {}
     },
@@ -52,17 +56,17 @@
       "cls": "screen",
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5",
       "properties": {
-        "light.physicallyCorrect": false,
+        "light.physicallyCorrect": true,
         "scene": "d11354e9-916f-45e0-9ef4-1bb1c4dfcb61",
         "camera.position": {
-          "x": 13.191976033550782,
-          "y": 10.495952736544801,
-          "z": 3.975769671703775
+          "x": 7.133733797203959,
+          "y": 6.935805882170739,
+          "z": 11.225169881809206
         },
         "camera.rotation": {
-          "x": -1.208706419604846,
-          "y": 0.8658388250964206,
-          "z": 1.1092819798349907
+          "x": -0.5534627895321923,
+          "y": 0.49562581194831734,
+          "z": 0.28580754799294633
         }
       },
       "events": {},
@@ -103,6 +107,36 @@
             "stencilFail": 7680,
             "stencilZFail": 7680,
             "stencilZPass": 7680
+          },
+          "75D69A0A-E7EC-41B6-B69A-F7E7AE5DF586": {
+            "metadata": {
+              "version": 4.5,
+              "type": "Material",
+              "generator": "Material.toJSON"
+            },
+            "uuid": "75D69A0A-E7EC-41B6-B69A-F7E7AE5DF586",
+            "type": "MeshPhongMaterial",
+            "color": 16777215,
+            "emissive": 0,
+            "specular": 1118481,
+            "shininess": 30,
+            "bumpMap": "CABD0E23-3E0A-4914-8E5A-E5307CB31D9A",
+            "bumpScale": 0.1,
+            "reflectivity": 1,
+            "refractionRatio": 0.98,
+            "side": 2,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "colorWrite": true,
+            "stencilWrite": false,
+            "stencilWriteMask": 255,
+            "stencilFunc": 519,
+            "stencilRef": 0,
+            "stencilFuncMask": 255,
+            "stencilFail": 7680,
+            "stencilZFail": 7680,
+            "stencilZPass": 7680
           }
         },
         "textures": {
@@ -116,7 +150,7 @@
               },
               "uuid": "78B7402D-96A4-487E-A692-9E603E309801",
               "name": "",
-              "image": "DB50A09D-4BE5-4B83-AAB1-37EB60CC2258",
+              "image": "8A55A822-829F-48AD-84FB-696D86192F03",
               "mapping": 300,
               "repeat": [
                 1,
@@ -135,6 +169,7 @@
                 1001,
                 1001
               ],
+              "format": 1023,
               "type": 1009,
               "encoding": 3001,
               "minFilter": 1008,
@@ -155,7 +190,7 @@
               },
               "uuid": "06558F63-D631-4434-8231-C4B63854E29E",
               "name": "",
-              "image": "BBDF035B-0CED-4BE0-8798-62FFE275C3EE",
+              "image": "20982626-E46D-4238-8653-05DD0CFFF263",
               "mapping": 300,
               "repeat": [
                 16,
@@ -174,6 +209,7 @@
                 1000,
                 1000
               ],
+              "format": 1023,
               "type": 1009,
               "encoding": 3001,
               "minFilter": 1008,
@@ -194,7 +230,7 @@
               },
               "uuid": "534B3EB6-A167-4BB8-9722-1405752CA586",
               "name": "",
-              "image": "CE96DC0D-D9F5-449B-ACC9-7D0098218E57",
+              "image": "7DF99452-A141-4758-BB30-A3178148A90F",
               "mapping": 300,
               "repeat": [
                 1,
@@ -216,6 +252,46 @@
               "format": 1023,
               "type": 1009,
               "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          },
+          "CABD0E23-3E0A-4914-8E5A-E5307CB31D9A": {
+            "image": "hen-egg.jpeg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "CABD0E23-3E0A-4914-8E5A-E5307CB31D9A",
+              "name": "",
+              "image": "2DD77D72-3648-49B5-90A0-42EF7B348864",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0.5,
+                0.5
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3001,
               "minFilter": 1008,
               "magFilter": 1006,
               "anisotropy": 1,
@@ -297,7 +373,12 @@
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
       "properties": {},
       "events": {
-        "down": [],
+        "down": [
+          {
+            "unit": "0b5484c5-79cf-474e-9dab-1f8b97f28316",
+            "chain": "41eb5157-d685-4f8d-838c-5acb1c8b5c54"
+          }
+        ],
         "up": [],
         "axis": []
       },
@@ -344,7 +425,7 @@
       "properties": {
         "name": "scene",
         "sky.color": "#bfd1e5",
-        "ground.visible": true,
+        "ground.visible": false,
         "ground.material": "B2E9256E-306B-4928-86FE-242508104209",
         "light.on": true,
         "light.color": "rgba(240, 237, 237, 1)",
@@ -361,7 +442,7 @@
           "y": 10,
           "z": 0
         },
-        "ambient.on": false,
+        "ambient.on": true,
         "ambient.color": "#404040"
       },
       "events": {
@@ -419,7 +500,8 @@
         }
       ],
       "children": [
-        "12d114a9-dfdf-4583-8744-af605a792f79"
+        "0b5484c5-79cf-474e-9dab-1f8b97f28316",
+        "5c677fec-0244-40a6-97d4-49dc257db659"
       ],
       "userData": {}
     },
@@ -434,6 +516,201 @@
         },
         "visible": false,
         "power": 1700,
+        "color": "#ffee88",
+        "distance": 100
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "f936a277-e915-43ae-874c-9d1a1b6925d5": {
+      "cls": "axis",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000008",
+      "properties": {
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "length": 3,
+        "lineMaterial": "AE46C59B-EE74-4609-AF7F-85057F2964CC",
+        "arrowMaterial": "604C34F9-72B1-438C-B52B-2DCE8774A901"
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "ef10ab44-1747-4dd4-a38a-a107e87def9a": {
+      "cls": "axis",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000008",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "length": 1,
+        "lineMaterial": "4AF646A8-FFDC-4DF5-8A2A-E418D1059505",
+        "arrowMaterial": "3C924D03-B631-40DD-9834-5EB2041C8B6D"
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "2e9e4d23-2c2c-464f-b3e3-0f140527a201": {
+      "cls": "cube",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000007",
+      "properties": {
+        "position": {
+          "x": -0.12818150274794826,
+          "y": 3.1687060016847144,
+          "z": -0.06521277375576418
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "4CC0AE68-6020-4EFF-B27E-E0EE58E2523D",
+        "visible": true,
+        "width": 1,
+        "height": 1,
+        "depth": 1
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "0b5484c5-79cf-474e-9dab-1f8b97f28316": {
+      "cls": "rubik",
+      "clsid": "2e8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f9f",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "material": "75D69A0A-E7EC-41B6-B69A-F7E7AE5DF586",
+        "visible": true,
+        "scale": 1,
+        "texture": "CABD0E23-3E0A-4914-8E5A-E5307CB31D9A"
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [
+        {
+          "id": "41eb5157-d685-4f8d-838c-5acb1c8b5c54",
+          "unit": "0b5484c5-79cf-474e-9dab-1f8b97f28316",
+          "blocks": [
+            {
+              "id": "5509116d-e7e7-4734-ac28-890f30ce15f3",
+              "type": "block",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+              "action": "switch",
+              "slots": {
+                "target": [
+                  {
+                    "id": "f9d10151-8ce3-455e-b160-f3dd1149be59",
+                    "type": "block",
+                    "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+                    "action": "valueFromEvent",
+                    "slots": {
+                      "name": {
+                        "type": "data",
+                        "value": "name"
+                      }
+                    }
+                  }
+                ],
+                "star": {
+                  "type": "data"
+                },
+                "joystick.a": {
+                  "type": "data"
+                },
+                "joystick.b": {
+                  "type": "data"
+                },
+                "joystick.x": {
+                  "type": "data"
+                },
+                "joystick.y": {
+                  "type": "data"
+                },
+                "joystick.back": {
+                  "type": "data"
+                },
+                "joystick.forward": {
+                  "type": "data"
+                },
+                "joystick.back-2": {
+                  "type": "data"
+                },
+                "joystick.forward-2": {
+                  "type": "data"
+                },
+                "joystick.select": {
+                  "type": "data"
+                },
+                "joystick.start": {
+                  "type": "data"
+                },
+                "joystick.mode": {
+                  "type": "data"
+                }
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
+            "event": "down"
+          }
+        }
+      ],
+      "children": [],
+      "userData": {}
+    },
+    "5c677fec-0244-40a6-97d4-49dc257db659": {
+      "cls": "bulb",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000005",
+      "properties": {
+        "position": {
+          "x": 3,
+          "y": 3,
+          "z": 3
+        },
+        "visible": true,
+        "power": 800,
         "color": "#ffee88",
         "distance": 100
       },

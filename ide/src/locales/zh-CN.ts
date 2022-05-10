@@ -154,6 +154,8 @@ export default {
     unit: '对象',
     wind: '风',
     rubik: '魔方',
+    model3d: '3D模型',
+    mirror: '镜子',
   },
   // property
   pr: {
@@ -222,6 +224,7 @@ export default {
       current: '当前值',
       lineMaterial: '线材质',
       arrowMaterial: '箭头材质',
+      model: '模型',
     },
     texture: {
       offset: '偏移',

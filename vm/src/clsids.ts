@@ -26,4 +26,5 @@ export namespace gclsids {
   export const text3d = '9E8B8E0E-B7B2-4E8E-A801-000000000009';
   export const mirror = '9E8B8E0E-B7B2-4E8E-A801-000000000010';
   export const shadertoy = '9E8B8E0E-B7B2-4E8E-A801-00000000000A';
+  export const model3d = '9E8B8E0E-B7B2-4E8E-A801-00000000000B';
 }

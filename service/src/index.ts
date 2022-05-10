@@ -4,6 +4,7 @@ import url from 'url';
 import express from 'express';
 import bodyParser from 'body-parser';
 import form from 'express-formidable';
+import fileUpload from 'express-fileupload';
 import env from './environment';
 import { logger } from './utils/logger';
 import rpc, { RpcInstance, RpcFacade } from './rpc';
@@ -34,6 +35,7 @@ expr.all('*', (req, res, next) => {
 expr.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 expr.use(bodyParser.json({ limit: '20mb' }));
 expr.use(form());
+expr.use(fileUpload());
 
 async function loadModules(app: any) {
   const facades: Record<string, RpcFacade> = {};

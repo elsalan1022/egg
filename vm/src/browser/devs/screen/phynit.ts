@@ -243,6 +243,9 @@ export abstract class Phynit<T extends THREE.Object3D = THREE.Object3D> extends 
       }
     }
   }
+  protected async loadModel(name: string) {
+    return gScreen.loadModel(name);
+  }
 }
 
 export abstract class PhynitUnit<T extends Phynit> extends VisUnit<T> {

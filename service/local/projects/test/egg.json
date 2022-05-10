@@ -18,6 +18,10 @@
           {
             "unit": "7af6d8fc-f3a6-47d7-b9a3-fd90a17da356",
             "chain": "0c81d8df-ca17-4347-b06c-f1904256732c"
+          },
+          {
+            "unit": "74ec7f28-7d3e-4004-9cf1-05f3548a736c",
+            "chain": "4cc35fb3-03fb-453d-8a0f-9afdc4db0a83"
           }
         ],
         "stop": [
@@ -141,14 +145,14 @@
         "light.physicallyCorrect": true,
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 2.8288241319745615,
-          "y": 1.4745974967531181,
-          "z": 2.4131548340066367
+          "x": 2.4611706379782237,
+          "y": 1.4645825574112628,
+          "z": 2.7924249360083553
         },
         "camera.rotation": {
-          "x": -0.548516745414862,
-          "y": 0.7855385365030888,
-          "z": 0.4079109258650595
+          "x": -0.483042508414472,
+          "y": 0.6627571672753635,
+          "z": 0.3121603977483216
         }
       },
       "events": {},
@@ -492,7 +496,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "048E3B63-E2E6-478B-BB25-8955500BA076",
+              "image": "2470DC9D-BCCB-4448-BA25-7D082950FB55",
               "mapping": 300,
               "repeat": [
                 10,
@@ -532,7 +536,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "4D367443-7A21-40CE-AEDD-955A32A8588D",
+              "image": "B858CE0B-2AB3-4C75-B241-97C7CD299154",
               "mapping": 300,
               "repeat": [
                 10,
@@ -572,7 +576,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "04514806-72E2-435F-BD21-E987DD014236",
+              "image": "2B22350C-3B98-4825-BE74-113618CA561F",
               "mapping": 300,
               "repeat": [
                 10,
@@ -612,7 +616,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "F159AA69-C764-43D8-B5A0-3AEA4A7A8017",
+              "image": "1B5A6D52-BE3B-424F-BFE3-D3BD9D9668BD",
               "mapping": 300,
               "repeat": [
                 1,
@@ -652,7 +656,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-              "image": "07A30677-F82D-4900-8C43-E59152CB2D38",
+              "image": "58243D8E-DAA7-46E9-B2D6-301E8529BA35",
               "mapping": 300,
               "repeat": [
                 1,
@@ -692,7 +696,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-              "image": "28E62341-233F-43CD-A479-1D3E342627E9",
+              "image": "06C85598-51DB-4E2A-92BD-827B34A4794B",
               "mapping": 300,
               "repeat": [
                 1,
@@ -732,7 +736,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-              "image": "AF234204-6A94-4F73-A251-ABE66B278523",
+              "image": "1C16C24E-90A5-4C46-B3CD-39F26390CD86",
               "mapping": 300,
               "repeat": [
                 1,
@@ -772,7 +776,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-              "image": "34E4013E-7D7F-48A3-B291-6C4490A55A2F",
+              "image": "F04FC901-F11B-46D5-9FFD-AC3BC3CC3A8C",
               "mapping": 300,
               "repeat": [
                 1,
@@ -812,7 +816,7 @@
               },
               "uuid": "C27E3212-55C7-4E0B-B6A7-1AE2950B6E23",
               "name": "",
-              "image": "7AEE8FE1-3EDF-4F13-A1E7-9C22A2E59FE0",
+              "image": "92C0B6B4-0420-48F9-B47A-DE7708084E8A",
               "mapping": 300,
               "repeat": [
                 1,
@@ -852,7 +856,7 @@
               },
               "uuid": "7AFB8038-5D53-432E-897D-1DD325329FEE",
               "name": "地面",
-              "image": "6EA99CAD-C124-4345-B754-26B4F784AE8D",
+              "image": "56365755-04E3-468D-91FA-75B11E27D9B3",
               "mapping": 300,
               "repeat": [
                 1,
@@ -892,7 +896,7 @@
               },
               "uuid": "8D8B7756-5CFA-462F-9BB2-DA544CB921DD",
               "name": "",
-              "image": "D86431BB-DDD6-4CA8-9D8F-DB9D067C9E36",
+              "image": "49E7DC3B-69E3-4EB8-9E50-FDACCDE11AF3",
               "mapping": 300,
               "repeat": [
                 1,
@@ -911,6 +915,7 @@
                 1001,
                 1001
               ],
+              "format": 1023,
               "type": 1009,
               "encoding": 3001,
               "minFilter": 1008,
@@ -931,7 +936,7 @@
               },
               "uuid": "4DC3E77E-1D8D-4564-B847-6DC6171E6FAE",
               "name": "",
-              "image": "33AB2D41-4689-4EC3-9DF0-25AD455A944C",
+              "image": "4CB4AC71-6C4A-420F-ABE6-9F4B1C75CBCA",
               "mapping": 300,
               "repeat": [
                 1,
@@ -950,6 +955,7 @@
                 1001,
                 1001
               ],
+              "format": 1023,
               "type": 1009,
               "encoding": 3001,
               "minFilter": 1008,
@@ -970,7 +976,7 @@
               },
               "uuid": "5F33177C-AE23-4D4C-80D5-76D08D4098DB",
               "name": "",
-              "image": "A8A58F0B-88F2-4397-89C8-D0B989E3D1EB",
+              "image": "843E5B0F-3230-418E-8518-F6E2BE1C2933",
               "mapping": 300,
               "repeat": [
                 16,
@@ -989,6 +995,7 @@
                 1000,
                 1000
               ],
+              "format": 1023,
               "type": 1009,
               "encoding": 3001,
               "minFilter": 1008,
@@ -1210,7 +1217,7 @@
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB",
       "properties": {
         "name": "scene",
-        "sky.color": "rgba(0, 0, 0, 1)",
+        "sky.color": "rgba(255, 255, 255, 1)",
         "ground.visible": false,
         "ground.material": "02232F8B-E112-418D-8FAC-0361A734E2B8",
         "light.on": true,
@@ -1263,7 +1270,7 @@
           "z": 3
         },
         "visible": true,
-        "power": 800,
+        "power": 1700,
         "color": "rgba(255, 255, 255, 1)",
         "distance": 100
       },
@@ -2847,7 +2854,7 @@
           "z": 0
         },
         "visible": true,
-        "text": "0:4:7",
+        "text": "0:1:1",
         "size": 16,
         "align": "left",
         "valign": "top",
@@ -2908,6 +2915,60 @@
                 "name": {
                   "type": "data",
                   "value": "elapsed"
+                }
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "event": "start"
+          }
+        }
+      ],
+      "children": [],
+      "userData": {}
+    },
+    "74ec7f28-7d3e-4004-9cf1-05f3548a736c": {
+      "cls": "Xbot",
+      "clsid": "9e8f7f7f-f8f8-4f8f-8f8f-8f8f8f8f8fa1",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0.8,
+          "z": 0.9473700000047687
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true
+      },
+      "events": {
+        "clone": [],
+        "collide": []
+      },
+      "chains": [
+        {
+          "id": "4cc35fb3-03fb-453d-8a0f-9afdc4db0a83",
+          "unit": "74ec7f28-7d3e-4004-9cf1-05f3548a736c",
+          "blocks": [
+            {
+              "id": "d1fdccd8-b03f-4304-8011-1b766d072402",
+              "type": "block",
+              "unit": "74ec7f28-7d3e-4004-9cf1-05f3548a736c",
+              "action": "run",
+              "slots": {}
+            },
+            {
+              "id": "c2ce0859-2e21-408f-b3d3-aa72d387dae1",
+              "type": "block",
+              "unit": "74ec7f28-7d3e-4004-9cf1-05f3548a736c",
+              "action": "move",
+              "slots": {
+                "speed": {
+                  "type": "data",
+                  "value": 0.1
                 }
               }
             }

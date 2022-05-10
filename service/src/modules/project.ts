@@ -2,10 +2,11 @@
 import fs from 'fs';
 import path from 'path';
 import express from 'express';
+import { UploadedFile } from 'express-fileupload';
 import mime from 'mime';
 import stream from 'stream';
 import { config, } from 'egg';
-import { Module } from 'egg/project';
+import { Assets, Module } from 'egg/project';
 import { env } from '../environment';
 import { lookupModule } from '../transformer/lookup';
 import xs from '../transformer/xs';
@@ -51,6 +52,18 @@ export class Class implements Module {
     const dir = path.resolve(absProjectsRoot, name);
     fs.rmSync(dir, { recursive: true, force: true });
   }
+  assets(cxt: DispContext, name: string): Assets {
+    return parseAssets(name);
+  }
+  removeAsset(cxt: DispContext, name: string, filename: string): void {
+    const [dir, rsname] = filename.split('/');
+    const filepath = path.resolve(absProjectsRoot, name, 'assets', dir, rsname);
+    if (fs.statSync(filepath).isFile()) {
+      fs.unlinkSync(filepath);
+    } else {
+      fs.rmdirSync(filepath, { recursive: true });
+    }
+  }
   [key: string]: (cxt: DispContext, ...args: any[]) => any;
 }
 
@@ -77,6 +90,100 @@ function resolvePath(originalUrl: string): [string, string] {
     return [filePath, orgPath];
   }
   return ['', ''];
+}
+
+const expr = /\.(gltf|glb|dae|fbx)$/i;
+
+function parseAssets(name: string): Assets {
+  const assets: Assets = {
+    models: [],
+    sounds: [],
+    textures: [],
+  };
+  const names = Object.keys(assets);
+  const picker = (rootPath: string) => {
+    for (const iterator of fs.readdirSync(path.resolve(rootPath, 'assets'))) {
+      if (!names.includes(iterator)) {
+        continue;
+      }
+      const list = (assets as any)[iterator];
+      const dir = path.resolve(rootPath, 'assets', iterator);
+      if (iterator === 'models') {
+        fs.readdirSync(dir).forEach(e => {
+          const filePath = path.resolve(dir, e);
+          const isDir = fs.statSync(filePath).isDirectory();
+          if (isDir) {
+            for (const iterator of fs.readdirSync(filePath)) {
+              if (expr.test(iterator)) {
+                list.push(`${e}/${iterator}`);
+                break;
+              }
+            }
+          } else if (expr.test(e)) {
+            list.push(e);
+          }
+        });
+      } else {
+        fs.readdirSync(dir).forEach(e => {
+          list.push(e);
+        });
+      }
+    }
+  };
+  picker(absShare);
+  if (name) {
+    const dir = path.resolve(absProjectsRoot, name);
+    picker(dir);
+  }
+  return assets;
+}
+
+export async function uploadHandler(req: express.Request): Promise<string> {
+  const [, prjName] = /^(?:([^/]+)\/)?upload\/?/.exec(req.path) || [];
+  if (!req.files || !Object.keys(req.files).length) {
+    throw new Error('no file uploaded');
+  }
+
+  const prjDir = path.resolve(absProjectsRoot, prjName);
+
+  if (!fs.existsSync(prjDir)) {
+    throw new Error(`project ${prjName} not exists`);
+  }
+
+  let name = '';
+  for (const iterator of Object.keys(req.files)) {
+    if (expr.test(iterator)) {
+      name = iterator;
+      break;
+    }
+  }
+
+  if (!name) {
+    throw new Error('no file uploaded');
+  }
+
+  let filename = name;
+  if ((req.files as any).length === 1) {
+    const filePath = path.resolve(prjDir, 'assets', filename);
+    if (fs.existsSync(filePath)) {
+      throw new Error(`file ${filename} already exists`);
+    }
+    const [file] = Object.values(req.files as any as UploadedFile[]);
+    await file.mv(filePath);
+  } else {
+    const dirName = name.replace(/\.\w+$/, '');
+    const dirPath = path.resolve(prjDir, 'assets', dirName);
+    if (fs.existsSync(dirPath)) {
+      throw new Error(`dir ${dirName} already exists`);
+    }
+    fs.mkdirSync(dirName);
+    for (const file of req.files as any as UploadedFile[]) {
+      const filePath = path.resolve(dirPath, dirName, file.name);
+      await file.mv(filePath);
+    }
+    filename = `${dirName}/${name}`;
+  }
+  return filename;
 }
 
 export default function (expr: express.Express) {
@@ -149,6 +256,9 @@ export default function (expr: express.Express) {
     const [filePath, orgPath] = resolvePath(request.originalUrl);
     if (!filePath) {
       return next();
+    } else if (/^([^/]+\/)?assets\/?$/.test(orgPath)) {
+      const [, name] = /^(?:([^/]+)\/)?assets\/?/.exec(orgPath) || [];
+      return response.json(parseAssets(name));
     }
     const stats = fs.statSync(filePath);
     const unmodifiedSince = parseHttpDate(request.header('if-modified-since') || '');
@@ -174,6 +284,17 @@ export default function (expr: express.Express) {
     response.set('Last-Modified', stats.mtime.toUTCString());
     response.set('Cache-Control', ['no-cache', 'no-store', 'must-revalidate', 'max-age=0']);
     readStream.pipe(response);
+  });
+  expr.post('/__egg__/*/upload', async (req, rsp) => {
+    try {
+      const rs = await uploadHandler(req);
+      rsp.json({
+        code: 0,
+        result: rs
+      }).end();
+    } catch (err: any) {
+      rsp.status(510).end(err.message);
+    }
   });
   return new Class();
 }

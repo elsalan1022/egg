@@ -3,6 +3,7 @@ import { Decoration as Plane } from './plane';
 import { Decoration as Axis } from './axis';
 import { Decoration as Text } from './text';
 import { Decoration as Text3D } from './text3d';
+import { Decoration as Model3D } from './model';
 import { Decoration as Mirror } from './mirror';
 import { Decoration as Sphere } from './sphere';
 import { Decoration as Cube } from './cube';
@@ -17,6 +18,7 @@ export default [
   Axis,
   Text,
   Text3D,
+  Model3D,
   Mirror,
   Sphere,
   Cube,

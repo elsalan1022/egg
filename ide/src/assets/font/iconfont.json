@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "12896516",
+      "name": "3D模型@3x",
+      "font_class": "model3d",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "1160985",
+      "name": "upload",
+      "font_class": "upload",
+      "unicode": "e8e9",
+      "unicode_decimal": 59625
+    },
+    {
       "icon_id": "7206140",
       "name": "Mouse",
       "font_class": "mouse",
