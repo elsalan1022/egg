@@ -279,6 +279,8 @@ export default {
     ok: '确定',
     cancel: '取消',
     invalidName: '名称不合法',
+    invaliValue: '无效值',
+    selectModel: '请选择模型',
   },
   // state
   st: {

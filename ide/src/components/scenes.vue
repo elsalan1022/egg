@@ -130,6 +130,14 @@ export default {
           if (!project.screen.scene) {
             project.screenEditor.setCurrentScene(project.screenEditor.getScenes()[0]);
           }
+        } else if (clsname === 'model3d') {
+          const name = await this.$input(this.$t('se.selectModel'), '', Object.keys(project.screen.models));
+          if (!project.screen.scene) {
+            throw new Error('no scene');
+          } else {
+            const deco = project.screenEditor.children[project.screen.scene.uuid];
+            await project.createUnit(clsname, deco, undefined, { model: name });
+          }
         } else {
           const cls = project.classes[clsname];
           const { is2D } = cls.runtime as any;

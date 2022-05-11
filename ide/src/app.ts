@@ -42,7 +42,7 @@ export default {
       try {
         await project.screen.setup({
           font: '/assets/fonts/helvetiker_regular.typeface.json',
-          assets: '/__egg__/${projectName}/assets',
+          assets: `/__egg__/${projectName}/assets`,
         });
         const cfg = await apis.project.load(projectName);
         await project.unserialize(cfg);

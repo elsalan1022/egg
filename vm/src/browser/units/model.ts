@@ -108,7 +108,7 @@ class Runtime extends Phynit<THREE.Group> {
     });
   }
   static async create(uuid?: string, parent?: runtime.Unit, properties?: Record<string, any>): Promise<runtime.Unit> {
-    const assets = properties && properties['model'] ? gScreen.loadModel(properties['model']) : {};
+    const assets = properties && properties['model'] ? await gScreen.loadModel(properties['model']) : {};
     return super.create(uuid, parent, Object.assign({}, properties || {}, assets || {}));
   }
 }
@@ -123,6 +123,13 @@ export class Decoration extends PhynitUnit<Runtime> {
     const unit = this;
     // properties
     const props: Record<string, Property> = {
+      scale: makeProperty(instance, {
+        name: 'scale',
+        type: 'number',
+        min: 0,
+        max: 100,
+        step: 0.01,
+      }),
       model: makeProperty(instance, {
         name: 'model',
         type: 'unknown'

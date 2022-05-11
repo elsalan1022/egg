@@ -407,7 +407,7 @@ export class Screen extends DevRuntime {
     if (model.info) {
       return model.info;
     }
-    const [ext] = model.filename.split('.').pop() || '';
+    const ext = model.filename.split('.').pop() || '';
     if (!ext) {
       throw new Error("Model file name is invalid.");
     }

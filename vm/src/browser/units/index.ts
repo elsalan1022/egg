@@ -19,11 +19,11 @@ export default [
   Text,
   Text3D,
   Model3D,
-  Mirror,
+  // Mirror,
   Sphere,
   Cube,
   Box,
   Bulb,
-  Cloth,
+  // Cloth,
   // Shadertoy,
 ];

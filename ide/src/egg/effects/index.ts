@@ -1,3 +1,5 @@
 import { Decoration as Skeleton } from './skeleton';
 
-export default [Skeleton];
+export default [
+  // Skeleton
+];

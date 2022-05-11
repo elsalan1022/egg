@@ -40,7 +40,7 @@ class Runtime extends Phynit {
       fragmentShader: frag,
     });
     const particles = new THREE.Points(geometry, material);
-    super(uuid, parent, { object: particles });
+    super(uuid, parent, { object: particles as any });
   }
   update(delta: number, now: number, scene: any): void {
     const { pose } = this.properties;
@@ -57,7 +57,7 @@ class Runtime extends Phynit {
     const width = this.properties.width || 1;
     const height = this.properties.height || 1;
 
-    const particles = this.object as THREE.Points;
+    const particles = this.object as any as THREE.Points;
     const positions = particles.geometry.attributes.position.array as any;
 
     let pos = this.offset;

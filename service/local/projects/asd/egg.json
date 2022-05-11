@@ -59,14 +59,14 @@
         "light.physicallyCorrect": true,
         "scene": "d11354e9-916f-45e0-9ef4-1bb1c4dfcb61",
         "camera.position": {
-          "x": 7.133733797203959,
-          "y": 6.935805882170739,
-          "z": 11.225169881809206
+          "x": 7.3916434625111265,
+          "y": 10.369267170417364,
+          "z": 7.927288645660752
         },
         "camera.rotation": {
-          "x": -0.5534627895321923,
-          "y": 0.49562581194831734,
-          "z": 0.28580754799294633
+          "x": -0.918080601571214,
+          "y": 0.5152773787973228,
+          "z": 0.5725517251272203
         }
       },
       "events": {},
@@ -150,7 +150,7 @@
               },
               "uuid": "78B7402D-96A4-487E-A692-9E603E309801",
               "name": "",
-              "image": "8A55A822-829F-48AD-84FB-696D86192F03",
+              "image": "3FF403B6-1AC1-4068-8B77-A938A60A2A03",
               "mapping": 300,
               "repeat": [
                 1,
@@ -190,7 +190,7 @@
               },
               "uuid": "06558F63-D631-4434-8231-C4B63854E29E",
               "name": "",
-              "image": "20982626-E46D-4238-8653-05DD0CFFF263",
+              "image": "FB74D76E-64EC-422B-AFDD-40B20F022091",
               "mapping": 300,
               "repeat": [
                 16,
@@ -230,7 +230,7 @@
               },
               "uuid": "534B3EB6-A167-4BB8-9722-1405752CA586",
               "name": "",
-              "image": "7DF99452-A141-4758-BB30-A3178148A90F",
+              "image": "88C8B776-6635-4B64-AACE-65079FC5D5B3",
               "mapping": 300,
               "repeat": [
                 1,
@@ -270,7 +270,7 @@
               },
               "uuid": "CABD0E23-3E0A-4914-8E5A-E5307CB31D9A",
               "name": "",
-              "image": "2DD77D72-3648-49B5-90A0-42EF7B348864",
+              "image": "6A4AE20E-AA19-415B-BCE0-6F4B36ADE28B",
               "mapping": 300,
               "repeat": [
                 1,
@@ -501,7 +501,8 @@
       ],
       "children": [
         "0b5484c5-79cf-474e-9dab-1f8b97f28316",
-        "5c677fec-0244-40a6-97d4-49dc257db659"
+        "5c677fec-0244-40a6-97d4-49dc257db659",
+        "d514a94f-caae-42a0-b14f-bd8ea14294f3"
       ],
       "userData": {}
     },
@@ -620,7 +621,7 @@
           "z": 0
         },
         "material": "75D69A0A-E7EC-41B6-B69A-F7E7AE5DF586",
-        "visible": true,
+        "visible": false,
         "scale": 1,
         "texture": "CABD0E23-3E0A-4914-8E5A-E5307CB31D9A"
       },
@@ -716,6 +717,32 @@
       },
       "events": {
         "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "d514a94f-caae-42a0-b14f-bd8ea14294f3": {
+      "cls": "model3d",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-00000000000B",
+      "properties": {
+        "name": "鞋子",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "scale": 29.65
+      },
+      "events": {
+        "clone": [],
+        "collide": []
       },
       "chains": [],
       "children": [],
