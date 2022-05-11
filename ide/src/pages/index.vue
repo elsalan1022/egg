@@ -379,8 +379,11 @@ export default {
 }
 
 i {
-  color: white;
   cursor: pointer;
+}
+
+.topbar i {
+  color: white;
 }
 
 i[disabled='true'] {
@@ -399,6 +402,10 @@ i[disabled='true'] {
 
 .icon-egg {
   color: #ffcc88;
+}
+
+.icon-trash[disabled='false'] {
+  color: red;
 }
 
 .icon-loading {

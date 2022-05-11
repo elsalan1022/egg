@@ -12,7 +12,8 @@ export class VisRuntime<T extends THREE.Object3D = THREE.Object3D> extends UnitR
   readonly isVisUnit = true;
   /** object */
   readonly object: T;
-  constructor(uuid: string | undefined, parent: runtime.Unit | undefined, { object, }: { object: T; }) {
+  constructor(uuid: string | undefined, parent: runtime.Unit | undefined, properties: Json) {
+    const { object, } = properties;
     super(uuid, parent);
     object.traverse(function (o: any) {
       if (o.isMesh) o.castShadow = true;
@@ -139,9 +140,9 @@ export abstract class Phynit<T extends THREE.Object3D = THREE.Object3D> extends 
   readonly selfUpdate?: boolean;
   protected center: THREE.Vector3;
   protected soudsCached: Record<string, THREE.PositionalAudio> = {};
-  constructor(uuid: string | undefined, parent: runtime.Unit | undefined, prosthesis: { object: T; physics?: CANNON.Body, selfUpdate?: boolean; }) {
-    const { object, physics, selfUpdate } = prosthesis;
-    super(uuid, parent, prosthesis);
+  constructor(uuid: string | undefined, parent: runtime.Unit | undefined, properties: Json & { object: T; physics?: CANNON.Body, selfUpdate?: boolean; }) {
+    const { object, physics, selfUpdate } = properties;
+    super(uuid, parent, properties);
     const box3 = new THREE.Box3().setFromObject(object);
     const center = box3.getCenter(new THREE.Vector3());
     this.center = center;

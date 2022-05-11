@@ -19,11 +19,8 @@ class Runtime extends Phynit<THREE.Group> {
   clips: Record<string, THREE.AnimationClip>;
   animations: Record<string, THREE.AnimationAction>;
   protected moveSpeed: number;
-  constructor(uuid: string | undefined, parent: runtime.Unit | undefined, prosthesis?: runtime.Unit) {
-    if (!prosthesis) {
-      throw new Error('prosthesis is not initialized');
-    }
-    const { object, clips, model } = prosthesis as any;
+  constructor(uuid: string | undefined, parent: runtime.Unit | undefined, properties: Json) {
+    const { object, clips, model } = properties;
     super(uuid, parent, { object: object || new THREE.Group() });
     this.properties.model = model;
     this.moveSpeed = 0;
@@ -91,8 +88,11 @@ class Runtime extends Phynit<THREE.Group> {
     this.mixer.update(delta);
   }
   set({ name, value }: { name: string; value: any; }): void {
+    const oldValue = this.properties[name];
     super.set({ name, value });
     if (!['model'].includes(name)) {
+      return;
+    } else if (oldValue === value) {
       return;
     }
     const parent = this.object.parent;

@@ -156,7 +156,7 @@ declare module 'egg' {
       /** clsid */
       readonly clsid: CLSID;
       /** Constructor */
-      new(uuid?: string, parent?: runtime.Unit, prosthesis?: runtime.Unit): runtime.Unit;
+      new(uuid?: string, parent?: runtime.Unit, properties?: Json): runtime.Unit;
       /** create instance from json */
       create(uuid?: string, parent?: runtime.Unit, properties?: Json): Promise<runtime.Unit>;
     }

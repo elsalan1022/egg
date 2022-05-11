@@ -24,8 +24,11 @@ export abstract class UnitRuntime implements runtime.Unit {
   events: Record<string, Array<{ filter?: string; blocks: runtime.Block }>> = {};
   children: Record<string, runtime.Unit> = {};
   protected clonedCount = 0;
-  constructor(uuid?: string, public parent?: runtime.Unit) {
+  constructor(uuid?: string, public parent?: runtime.Unit, properties?: Json) {
     this.uuid = uuid || genUniqueId();
+    if (properties) {
+      Object.assign(this.properties, properties);
+    }
   }
   get({ name }: { name: string; }) {
     return this.properties[name];
@@ -51,13 +54,9 @@ export abstract class UnitRuntime implements runtime.Unit {
     this.clonedCount++;
 
     // /** Constructor */
-    // new(uuid?: string, parent?: runtime.Unit, prosthesis?: runtime.Unit): runtime.Unit;
-    const n = new (this as any).__proto__.constructor(undefined, this.parent, this);
+    const n = new (this as any).__proto__.constructor(undefined, this.parent, this.properties);
 
     n.cloned = true;
-
-    /** copy properties */
-    Object.assign(n.properties, this.properties);
 
     /** copy events */
     const set = this.events['clone'] as Array<{ filter?: string; blocks: runtime.Block }>;
@@ -96,8 +95,8 @@ export abstract class UnitRuntime implements runtime.Unit {
       });
     }
   }
-  static async create(uuid?: string, parent?: runtime.Unit, properties?: Record<string, any>): Promise<runtime.Unit> {
-    return new (this as any as runtime.UnitConstructor)(uuid, parent, properties as any);
+  static async create(uuid?: string, parent?: runtime.Unit, properties?: Json): Promise<runtime.Unit> {
+    return new (this as any as runtime.UnitConstructor)(uuid, parent, properties);
   }
 }
 
