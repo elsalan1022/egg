@@ -23,8 +23,9 @@ class Runtime extends Phynit<THREE.Group> {
     if (!prosthesis) {
       throw new Error('prosthesis is not initialized');
     }
-    const { object, clips } = prosthesis as any;
+    const { object, clips, model } = prosthesis as any;
     super(uuid, parent, { object: object || new THREE.Group() });
+    this.properties.model = model;
     this.moveSpeed = 0;
     this.mixer = new THREE.AnimationMixer(this.object);
     this.clips = clips;
@@ -98,6 +99,9 @@ class Runtime extends Phynit<THREE.Group> {
     this.loadModel(value).then((assets) => {
       this.stop({ name: 'all' });
       if (parent) {
+        assets.object.position.copy(this.object.position);
+        assets.object.scale.copy(this.object.scale);
+        assets.object.quaternion.copy(this.object.quaternion);
         parent.remove(this.object);
         (this as any).object = assets.object;
         parent.add(this.object);

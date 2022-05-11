@@ -26,7 +26,9 @@
         "12d114a9-dfdf-4583-8744-af605a792f79",
         "f936a277-e915-43ae-874c-9d1a1b6925d5",
         "ef10ab44-1747-4dd4-a38a-a107e87def9a",
-        "2e9e4d23-2c2c-464f-b3e3-0f140527a201"
+        "2e9e4d23-2c2c-464f-b3e3-0f140527a201",
+        "d514a94f-caae-42a0-b14f-bd8ea14294f3",
+        "e7c631c7-0a80-4255-8859-d64656e50de9"
       ],
       "userData": {}
     },
@@ -150,7 +152,7 @@
               },
               "uuid": "78B7402D-96A4-487E-A692-9E603E309801",
               "name": "",
-              "image": "3FF403B6-1AC1-4068-8B77-A938A60A2A03",
+              "image": "0841B462-FCAC-410D-B72B-1CF3C54F021C",
               "mapping": 300,
               "repeat": [
                 1,
@@ -190,7 +192,7 @@
               },
               "uuid": "06558F63-D631-4434-8231-C4B63854E29E",
               "name": "",
-              "image": "FB74D76E-64EC-422B-AFDD-40B20F022091",
+              "image": "8DB22868-378F-41F5-887F-B159EC7FEC5A",
               "mapping": 300,
               "repeat": [
                 16,
@@ -230,7 +232,7 @@
               },
               "uuid": "534B3EB6-A167-4BB8-9722-1405752CA586",
               "name": "",
-              "image": "88C8B776-6635-4B64-AACE-65079FC5D5B3",
+              "image": "278FF172-E2B7-4294-BF2E-73869D70145C",
               "mapping": 300,
               "repeat": [
                 1,
@@ -270,7 +272,7 @@
               },
               "uuid": "CABD0E23-3E0A-4914-8E5A-E5307CB31D9A",
               "name": "",
-              "image": "6A4AE20E-AA19-415B-BCE0-6F4B36ADE28B",
+              "image": "54FF218A-8995-4238-A1BF-ED42C06D799A",
               "mapping": 300,
               "repeat": [
                 1,
@@ -502,7 +504,7 @@
       "children": [
         "0b5484c5-79cf-474e-9dab-1f8b97f28316",
         "5c677fec-0244-40a6-97d4-49dc257db659",
-        "d514a94f-caae-42a0-b14f-bd8ea14294f3"
+        "0633e1b9-c1b4-4b08-9d10-6044441352dd"
       ],
       "userData": {}
     },
@@ -739,6 +741,57 @@
         },
         "visible": true,
         "scale": 29.65
+      },
+      "events": {
+        "clone": [],
+        "collide": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "e7c631c7-0a80-4255-8859-d64656e50de9": {
+      "cls": "model3d",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-00000000000B",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "scale": 30.19
+      },
+      "events": {
+        "clone": [],
+        "collide": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "0633e1b9-c1b4-4b08-9d10-6044441352dd": {
+      "cls": "model3d",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-00000000000B",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "scale": 27.49,
+        "model": "MaterialsVariantsShoe"
       },
       "events": {
         "clone": [],

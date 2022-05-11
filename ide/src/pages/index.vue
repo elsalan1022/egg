@@ -19,6 +19,7 @@
         <i class="icon-add" @click="newProject"></i>
         <i class="icon-save" :disabled="!isDirty" @click="save"></i>
         <i class="icon-trash" :disabled="names.length == 1" @click="removeProject"></i>
+        <i class="icon-upload" @click="uploader.visible = !uploader.visible"></i>
         <!-- <i class="icon-recorder" @click="speechDlg.visible = true"></i> -->
       </div>
       <div class="rightside topbtns" style="align-items: center; display: flex; flex-direction: row">
@@ -168,6 +169,9 @@ export default {
       // speechDlg: {
       //   visible: false,
       // },
+      uploader: {
+        visible: false,
+      },
     };
   },
   computed: {
