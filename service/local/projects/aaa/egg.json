@@ -1,0 +1,221 @@
+{
+  "version": "0.0.1",
+  "units": {
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0": {
+      "cls": "chick",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+      "properties": {},
+      "events": {
+        "start": [],
+        "stop": []
+      },
+      "chains": [],
+      "children": [
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C3",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CE",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C7",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA",
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1"
+      ],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C3": {
+      "cls": "storage",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C3",
+      "properties": {},
+      "events": {
+        "change": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4": {
+      "cls": "timer",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+      "properties": {},
+      "events": {
+        "change": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5": {
+      "cls": "screen",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C5",
+      "properties": {
+        "light.physicallyCorrect": true,
+        "scene": "f76e5727-d18c-40ea-a869-bbd2580450bc",
+        "camera.position": {
+          "x": 0,
+          "y": 0.9999999999999997,
+          "z": 4
+        },
+        "camera.rotation": {
+          "x": -0.2449786631268641,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "events": {},
+      "chains": [],
+      "children": [
+        "f76e5727-d18c-40ea-a869-bbd2580450bc"
+      ],
+      "userData": {
+        "materials": {},
+        "textures": {}
+      }
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6": {
+      "cls": "camera",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6",
+      "properties": {
+        "fps": 30
+      },
+      "events": {
+        "frame": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CE": {
+      "cls": "mouse",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CE",
+      "properties": {},
+      "events": {
+        "mousedown": [],
+        "mouseup": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8": {
+      "cls": "gesture",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C8",
+      "properties": {
+        "current": ""
+      },
+      "events": {
+        "gesture": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC": {
+      "cls": "pose",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CC",
+      "properties": {},
+      "events": {
+        "pose": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C7": {
+      "cls": "speech",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C7",
+      "properties": {},
+      "events": {
+        "say": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD": {
+      "cls": "joystick",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
+      "properties": {},
+      "events": {
+        "down": [],
+        "up": [],
+        "axis": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2": {
+      "cls": "math",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2",
+      "properties": {},
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA": {
+      "cls": "test",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA",
+      "properties": {},
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1": {
+      "cls": "logic",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+      "properties": {},
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "f76e5727-d18c-40ea-a869-bbd2580450bc": {
+      "cls": "scene",
+      "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB",
+      "properties": {
+        "name": "scene",
+        "sky.color": "#bfd1e5",
+        "ground.visible": true,
+        "ground.material": "9B987882-3552-4711-8098-89F314CD1B68",
+        "light.on": true,
+        "light.color": "#ffffff",
+        "light.position": {
+          "x": 3,
+          "y": 10,
+          "z": 10
+        },
+        "light.intensity": 1,
+        "spot.on": true,
+        "spot.color": "#ffffff",
+        "spot.position": {
+          "x": 0,
+          "y": 10,
+          "z": 0
+        },
+        "ambient.on": true,
+        "ambient.color": "#404040"
+      },
+      "events": {
+        "clone": [],
+        "enter": [],
+        "leave": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    }
+  },
+  "variables": {}
+}

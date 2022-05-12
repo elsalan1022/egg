@@ -17,18 +17,18 @@
       </div>
       <div class="center topbtns" style="padding-left: 0.5em; align-items: center; display: flex; flex: 1 1 auto; flex-direction: row">
         <i class="icon-add" @click="newProject"></i>
-        <i class="icon-save" :disabled="!isDirty" @click="save"></i>
-        <i class="icon-trash" :disabled="names.length == 1" @click="removeProject"></i>
+        <i class="icon-save" signame="save" :disabled="!isDirty" @click="save"></i>
+        <i class="icon-trash" signame="trash" :disabled="names.length == 1" @click="removeProject"></i>
         <i class="icon-upload" @click="uploader.visible = !uploader.visible"></i>
         <!-- <i class="icon-recorder" @click="speechDlg.visible = true"></i> -->
       </div>
       <div class="rightside topbtns" style="align-items: center; display: flex; flex-direction: row">
-        <i class="icon-start" :disabled="isRunning" @click="start"></i>
+        <i class="icon-start" :disabled="isRunning" signame="run" @click="start"></i>
         <i class="icon-stop" :disabled="!isRunning" @click="stop"></i>
         <i class="icon-loading" v-if="isPending" style="margin-right: 8px"></i>
         <p style="flex: 1 1 auto"></p>
         <i class="icon-reset" @click="resetScreen" style="margin-right: 8px"></i>
-        <i :class="floating ? 'icon-minimize' : 'icon-maximize'" @click="floating = !floating"></i>
+        <i :class="floating ? 'icon-minimize' : 'icon-maximize'" signame="maximize" @click="floating = !floating"></i>
       </div>
     </div>
     <div ref="main" class="main" style="align-items: stretch; display: flex; flex-direction: row">
@@ -147,6 +147,7 @@ import { project, projectName } from '../store/index';
 import * as apis from '../apis';
 import { setLang } from '../i18n';
 import { Dragable } from '../utils/dragable';
+import { rpc } from '../rpc';
 
 export default {
   components: {
@@ -293,9 +294,15 @@ export default {
       location.reload();
     },
     async removeProject() {
-      await apis.project.remove(projectName);
-      const rs = await apis.project.list();
-      this.names = rs.items;
+      ElMessageBox.confirm(this.$t('se.delpj'), this.$t('se.warning'), {
+        confirmButtonText: this.$t('se.ok'),
+        cancelButtonText: this.$t('se.cancel'),
+        type: 'warning',
+      }).then(async () => {
+        await apis.project.remove(projectName);
+        const rs = await apis.project.list();
+        this.names = rs.items;
+      });
     },
   },
   async mounted() {
@@ -310,6 +317,24 @@ export default {
     project.screenEditor.setupObsever(() => {
       this.$makeDirty();
     });
+    this.$regsig('save', { key: 's' }, () => {
+      this.save();
+    });
+    this.$regsig('run', { key: 'r' }, () => {
+      this.start();
+    });
+    this.$regsig('maximize', { key: 'm' }, () => {
+      this.floating = this.floating ? false : true;
+    });
+    rpc.describe(
+      'joystick',
+      ({ type, name, value }) => {
+        if (type === 'button' && name === 'start' && !this.isRunning) {
+          this.start();
+        }
+      },
+      this,
+    );
   },
 };
 </script>
@@ -384,6 +409,11 @@ i {
 
 .topbar i {
   color: white;
+}
+
+.topbar .icon-minimize {
+  color: #ff9900;
+  z-index: 1000;
 }
 
 i[disabled='true'] {
@@ -485,14 +515,14 @@ i[disabled='true'] {
 
 .preview[floating='true'] {
   position: absolute;
-  top: 0;
+  top: -4rem;
   right: 0;
   left: 0;
   width: 100vw;
   height: unset;
   bottom: 0;
   margin: 0;
-  border-radius: none;
+  border-radius: 0;
   z-index: 999;
 }
 

@@ -23,6 +23,7 @@
   </div>
 </template>
 <script lang='ts'>
+import { ElMessageBox } from 'element-plus';
 import { Storage } from 'egg/src/devs/storage';
 import { project, setVar } from '../store/index';
 import { fillDragType, fillDragVar, parseDragEvent } from '../actions/drag';
@@ -75,7 +76,18 @@ export default {
     async onMainBoardDrop(ev: DragEvent) {
       const data = parseDragEvent(ev);
       if (data.type === 'type') {
-        setVar({ scope: 'global', type: data.name as any, name: '', slot: null });
+        const { action, value } = (await ElMessageBox.prompt(this.$t('se.inname'), this.$t('se.new'), {
+          confirmButtonText: this.$t('se.ok'),
+          cancelButtonText: this.$t('se.cancel'),
+          inputPattern: /\w{1,30}/,
+          inputErrorMessage: this.$t('se.invalidName'),
+        })) as any;
+        if (action === 'confirm' && value) {
+          const storage = project.devices.storage as Storage;
+          storage.addProperty(data.name as any, value, undefined);
+          setVar({ scope: 'global', type: data.name as any, name: value, slot: null });
+          this.$makeDirty();
+        }
       }
     },
     reset() {

@@ -281,6 +281,8 @@ export default {
     invalidName: '名称不合法',
     invaliValue: '无效值',
     selectModel: '请选择模型',
+    warning: '警告',
+    delpj: '删除项目',
   },
   // state
   st: {

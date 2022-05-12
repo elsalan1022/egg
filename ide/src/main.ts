@@ -10,6 +10,7 @@ import store from './store';
 import i18n, { LOCALE } from './i18n';
 import { useI18n } from 'vue-i18n';
 import Fragments from './components/fragments';
+import { setup } from './sigpipe';
 
 declare global {
   interface Window {
@@ -43,6 +44,7 @@ app.use(store)
   });
 
 Fragments.install(app);
+setup(app);
 
 appLifeCircle.beforeLaunch(app, store, router);
 

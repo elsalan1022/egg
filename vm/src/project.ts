@@ -446,10 +446,14 @@ export class Project extends UnitImpl implements Egg {
       if (sysUnits[cfg.cls]) {
         return;
       }
-      const unit = await this.createUnit(cfg.cls, this, uuid, cfg.properties);
-      // unpack user data
-      if (unit.instance.loadUserData && cfg.userData) {
-        await unit.instance.loadUserData(cfg.userData);
+      try {
+        const unit = await this.createUnit(cfg.cls, this, uuid, cfg.properties);
+        // unpack user data
+        if (unit.instance.loadUserData && cfg.userData) {
+          await unit.instance.loadUserData(cfg.userData);
+        }
+      } catch (e) {
+        console.error(e);
       }
     })).catch(e => {
       console.error(e);

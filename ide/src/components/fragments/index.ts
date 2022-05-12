@@ -31,6 +31,7 @@ export default {
             return await ElMessageBox({
               title,
               message: select,
+              showCancelButton: true,
               confirmButtonText: t('se.ok'),
               cancelButtonText: t('se.cancel'),
             }).then(() => valueSel);
