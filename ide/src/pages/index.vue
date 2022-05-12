@@ -330,6 +330,7 @@ export default {
       'joystick',
       ({ type, name, value }) => {
         if (type === 'button' && name === 'start' && !this.isRunning) {
+          this.floating = true;
           this.start();
         }
       },

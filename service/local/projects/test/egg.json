@@ -128,14 +128,14 @@
         "light.physicallyCorrect": true,
         "scene": "d2ee000b-61c0-445a-90b0-b5ee3b0d12ec",
         "camera.position": {
-          "x": 2.9210934471008954,
-          "y": 2.7064350448395422,
-          "z": -0.37738895231486635
+          "x": 2.644967453779711,
+          "y": 1.96235006897785,
+          "z": 2.270094574062799
         },
         "camera.rotation": {
-          "x": -1.709344313895436,
-          "y": 0.8187220111235537,
-          "z": 1.759469266237731
+          "x": -0.7128150794953648,
+          "y": 0.7224729921473166,
+          "z": 0.5192759855197486
         }
       },
       "events": {},
@@ -479,7 +479,7 @@
               },
               "uuid": "4456FDDA-6D3E-4B57-B3C3-0C141C526F4D",
               "name": "",
-              "image": "5E60F643-5A0B-490A-880F-30CD60C79C77",
+              "image": "67B48DD1-936F-4A20-9B9A-7E72C46E9D3F",
               "mapping": 300,
               "repeat": [
                 10,
@@ -519,7 +519,7 @@
               },
               "uuid": "73A205D3-C080-4A3C-A1FC-ACFE20BAC9D2",
               "name": "",
-              "image": "0172450D-42C9-4E56-892B-00BE14155862",
+              "image": "BBCACB7B-093D-4505-8205-B745EC48D1C4",
               "mapping": 300,
               "repeat": [
                 10,
@@ -559,7 +559,7 @@
               },
               "uuid": "D8A5362C-918C-48EC-BC9E-DD9E29B26766",
               "name": "",
-              "image": "08ECFC6E-A86A-4853-BC3D-B7835FF07DE0",
+              "image": "C3AC5083-CF6B-4FF5-B6C8-A10127927715",
               "mapping": 300,
               "repeat": [
                 10,
@@ -599,7 +599,7 @@
               },
               "uuid": "DDAB45B4-73E5-4720-8EF4-02F3720206EA",
               "name": "",
-              "image": "098167C0-E235-424C-8D66-BD8B9B9BDC0A",
+              "image": "04252962-4174-4921-8C2A-293ED0DB3E3D",
               "mapping": 300,
               "repeat": [
                 1,
@@ -639,7 +639,7 @@
               },
               "uuid": "1FF2C0B0-6222-46C2-8FD7-3AFADF10DC48",
               "name": "",
-              "image": "5E6DC8AB-050A-496A-9CB7-170FB3C8643C",
+              "image": "645BB482-F469-4DF6-89DD-0E36AFE2EAD6",
               "mapping": 300,
               "repeat": [
                 1,
@@ -679,7 +679,7 @@
               },
               "uuid": "70A0D3F0-97A1-4D70-8A37-2145CE6A3652",
               "name": "",
-              "image": "3962601D-BF27-4E95-9200-3AE1360FAAEF",
+              "image": "0D2F8B72-6752-4594-8A72-A4A03338F86D",
               "mapping": 300,
               "repeat": [
                 1,
@@ -719,7 +719,7 @@
               },
               "uuid": "D15FBF23-ED33-4A5E-A3A7-39CF6DC087A6",
               "name": "",
-              "image": "ED291A55-63B2-4995-9F34-92B02E23A9B2",
+              "image": "DAF36792-312B-4A53-BEC0-D4567D7DC879",
               "mapping": 300,
               "repeat": [
                 1,
@@ -759,7 +759,7 @@
               },
               "uuid": "C2D1EC84-CFFB-4C05-ACAC-2FB7E1FE77C3",
               "name": "",
-              "image": "B6653956-471C-47A3-ACEB-B66342BF9E61",
+              "image": "9A4329CC-79C2-4B64-8506-1A51D6F5031B",
               "mapping": 300,
               "repeat": [
                 1,
@@ -799,7 +799,7 @@
               },
               "uuid": "C27E3212-55C7-4E0B-B6A7-1AE2950B6E23",
               "name": "",
-              "image": "1A86A4B1-81E1-4320-A63F-DF228D903245",
+              "image": "CC09BDD2-1EE0-4A8C-94E8-0A14A15DD88A",
               "mapping": 300,
               "repeat": [
                 1,
@@ -839,7 +839,7 @@
               },
               "uuid": "7AFB8038-5D53-432E-897D-1DD325329FEE",
               "name": "地面",
-              "image": "4233FC9D-8049-4E85-B5F1-CEA362E76297",
+              "image": "D364204D-2370-43F3-AD10-5B3D70F53337",
               "mapping": 300,
               "repeat": [
                 1,
@@ -879,7 +879,7 @@
               },
               "uuid": "8D8B7756-5CFA-462F-9BB2-DA544CB921DD",
               "name": "",
-              "image": "0008FCC6-AB36-4837-A065-0B01A21D25E7",
+              "image": "789E9C15-90C4-45B3-8FBA-9B04C9B5B7C8",
               "mapping": 300,
               "repeat": [
                 1,
@@ -919,7 +919,7 @@
               },
               "uuid": "4DC3E77E-1D8D-4564-B847-6DC6171E6FAE",
               "name": "",
-              "image": "4519F553-A68E-4DB5-BBCF-165B7225D057",
+              "image": "94207197-6FC5-4315-BBD1-63D6B3669695",
               "mapping": 300,
               "repeat": [
                 1,
@@ -959,7 +959,7 @@
               },
               "uuid": "5F33177C-AE23-4D4C-80D5-76D08D4098DB",
               "name": "",
-              "image": "E52718AF-466A-4A96-ABB1-798F1DE5FB97",
+              "image": "D99AB328-F4F1-4B1E-B332-D08DE6FC5075",
               "mapping": 300,
               "repeat": [
                 16,
