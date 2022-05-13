@@ -55,20 +55,21 @@
         "light.physicallyCorrect": true,
         "scene": "f76e5727-d18c-40ea-a869-bbd2580450bc",
         "camera.position": {
-          "x": 0,
-          "y": 0.9999999999999997,
-          "z": 4
+          "x": 0.733247563111335,
+          "y": 1.5282856380939391,
+          "z": -3.7585490577598004
         },
         "camera.rotation": {
-          "x": -0.2449786631268641,
-          "y": 0,
-          "z": 0
+          "x": -2.7553959962953942,
+          "y": 0.17878965879721948,
+          "z": 3.069406282991573
         }
       },
       "events": {},
       "chains": [],
       "children": [
-        "f76e5727-d18c-40ea-a869-bbd2580450bc"
+        "f76e5727-d18c-40ea-a869-bbd2580450bc",
+        "b7693ab6-0090-46b3-805a-fc5f6b1ffd1f"
       ],
       "userData": {
         "materials": {},
@@ -211,6 +212,54 @@
         "clone": [],
         "enter": [],
         "leave": []
+      },
+      "chains": [],
+      "children": [
+        "4d2d78f4-6c7b-469c-a334-4a2d826f17d9"
+      ],
+      "userData": {}
+    },
+    "b7693ab6-0090-46b3-805a-fc5f6b1ffd1f": {
+      "cls": "text",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000004",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "size": 32,
+        "opacity": 1
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "4d2d78f4-6c7b-469c-a334-4a2d826f17d9": {
+      "cls": "model3d",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-00000000000B",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "scale": 67.28,
+        "model": "BoomBox.glb"
+      },
+      "events": {
+        "clone": [],
+        "collide": []
       },
       "chains": [],
       "children": [],

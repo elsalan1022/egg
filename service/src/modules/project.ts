@@ -139,9 +139,9 @@ function parseAssets(name: string): Assets {
 }
 
 export async function uploadHandler(req: express.Request): Promise<string> {
-  const [, prjName] = /^(?:([^/]+)\/)?upload\/?/.exec(req.path) || [];
-  if (!req.files || !Object.keys(req.files).length) {
-    throw new Error('no file uploaded');
+  const [, prjName] = /^\/__egg__\/(?:([^/]+)\/)?upload\/?/.exec(req.path) || [];
+  if (!req.files || Object.keys(req.files).length !== 1) {
+    throw 'invalid upload request';
   }
 
   const prjDir = path.resolve(absProjectsRoot, prjName);
@@ -150,40 +150,22 @@ export async function uploadHandler(req: express.Request): Promise<string> {
     throw new Error(`project ${prjName} not exists`);
   }
 
-  let name = '';
-  for (const iterator of Object.keys(req.files)) {
-    if (expr.test(iterator)) {
-      name = iterator;
-      break;
-    }
-  }
+  const [file] = Object.values(req.files as any as UploadedFile[]);
 
-  if (!name) {
-    throw new Error('no file uploaded');
-  }
+  const { mimetype, name } = file;
+  const type = mimetype.split('/')[0];
+  const sub = ({ image: 'textures', audio: 'sounds' })[type] || 'models';
+  const filename = `${sub}/${name}`;
 
-  let filename = name;
-  if ((req.files as any).length === 1) {
-    const filePath = path.resolve(prjDir, 'assets', filename);
-    if (fs.existsSync(filePath)) {
-      throw new Error(`file ${filename} already exists`);
-    }
-    const [file] = Object.values(req.files as any as UploadedFile[]);
-    await file.mv(filePath);
-  } else {
-    const dirName = name.replace(/\.\w+$/, '');
-    const dirPath = path.resolve(prjDir, 'assets', dirName);
-    if (fs.existsSync(dirPath)) {
-      throw new Error(`dir ${dirName} already exists`);
-    }
-    fs.mkdirSync(dirName);
-    for (const file of req.files as any as UploadedFile[]) {
-      const filePath = path.resolve(dirPath, dirName, file.name);
-      await file.mv(filePath);
-    }
-    filename = `${dirName}/${name}`;
+  const filePath = path.resolve(prjDir, 'assets', filename);
+  if (fs.existsSync(filePath)) {
+    throw new Error(`file ${filename} already exists`);
+  } else if (!fs.existsSync(path.dirname(filePath))) {
+    fs.mkdirSync(path.dirname(filePath));
   }
-  return filename;
+  await file.mv(filePath);
+
+  return name;
 }
 
 export default function (expr: express.Express) {

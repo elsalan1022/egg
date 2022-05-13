@@ -24,5 +24,6 @@
   },
   "glsl-canvas.textures": {
     "0": "./texture.png"
-  }
+  },
+  "vetur.validation.interpolation": false
 }

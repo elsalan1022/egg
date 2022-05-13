@@ -276,6 +276,19 @@ export class Screen extends DevRuntime {
       this.sounds[name] = { filename: v, buffer };
     }));
   }
+  addImage(name: string) {
+    this.images.push([name, `${this.paths.assets}/textures/${name}`]);
+  }
+  async addSound(name: string) {
+    const audioLoader = new THREE.AudioLoader();
+    const key = name.replace(/\..+$/, '');
+    const buffer = await audioLoader.loadAsync(`${this.paths.assets}/sounds/${name}`);
+    this.sounds[key] = { filename: name, buffer };
+  }
+  addModel(filename: string) {
+    const [key] = filename.split('/');
+    this.models[key] = { filename };
+  }
   attach(element: HTMLElement) {
     if (this.dom) {
       this.dettach();

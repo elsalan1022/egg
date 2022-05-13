@@ -4,7 +4,7 @@ type TyMap<T> = Record<string, T>;
 
 export declare type TySigHandler = (...params: any[]) => any;
 
-const signame = 'signame';
+const signame = 'action';
 const keymap = {
   alt: '⎇',
   arrowup: '↑',

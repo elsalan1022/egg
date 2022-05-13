@@ -73,6 +73,7 @@ export default {
       new: '新建变量',
     },
     switch: '条件分支',
+    upload: '上传',
   },
   // event
   ev: {
@@ -283,6 +284,9 @@ export default {
     selectModel: '请选择模型',
     warning: '警告',
     delpj: '删除项目',
+    uploadtip: '可上传模型、图片、音频等',
+    dragtoup: '可拖拽上传',
+    clicktoup: '可点击上传',
   },
   // state
   st: {

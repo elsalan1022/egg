@@ -16,6 +16,7 @@
   left: 50%;
   margin-left: -50px;
   margin-top: -47px;
+
   .el-loading-text {
     white-space: nowrap;
   }
@@ -31,16 +32,19 @@
 .el-tabs.full-height {
   display: flex;
   flex-flow: column nowrap;
-  > .el-tabs__content {
+
+  >.el-tabs__content {
     height: 0;
     flex: 1 1 auto;
+
     .el-tab-pane {
       height: 100%;
     }
   }
 }
 
-.el-menu-item:hover,.el-menu-item:focus {
+.el-menu-item:hover,
+.el-menu-item:focus {
   background-color: transparent !important;
 }
 
@@ -105,4 +109,8 @@
 
 .el-tabs__item {
   padding: 0 8px !important;
+}
+
+.el-upload-dragger {
+  width: unset !important;
 }

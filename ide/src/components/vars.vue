@@ -1,19 +1,24 @@
 <template>
   <div class="paneContainer" style="display: flex; flex-direction: row">
-    <div class="mainBoard" style="flex: 1 1 auto; align-items: stretch; display: flex; flex-direction: column" @drop="onMainBoardDrop">
-      <div class="x-item body-item" v-for="item in items" :key="item.name" draggable="true" showTrash="true" @click="selVar(item.name, item.type)" @dragstart="onVarDragStart(item.name, $event)" @dragend="onVarDragEnd(item.name, $event)">
+    <div class="mainBoard" style="flex: 1 1 auto; align-items: stretch; display: flex; flex-direction: column"
+      @drop="onMainBoardDrop">
+      <div class="x-item body-item" v-for="item in items" :key="item.name" draggable="true" showTrash="true"
+        @click="selVar(item.name, item.type)" @dragstart="onVarDragStart(item.name, $event)"
+        @dragend="onVarDragEnd(item.name, $event)">
         <div class="item-slot">
           <i :class="toIconClass(item.type)" />
         </div>
         <div class="cls-name text-ellipsis">{{ item.name }}</div>
-        <div class="item-slot" :selected="selected === item.name" style="max-width: 8em; color: black; flex: 1 1 auto; justify-content: start; padding: 0 1em">
+        <div class="item-slot" :selected="selected === item.name"
+          style="max-width: 8em; color: black; flex: 1 1 auto; justify-content: start; padding: 0 1em">
           <label class="prop-value text-ellipsis">{{ item.value }}</label>
         </div>
       </div>
     </div>
     <div class="clsBoard" style="display: flex; flex-direction: column; align-items: center">
       <i class="icon-drag" style="margin-bottom: 0.4em; color: gray; cursor: default; font-size: 2em" />
-      <div v-for="type in types" :key="type" class="x-item cls-item" draggable="true" @dragstart="onTypeDragStart(type, $event)">
+      <div v-for="type in types" :key="type" class="x-item cls-item" draggable="true"
+        @dragstart="onTypeDragStart(type, $event)">
         <div class="item-slot">
           <i :class="toIconClass(type)" />
         </div>
@@ -112,13 +117,16 @@ export default {
 .paneContainer {
   margin: -15px;
 }
+
 .mainBoard {
   border-right: 1px solid #f2f2f2;
   padding: 1.4em 1em;
 }
+
 .clsBoard {
   padding: 1em;
 }
+
 .x-item {
   display: flex;
   flex-direction: row;
@@ -133,20 +141,24 @@ export default {
   padding: 0 1px;
   font-size: 14px;
 }
+
 .body-item {
   border: rgb(56, 148, 56);
   background: rgb(89, 192, 89);
   color: white;
 }
+
 .cls-item {
   border: 1px solid rgb(219, 110, 0);
   background: rgb(255, 140, 26);
   color: white;
 }
+
 .body-item i,
 .cls-item i {
   color: black;
 }
+
 .item-slot {
   min-width: 30px;
   height: 30px;
@@ -159,22 +171,27 @@ export default {
   justify-content: center;
   pointer-events: none;
 }
+
 .item-slot[selected='true'] {
   background: greenyellow;
 }
+
 .prop-type {
   color: #888;
 }
+
 .item-name {
   color: #fff;
   margin: 0 1em;
   pointer-events: none;
   padding: 0 0.5em;
 }
+
 .item-value {
   color: #888;
   direction: rtl;
 }
+
 .cls-name {
   color: #fff;
   margin: 0 0.25em;
