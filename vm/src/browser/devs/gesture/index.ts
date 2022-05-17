@@ -59,7 +59,7 @@ class Runtime extends DevRuntime {
     if (!camera) {
       throw 'camer not found';
     }
-    const { element } = camera.properties;
+    const element = camera.get({ name: 'element' });
     this.element = element;
     if (!this.model) {
       this.model = await handpose.load();

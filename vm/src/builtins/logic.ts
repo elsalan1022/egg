@@ -103,33 +103,40 @@ export class Switch extends LogicBase {
     if (!values) {
       return false;
     }
-    values = values.map((e: any) => typeof e === 'string' ? e : e.label || e.value);
-    if (values.includes('star') || values.includes('target')) {
+    const keys = values.map((e: any) => typeof e === 'string' ? e : e.value || e.value);
+    if (keys.includes('star') || keys.includes('target')) {
       throw new Error('Invalid value.');
     }
+    const labels: any = {};
+    values.forEach((e: any) => {
+      if (e.label) {
+        labels[e.value] = e.label;
+      }
+    });
     const oldKeys = Object.keys(this.slots).filter(k => k !== 'star' && k !== 'target');
     let changed = false;
     for (const key of oldKeys) {
-      if (!values.includes(key)) {
+      if (!keys.includes(key)) {
         changed = true;
         delete this.slots[key];
       }
     }
-    for (const key of values) {
+    for (const key of keys) {
       if (oldKeys.includes(key)) {
         continue;
       }
+      const label = labels[key] || key;
       changed = true;
       let slot = this.cases[key];
       if (slot) {
         this.slots[key] = slot;
         if (!slot.prefix) {
-          slot.prefix = `vs.${key}`;
+          slot.prefix = `vs.${label}`;
         }
       } else {
         slot = makeSlot({
           name: key,
-          prefix: `vs.${key}`,
+          prefix: `vs.${label}`,
         });
         this.slots[key] = slot;
         this.cases[key] = slot;
