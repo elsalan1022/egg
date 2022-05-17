@@ -226,6 +226,7 @@ export default {
       lineMaterial: '线材质',
       arrowMaterial: '箭头材质',
       model: '模型',
+      castShadow: '阴影',
     },
     texture: {
       offset: '偏移',
@@ -276,7 +277,8 @@ export default {
       '%': '%',
     },
     new: '新建',
-    'inpjname': '请输入项目名称',
+    inpjname: '请输入项目名称',
+    inname: '请输入名称',
     ok: '确定',
     cancel: '取消',
     invalidName: '名称不合法',
@@ -392,6 +394,10 @@ export default {
       victory: '胜利',
       five: '手掌',
       fist: '拳头',
+    },
+    time: {
+      second: '每秒',
+      millisecond: '每毫秒',
     },
   },
   g: {

@@ -31,6 +31,10 @@ export class Runtime extends Phynit {
           return 1;
         case 'opacity':
           return 1;
+        case 'castShadow': {
+          const mesh = this.group.children[0] as THREE.Mesh;
+          return mesh?.castShadow;
+        }
       }
     }
     return v;
@@ -49,6 +53,9 @@ export class Runtime extends Phynit {
       }
     } else if (['align', 'valign'].includes(name)) {
       this.updateAlign();
+    } else if (name === 'castShadow') {
+      const mesh = this.group.children[0] as THREE.Mesh;
+      mesh.castShadow = value;
     }
   }
   private updateText() {
@@ -77,13 +84,12 @@ export class Runtime extends Phynit {
 
       const textMesh = new THREE.Mesh(textGeo, material);
 
+      textMesh.castShadow = true;
+
       textMesh.position.x = 0;
       textMesh.position.y = 0;
       textMesh.position.z = 0;
 
-      textMesh.rotation.x = 0;
-      textMesh.rotation.y = Math.PI;
-      textMesh.rotation.z = Math.PI;
       this.group.add(textMesh);
 
       this.textMesh = textMesh;
@@ -111,11 +117,11 @@ export class Runtime extends Phynit {
     const centerOffsetY = 0.5 * (textGeo.boundingBox.max.y - textGeo.boundingBox.min.y);
     const valign = this.get({ name: 'valign' }) || 'middle';
     if (valign === 'top') {
-      this.textMesh.position.y = textGeo.boundingBox.min.y + 2 * centerOffsetY;
+      this.textMesh.position.y = 0;
     } else if (valign === 'middle') {
-      this.textMesh.position.y = textGeo.boundingBox.min.y + centerOffsetY;
+      this.textMesh.position.y = -centerOffsetY;
     } else {
-      this.textMesh.position.y = textGeo.boundingBox.min.y;
+      this.textMesh.position.y = - 2 * centerOffsetY;
     }
   }
   static async create(uuid?: string, parent?: runtime.Unit, properties?: Record<string, any>): Promise<runtime.Unit> {
@@ -179,6 +185,10 @@ export class Decoration extends PhynitUnit<Runtime> {
         type: 'number',
         min: 0,
         max: 1,
+      }),
+      castShadow: makeProperty(instance, {
+        name: 'castShadow',
+        type: 'boolean',
       }),
     };
     for (const iterator of Object.entries(props)) {

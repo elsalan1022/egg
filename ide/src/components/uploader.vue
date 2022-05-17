@@ -34,13 +34,13 @@ const fileList = ref<any[]>([]);
 
 const handleSuccess = (response: any, uploadFile: any) => {
   const { result } = response;
-  const [type] = result.split('/');
+  const [type, name] = result.split('/');
   if (type === 'textures') {
-    project.screen.addImage(result);
+    project.screen.addImage(name);
   } else if (type === 'models') {
-    project.screen.addModel(result);
+    project.screen.addModel(name);
   } else if (type === 'sounds') {
-    project.screen.addSound(result);
+    project.screen.addSound(name);
   }
 }
 

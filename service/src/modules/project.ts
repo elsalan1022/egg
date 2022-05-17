@@ -165,7 +165,7 @@ export async function uploadHandler(req: express.Request): Promise<string> {
   }
   await file.mv(filePath);
 
-  return name;
+  return filename;
 }
 
 export default function (expr: express.Express) {

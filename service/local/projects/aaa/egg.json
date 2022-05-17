@@ -6,7 +6,12 @@
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
       "properties": {},
       "events": {
-        "start": [],
+        "start": [
+          {
+            "unit": "eccaf163-9907-40fb-9b12-da80a89d1b81",
+            "chain": "71c6efca-bf89-4cd4-8a21-d0899f3fc2fd"
+          }
+        ],
         "stop": []
       },
       "chains": [],
@@ -22,7 +27,10 @@
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CD",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C2",
         "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CA",
-        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1"
+        "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C1",
+        "b7693ab6-0090-46b3-805a-fc5f6b1ffd1f",
+        "35192e27-6874-4052-a13d-687ac4af9f07",
+        "8118d127-9ed1-4db2-93e1-ad2304a4a0bb"
       ],
       "userData": {}
     },
@@ -42,7 +50,12 @@
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
       "properties": {},
       "events": {
-        "change": []
+        "change": [
+          {
+            "unit": "eccaf163-9907-40fb-9b12-da80a89d1b81",
+            "chain": "b27ab3a1-427c-427a-b805-915d635cbf9a"
+          }
+        ]
       },
       "chains": [],
       "children": [],
@@ -55,25 +68,88 @@
         "light.physicallyCorrect": true,
         "scene": "f76e5727-d18c-40ea-a869-bbd2580450bc",
         "camera.position": {
-          "x": 0.733247563111335,
-          "y": 1.5282856380939391,
-          "z": -3.7585490577598004
+          "x": 1.5656648431542535,
+          "y": 1.4394559603704444,
+          "z": 3.532231608638493
         },
         "camera.rotation": {
-          "x": -2.7553959962953942,
-          "y": 0.17878965879721948,
-          "z": 3.069406282991573
+          "x": -0.38697250569647235,
+          "y": 0.38950387876928244,
+          "z": 0.15352968238499082
         }
       },
       "events": {},
       "chains": [],
       "children": [
-        "f76e5727-d18c-40ea-a869-bbd2580450bc",
-        "b7693ab6-0090-46b3-805a-fc5f6b1ffd1f"
+        "f76e5727-d18c-40ea-a869-bbd2580450bc"
       ],
       "userData": {
-        "materials": {},
-        "textures": {}
+        "materials": {
+          "6EF21BEF-A194-469C-A685-E3E037BA2C67": {
+            "metadata": {
+              "version": 4.5,
+              "type": "Material",
+              "generator": "Material.toJSON"
+            },
+            "uuid": "6EF21BEF-A194-469C-A685-E3E037BA2C67",
+            "type": "LineBasicMaterial",
+            "color": 16777215,
+            "depthFunc": 3,
+            "depthTest": true,
+            "depthWrite": true,
+            "colorWrite": true,
+            "stencilWrite": false,
+            "stencilWriteMask": 255,
+            "stencilFunc": 519,
+            "stencilRef": 0,
+            "stencilFuncMask": 255,
+            "stencilFail": 7680,
+            "stencilZFail": 7680,
+            "stencilZPass": 7680
+          }
+        },
+        "textures": {
+          "955F354D-B702-4076-BAF9-8CA6747E3FEA": {
+            "image": "FloorsCheckerboard_S_Diffuse.jpg",
+            "value": {
+              "metadata": {
+                "version": 4.5,
+                "type": "Texture",
+                "generator": "Texture.toJSON"
+              },
+              "uuid": "955F354D-B702-4076-BAF9-8CA6747E3FEA",
+              "name": "",
+              "image": "B8910090-3660-4161-A7F4-AAA5E5091237",
+              "mapping": 300,
+              "repeat": [
+                1,
+                1
+              ],
+              "offset": [
+                0,
+                0
+              ],
+              "center": [
+                0,
+                0
+              ],
+              "rotation": 0,
+              "wrap": [
+                1001,
+                1001
+              ],
+              "format": 1023,
+              "type": 1009,
+              "encoding": 3000,
+              "minFilter": 1008,
+              "magFilter": 1006,
+              "anisotropy": 1,
+              "flipY": true,
+              "premultiplyAlpha": false,
+              "unpackAlignment": 4
+            }
+          }
+        }
       }
     },
     "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C6": {
@@ -186,7 +262,7 @@
       "cls": "scene",
       "clsid": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8CB",
       "properties": {
-        "name": "scene",
+        "name": "场景",
         "sky.color": "#bfd1e5",
         "ground.visible": true,
         "ground.material": "9B987882-3552-4711-8098-89F314CD1B68",
@@ -215,8 +291,30 @@
       },
       "chains": [],
       "children": [
-        "4d2d78f4-6c7b-469c-a334-4a2d826f17d9"
+        "54beeeb7-ae56-43a4-b5db-b3d04892bf02",
+        "eccaf163-9907-40fb-9b12-da80a89d1b81"
       ],
+      "userData": {}
+    },
+    "54beeeb7-ae56-43a4-b5db-b3d04892bf02": {
+      "cls": "bulb",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000005",
+      "properties": {
+        "position": {
+          "x": 3,
+          "y": 3,
+          "z": 3
+        },
+        "visible": true,
+        "power": 800,
+        "color": "#ffee88",
+        "distance": 100
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [],
+      "children": [],
       "userData": {}
     },
     "b7693ab6-0090-46b3-805a-fc5f6b1ffd1f": {
@@ -239,7 +337,97 @@
       "children": [],
       "userData": {}
     },
-    "4d2d78f4-6c7b-469c-a334-4a2d826f17d9": {
+    "eccaf163-9907-40fb-9b12-da80a89d1b81": {
+      "cls": "text3d",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-000000000009",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "text": "00:00:12",
+        "size": 0.5,
+        "align": "center",
+        "valign": "top",
+        "color": "rgba(255, 255, 255, 1)",
+        "opacity": 1,
+        "castShadow": true
+      },
+      "events": {
+        "clone": []
+      },
+      "chains": [
+        {
+          "id": "71c6efca-bf89-4cd4-8a21-d0899f3fc2fd",
+          "unit": "eccaf163-9907-40fb-9b12-da80a89d1b81",
+          "blocks": [
+            {
+              "id": "ca0988a7-e57a-4542-8f38-d37b6b937bab",
+              "type": "block",
+              "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+              "action": "timeBegin",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "a"
+                }
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C0",
+            "event": "start"
+          }
+        },
+        {
+          "id": "b27ab3a1-427c-427a-b805-915d635cbf9a",
+          "unit": "eccaf163-9907-40fb-9b12-da80a89d1b81",
+          "blocks": [
+            {
+              "id": "453bc4fb-0fd8-4b13-9592-25e761f03484",
+              "type": "block",
+              "unit": "eccaf163-9907-40fb-9b12-da80a89d1b81",
+              "action": "set",
+              "slots": {
+                "name": {
+                  "type": "data",
+                  "value": "text"
+                },
+                "value": [
+                  {
+                    "id": "39854d43-58e9-4c01-8e9a-6eaa6a0751ba",
+                    "type": "block",
+                    "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+                    "action": "timeElapsed",
+                    "slots": {
+                      "name": {
+                        "type": "data",
+                        "value": "a"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bound": {
+            "unit": "9E8B8E0E-B7B2-4E8E-8A0A-D6E7A9C9D8C4",
+            "event": "change",
+            "filter": "second"
+          }
+        }
+      ],
+      "children": [],
+      "userData": {}
+    },
+    "35192e27-6874-4052-a13d-687ac4af9f07": {
       "cls": "model3d",
       "clsid": "9E8B8E0E-B7B2-4E8E-A801-00000000000B",
       "properties": {
@@ -254,8 +442,34 @@
           "z": 0
         },
         "visible": true,
-        "scale": 67.28,
-        "model": "BoomBox.glb"
+        "scale": 1,
+        "model": "Flower.glb"
+      },
+      "events": {
+        "clone": [],
+        "collide": []
+      },
+      "chains": [],
+      "children": [],
+      "userData": {}
+    },
+    "8118d127-9ed1-4db2-93e1-ad2304a4a0bb": {
+      "cls": "model3d",
+      "clsid": "9E8B8E0E-B7B2-4E8E-A801-00000000000B",
+      "properties": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "visible": true,
+        "scale": 1,
+        "model": "SheenChair.glb"
       },
       "events": {
         "clone": [],

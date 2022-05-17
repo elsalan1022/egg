@@ -62,7 +62,8 @@ class Runtime extends DevRuntime {
     const s = diff % 60; diff = Math.floor(diff / 60);
     const m = diff % 60; diff = Math.floor(diff / 60);
     const h = diff % 24; diff = Math.floor(diff / 24);
-    return `${h}:${m}:${s}`;
+    const fixed = (n: number) => n < 10 ? `0${n}` : `${n}`;
+    return `${fixed(h)}:${fixed(m)}:${fixed(s)}`;
   }
   clone(): Promise<runtime.Unit> {
     throw new Error("Not allowed.");
@@ -127,7 +128,14 @@ export class Timer extends DevUnit {
           name: {
             type: 'string',
             name: 'name',
-            values: ['second', 'millisecond'],
+            values: [{
+              value: 'second',
+              label: 'time.second'
+            },
+            {
+              value: 'millisecond',
+              label: 'time.millisecond'
+            }],
           },
           now: {
             type: 'number',
