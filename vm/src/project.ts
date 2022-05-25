@@ -319,12 +319,14 @@ export class Project extends UnitImpl implements Egg {
           };
         }
       }
+      const userData = block.packUserData ? block.packUserData() : undefined;
       return {
         id: block.id,
         type: 'block',
         unit: block.callee.uuid,
         action: block.name,
         slots,
+        userData,
       };
     };
     /* pack chain */
@@ -365,8 +367,6 @@ export class Project extends UnitImpl implements Egg {
   }
   async unserialize(config: config.Project): Promise<void> {
     this.reset();
-
-    const delayUpdateSlots: Array<Block> = [];
 
     /** traverse block */
     const traverseBlock = (cfg: config.BlockData, chain: BlockChain): Block => {
@@ -411,8 +411,8 @@ export class Project extends UnitImpl implements Egg {
           }
         }
       }
-      if (action.updateSlots) {
-        delayUpdateSlots.push(action);
+      if (action.loadUserData && cfg.userData) {
+        action.loadUserData(cfg.userData);
       }
       return action as Block;
     };
@@ -533,11 +533,6 @@ export class Project extends UnitImpl implements Egg {
         });
       }
     });
-
-    // update slots
-    for (const action of delayUpdateSlots) {
-      (action as any).updateSlots();
-    }
   }
   findUnit(uuid: string): Unit | undefined {
     const u = this.allUnits[uuid];

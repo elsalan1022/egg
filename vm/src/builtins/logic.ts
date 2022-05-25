@@ -144,6 +144,29 @@ export class Switch extends LogicBase {
     }
     return changed;
   }
+  /** load user data */
+  async loadUserData(data: Record<string, any>): Promise<void> {
+    for (const [key, it] of Object.entries(this.slots)) {
+      if (it.prefix) {
+        continue;
+      }
+      const prefix = data[key];
+      if (prefix) {
+        it.prefix = prefix;
+      }
+    }
+  }
+  /** pack user data */
+  packUserData(data?: Record<string, any>): Record<string, any> {
+    const names = data || {};
+    for (const [key, it] of Object.entries(this.slots)) {
+      if (!it.prefix) {
+        continue;
+      }
+      names[key] = it.prefix;
+    }
+    return names;
+  }
 }
 
 export class Decoration extends UnitImpl {

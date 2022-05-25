@@ -64,6 +64,10 @@ declare module 'egg' {
     born(): runtime.Block;
     /** update slots */
     updateSlots?(): boolean;
+    /** load user data */
+    loadUserData?(data: Record<string, any>): Promise<void>;
+    /** pack user data */
+    packUserData?(data?: Record<string, any>): Record<string, any>;
   }
 
   /** Block chain */

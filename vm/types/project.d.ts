@@ -66,6 +66,8 @@ declare module 'egg' {
       action: string;
       /** slots */
       slots: Record<string, Array<BlockData> | SlotData>;
+      /** user data */
+      userData?: Record<string, any>;
     }
     /** block chain */
     interface BlockChain {

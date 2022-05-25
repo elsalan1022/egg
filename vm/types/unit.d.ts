@@ -192,7 +192,7 @@ declare module 'egg' {
       /** load user data */
       loadUserData?(data: Record<string, any>): Promise<void>;
       /** pack user data */
-      packUserData?(): Record<string, any>;
+      packUserData?(data?: Record<string, any>): Record<string, any>;
     }
   }
 }
