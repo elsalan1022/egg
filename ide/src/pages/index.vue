@@ -318,7 +318,7 @@ export default {
     this.dragable = new Dragable(document.getElementById('main') as HTMLElement);
     const rs = await apis.project.list();
     this.names = rs.items;
-    const preview = document.getElementById('preview');
+    const preview = document.getElementById('preview') as any;
     const screen = project.screen;
     screen.attach(preview);
     screen.reset();
